@@ -21,8 +21,8 @@ export default function Home() {
     setPosts(data)
     setLoading(false)
   }
-  if (loading) return <p className="text-2xl">Loading ...</p>
-  if (!posts.length) return <p className="text-2xl">No posts.</p>
+  if (loading) return <p className="text-2xl mt-20 text-gray-800 text-center">Loading ...</p>
+  if (!posts.length) return <p className="text-2xl mt-20 text-gray-800 text-center">No posts.</p>
   return (
     <div>
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2 text-center">Posts</h1>

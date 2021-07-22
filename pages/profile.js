@@ -22,7 +22,7 @@ export default function AuthProfile() {
     return (
         <Auth.UserContextProvider supabaseClient={supabase}>
           <Profile supabaseClient={supabase}>
-            <Auth supabaseClient={supabase} providers={['github']}/>
+            <Auth  className="mt-20" supabaseClient={supabase} providers={['github']}/>
           </Profile>
         </Auth.UserContextProvider>
     )

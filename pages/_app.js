@@ -24,9 +24,9 @@ function MyApp({ Component, pageProps }) {
 
   return(
     <div>
-      <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-full z-50">
+      <nav className="text-gray-800 p-5 border-b border-gray-200 bg-white fixed w-full opacity-95 z-50 font-mono">
 <Link href="/">
-<span className="mr-6 cursor-pointer font-semibold">Bloggy</span>
+<span className="mr-6 cursor-pointer font-black">Bloggy</span>
       </Link>
       {
         user && (
@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
         <span className="mr-6 cursor-pointer">Profile</span>
       </Link>
       </nav>
-      <div className="py-8 px-5 w-screen">
+      <div className="py-8 px-5 w-screen font-mono">
       <Component {...pageProps} />
     </div>
     </div>
