@@ -25,25 +25,25 @@ function MyApp({ Component, pageProps }) {
   return(
     <div>
       <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-full z-50">
-<Link href="/">
+<Link href="/" passHref={true}>
 <span className="mr-6 cursor-pointer font-semibold">Bloggy</span>
       </Link>
       {
         user && (
-          <Link href="/create-post">
+          <Link href="/create-post" passHref={true}>
             <span className="mr-6 cursor-pointer">Create Post</span>
           </Link>
         )
       }
       {
   user && (
-    <Link href="/my-posts">
+    <Link href="/my-posts" passHref={true}>
       <span className="mr-6 cursor-pointer">My Posts</span>
     </Link>
   )
 }
 
-      <Link href="/profile">
+      <Link href="/profile" passHref={true}>
         <span className="mr-6 cursor-pointer">Profile</span>
       </Link>
       </nav>
