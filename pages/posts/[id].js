@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import supabase from "../../utils/initSupabase";
 
 export default function Post({ post }) {
+  
   const router = useRouter()
   if (router.isFallback) {
     return <div>Loading...</div>
@@ -13,8 +14,9 @@ export default function Post({ post }) {
       <h1 className="text-gray-800 text-3xl mt-20 font-semibold tracking-wide text-center">{post.title}</h1>
       <p className="text-gray-800 text-sm font-light my-4 text-center">by {post.user_email}</p>
       <div className="mt-8 text-gray-800">
+        {// eslint-disable-next-line react/no-children-prop 
         <ReactMarkdown className='prose mx-auto' children={post.content} />
-      </div>
+        }</div>
     </div>
     )
 }
