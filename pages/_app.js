@@ -24,26 +24,32 @@ function MyApp({ Component, pageProps }) {
 
   return(
     <div>
+<<<<<<< HEAD
       <nav className="text-gray-800 p-5 border-b border-gray-200 bg-white fixed w-full opacity-95 z-50 font-mono">
 <Link href="/">
 <span className="mr-6 cursor-pointer font-black">Bloggy</span>
+=======
+      <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-full z-50">
+<Link href="/" passHref={true}>
+<span className="mr-6 cursor-pointer font-semibold">Bloggy</span>
+>>>>>>> df1559f5cd0744382432d3d3adf36d7eac1b0664
       </Link>
       {
         user && (
-          <Link href="/create-post">
+          <Link href="/create-post" passHref={true}>
             <span className="mr-6 cursor-pointer">Create Post</span>
           </Link>
         )
       }
       {
   user && (
-    <Link href="/my-posts">
+    <Link href="/my-posts" passHref={true}>
       <span className="mr-6 cursor-pointer">My Posts</span>
     </Link>
   )
 }
 
-      <Link href="/profile">
+      <Link href="/profile" passHref={true}>
         <span className="mr-6 cursor-pointer">Profile</span>
       </Link>
       </nav>
