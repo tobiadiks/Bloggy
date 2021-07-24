@@ -115,7 +115,7 @@ aria-describedby="desc" role="img">
       {
         posts.map(post => (
           <Link key={post.id} href={`/posts/${post.id}`} passHref={true}>
-            <div className="cursor-pointer border-b border-gray-300	mt-1 p-4 bg-gray-800 text-white h-28 rounded-sm flex flex-col justify-between font-mono md:w-1/3  sm:w-full md:border-r-2 md:border-white">
+            <div className="cursor-pointer border-b border-gray-300	mt-1 p-4 bg-gray-800 text-white h-28 rounded-sm flex flex-col justify-between font-mono md:w-1/3  w-full md:border-r-2 md:border-white">
               <h2 className="font-semibold text-xs">{post.title}</h2>
               <p className="text-gray-500 mt-2 text-xs">Author: Scrawlo Kage</p>  
             </div>
