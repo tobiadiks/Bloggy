@@ -8,10 +8,12 @@ function Profile(props){
     if (user)
     return(
         <>
+        <div className="mt-20">
         <Text>Signed in: {user.email}</Text>
           <Button block onClick={() => props.supabaseClient.auth.signOut()}>
             Sign out
           </Button>
+          </div>
         </>
     );
 
