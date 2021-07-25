@@ -1,10 +1,14 @@
 import '../styles/globals.css'
 import Link from 'next/link';
 import {useState, useEffect} from 'react'
+import {useRouter} from 'next/router'
 import supabase from '../utils/initSupabase'
 
 function MyApp({ Component, pageProps }) {
+  const router= useRouter();
   const [user, setUser]=useState(null);
+  // early access mail 
+  const [email, setEmail]= useState("");
 
   useEffect(()=>{
     const {data: authListener}= supabase.auth.onAuthStateChange(
@@ -20,6 +24,12 @@ function MyApp({ Component, pageProps }) {
   async function checkUser(){
     const user= supabase.auth.user()
     setUser(user)
+  }
+
+  async function sendEmailAddress(){
+   await supabase.from("early-access-email").insert([{email}])
+   router.push("/subscribe/early-access")
+   
   }
 
   return(
@@ -72,7 +82,7 @@ Scrawlo
         <span className="mr-6 cursor-pointer hidden md:inline">About us</span>
         <span className="mr-6 cursor-pointer pb-1 border-b border-green-400 hidden md:inline">Hack it</span>
         <span className="mr-6 cursor-pointer hidden md:inline">Career</span>
-        <Link href="/" passHref={true}><span className="mr-6 cursor-pointer bg-green-500 text-white mt-2 pt-2 pb-2 pr-3 pl-3 rounded-r-2xl rounded-l-2xl font-semibold">Early Access</span></Link>
+        <Link href="/#formify" passHref={true}><span className="mr-6 cursor-pointer bg-green-500 text-white mt-2 pt-2 pb-2 pr-3 pl-3 rounded-r-2xl rounded-l-2xl font-semibold">Early Access</span></Link>
        {/* /profile to / */}
         </>
         )
@@ -89,6 +99,55 @@ Scrawlo
       <div className="py-8 px-5 w-screen">
       <Component {...pageProps} />
     </div>
+
+{/* Footer */}
+    <div className="flex  flex-row flex-wrap justify-between font-mono text-xs text-gray-500 py-10 px-7 w-screen mt-10 mb-5 border-t border-gray-200">
+      
+      <div className="flex mt-5 flex-col flex-nowrap w-32">
+        <h5 className="text-gray-700 text-sm font-bold mb-3 ">Explore</h5>
+        <span className="mt-1">Feeds</span>
+        <span className="mt-1">Trending</span>
+        <span className="mt-1">Tags</span>
+        <span className="mt-1 border-b-2 border-green-400 w-16">Hack it</span>
+      </div>
+
+      <div className="flex mt-5 flex-col flex-nowrap w-32">
+        <h5 className="text-gray-700 text-sm font-bold mb-3">Company</h5>
+        <span className="mt-1">About Scrawlo</span>
+        <span className="mt-1">Career</span>
+        <span className="mt-1">Become an Ambassador</span>
+      </div>
+
+      <div className="flex mt-5 flex-col flex-nowrap w-32">
+        <h5 className="text-gray-700 text-sm font-bold mb-3">Support</h5>
+        <span className="mt-1">Documentation</span>
+        <span className="mt-1">Contact</span>
+        <span className="mt-1">Request Feature</span>
+      </div>
+
+    </div>
+
+<div id="formify" className=" px-7 py-10 w-screen mt-5 mb-5 flex flex-wrap sm:justify-center sm:align-middle border-t border-b border-gray-200 flex-col">
+  <input value={email} onChange={e=> setEmail(e.target.value)}  placeholder="Email" required type="email" className="pl-2 outline-none border-2 bg-gray-50 border-gray-200 placeholder-gray-500 rounded-md mt-2 mx-auto  w-full md:w-1/3 p-1 text-sm font-normal"/>
+  
+  <button onClick={sendEmailAddress} type="button"  className="p-2 outline-none rounded-md text-sm font-normal bg-green-500 text-white mx-auto mt-2">Request Access</button>
+  
+  <div className="font-mono text-gray-500 text-xs font-medium tracking-wide mt-4 mb-4 text-center block">
+  Write, read, build a community and reach out to your audience in millions...
+</div>
+</div>
+
+<div className="flex  flex-row flex-wrap justify-between font-mono text-xs text-gray-500 py-5 px-7 w-screen mb-2">
+  <span>© Scrawlo Inc.</span>
+  <div>
+    <span>Privacy Policy </span>
+    &nbsp;
+    <span>Terms</span>
+  </div>
+</div>
+{/* Footer Ends */}
+
+
     </div>
   )
 
