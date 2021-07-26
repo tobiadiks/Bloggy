@@ -117,7 +117,7 @@ aria-describedby="desc" role="img">
 
 <div className="mt-1 md:mt-16 md:w-1/2">
 <h1 className="mb-3">
-<span className="cursor-pointer font-semibold flex text-2xl text-gray-700"><svg width="2rem" height="2rem" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title"
+<span className=" font-medium flex text-2xl text-gray-700 handwriting"><svg width="2rem" height="2rem" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title"
 aria-describedby="desc" role="img" >
   <title>Feather</title>
   <desc>A line styled icon from Orion Icon Library.</desc>
