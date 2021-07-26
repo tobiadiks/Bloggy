@@ -107,14 +107,14 @@ aria-describedby="desc" role="img">
 
 <div className="flex flex-col justify-center align-middle mt-5 mb-5 mx-auto">
 <div className="mt-10">
-  <Image className=" opacity-40"  alt="label" src="/../public/svg.svg" layout="fill"/>
+  <Image className=" opacity-40"  alt="label" src={require("../public/svg.svg")} layout="fill"/>
 </div>
 </div>
 </div>
 
 <div className="px-7 py-5 mt-5 mb-5 flex flex-wrap justify-center md:justify-between sm:align-middle border-b border-gray-200 md:flex-row-reverse flex-col-reverse ">
 
-  <Image  alt="label" src="/../public/wfh_9.svg"  height="400" width="400"/>
+  <Image  alt="label" src={require("../public/wfh_9.svg")}  height="400" width="400"/>
 
 
 <div className="mt-1 md:mt-16 md:w-1/2">
