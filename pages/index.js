@@ -133,7 +133,7 @@ Scrawlo promotes your blog, and gives an additional ecosystem for people to read
 <Image src={require("../public/scrawler_with_bike.svg")} alt="scrawler_with_cup" width="400" height="400"/>
 <h2 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full">Reach your brand goal</h2>
 <h4 className="text-gray-500 text-md font-sm tracking-wide  text-left z-40 mt-2">
-Scrawlo is a tool that helps you create content that gets shared. When used strategically, scrawlo can help you reach your brand goals, increase engagement, and grow your audience. It's the only tool you need to create amazing original content. We built it to be easy to use, with features that help all types of businesses produce engaging content quickly and easily.
+Scrawlo is a tool that helps you create content that gets shared. When used strategically, scrawlo can help you reach your brand goals, increase engagement, and grow your audience. It&apos;s the only tool you need to create amazing original content. We built it to be easy to use, with features that help all types of businesses produce engaging content quickly and easily.
 </h4>
 </div>
 
