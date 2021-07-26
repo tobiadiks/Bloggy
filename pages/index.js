@@ -29,7 +29,8 @@ export default function Home() {
 {/* Copy starts */}
 <div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52 flex flex-col justify-center">
 <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 text-center z-40">All that you need to start writing to the <p className="text-blue-700 font-black">world!</p></h1>
-<h4 className="text-gray-500 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">Share your ideas, build a personal brand, and connect with audience around the globe.</h4>
+<h4 className="text-gray-500 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">Where your voice will be heard. Scrawlo gives blog space for writers and content creators to write about whatever they want, without being censored.
+</h4>
 <Link href="/#formify" passHref={true}><span className="bg-gray-900 text-white p-2 text-center rounded-md hover:bg-gray-800 z-40">Start a Scrawlo</span></Link>
 {/* /profile to / */}
 <div className="mt-10 absolute">
@@ -106,11 +107,43 @@ aria-describedby="desc" role="img">
 
 </div>
 
+</div>
 
+{/* Convince them */}
+<div className=" flex flex-col">
+<h1 className="text-gray-600 text-3xl font-semibold tracking-wide mt-10 text-center z-40">Yes! you own it</h1>
+<div className="flex flex-wrap md:flex-row flex-col justify-between mt-8">
+
+<div className="w-full md:w-1/3 border border-gray-200 px-2 py-2 mt-1">
+<Image src={require("../public/scrawler_with_cup.svg")} alt="scrawler_with_cup" width="400" height="400"/>
+<h2 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full ">Share scrawls with swags</h2>
+<h4 className="text-gray-500 text-md font-medium tracking-wide mt-2 mb-4 text-left z-40">Create a scrawl and share with your audience. Scrawls are instant, unique for creative expression. Let the world see your scrawls, including photos, videos, drawings, and more. Make connections with strangers through likes, follows, comments and more.</h4>
+</div>
+
+<div className="w-full md:w-1/3 border-l border-r border-gray-200 px-2 py-2 mt-1">
+<Image src={require("../public/scrawler_with_pc.svg")} alt="scrawler_with_cup" width="400" height="400"/>
+<h2 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full ">Free space for everyone</h2>
+
+<h4 className="text-gray-500 text-md font-medium tracking-wide mt-2 mb-4 text-left z-40">
+Scrawlo promotes your blog, and gives an additional ecosystem for people to read quickly or click through links. No more lengthy introductions and abstracts just to get to the good stuff. Bloggers can now focus on what they do best and get readers to visit their blogs directly. Users can simply click on the Scrawlo link in the post, which will take them directly to the blog.
+</h4>
+</div>
+
+<div className="w-full md:w-1/3 border border-gray-200 px-2 py-2 ">
+<Image src={require("../public/scrawler_with_bike.svg")} alt="scrawler_with_cup" width="400" height="400"/>
+<h2 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full">Reach your brand goal</h2>
+<h4 className="text-gray-500 text-md font-sm tracking-wide  text-left z-40 mt-2">
+Scrawlo is a tool that helps you create content that gets shared. When used strategically, scrawlo can help you reach your brand goals, increase engagement, and grow your audience. It's the only tool you need to create amazing original content. We built it to be easy to use, with features that help all types of businesses produce engaging content quickly and easily.
+</h4>
+</div>
 
 </div>
+</div>
+
+
+
 {/* WordCopy Start */}
-<div className="px-7 py-5 mt-5 mb-5 flex flex-wrap justify-center md:justify-between sm:align-middle border-b border-gray-200 md:flex-row-reverse flex-col-reverse ">
+<div className=" py-5 mt-5 mb-5 flex flex-wrap justify-center md:justify-between sm:align-middle border-t border-b border-gray-200 md:flex-row-reverse flex-col-reverse ">
 
   <Image  alt="label" src={require("../public/wfh_9.svg")}  height="400" width="400"/>
 
@@ -140,7 +173,7 @@ Write amazing stuffs anywhere, connect & create memories, be in charge of everyt
 
 </div>
 {/* Ends Here */}
-
+{/* Content start */}
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-10 mb-2 text-center">
       Trending
       </h1>
