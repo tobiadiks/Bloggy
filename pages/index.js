@@ -35,7 +35,7 @@ export default function Home() {
 </div>
 {/* Copy ends */}
 
-<div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-10 justify-center align-middle border-b border-gray-200 py-10 z-40 md:mt-20 lg:mt-52">
+<div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-10 justify-center align-middle border-b md:justify-between md:mx-auto w-full border-gray-200 py-10 z-40 md:mt-20 lg:mt-52">
  
   <div className="flex flex-col justify-center align-middle mt-5 mb-5 mx-auto">
 
