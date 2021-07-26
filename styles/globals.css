@@ -6,7 +6,10 @@ body  {
     min-height: 100vh;
     min-height: -webkit-fill-available;
     width: 100vw;
-    font-family: Lato, sans
+    font-family: Lato, sans;
+    scroll-behavior: smooth
   }
+
+  
 
   @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');

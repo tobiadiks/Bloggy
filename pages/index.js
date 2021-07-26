@@ -1,6 +1,7 @@
 // pages/index.js
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image"
 import supabase from "../utils/initSupabase";
 
 export default function Home() {
@@ -26,19 +27,19 @@ export default function Home() {
     
 <div>
 {/* Copy starts */}
-<div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52 flex flex-col justify-center ">
-<h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 text-center">All that you need to start writing to the <p className="text-blue-700 font-black">world!</p></h1>
-<h4 className="text-gray-500 text-md font-medium tracking-wide mt-2 mb-4 text-center">Share your ideas, build a personal brand, and connect with audience around the globe.</h4>
-<Link href="/#formify" passHref={true}><span className="bg-gray-900 text-white p-2 text-center rounded-md">Launch For <b>FREE</b></span></Link>
+<div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52 flex flex-col justify-center">
+<h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 text-center z-40">All that you need to start writing to the <p className="text-blue-700 font-black">world!</p></h1>
+<h4 className="text-gray-500 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">Share your ideas, build a personal brand, and connect with audience around the globe.</h4>
+<Link href="/#formify" passHref={true}><span className="bg-gray-900 text-white p-2 text-center rounded-md hover:bg-gray-800 z-40">Launch For <b>FREE</b></span></Link>
 {/* /profile to / */}
 </div>
 {/* Copy ends */}
 
-<div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-10 justify-center align-middle border-b border-gray-200 py-10">
+<div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-10 justify-center align-middle border-b border-gray-200 py-10 z-40 md:mt-20 lg:mt-52">
  
   <div className="flex flex-col justify-center align-middle mt-5 mb-5 mx-auto">
 
-  <svg className="mx-auto" xmlns="http://www.w3.org/2000/svg" height="6rem" width="6rem" viewBox="0 0 64 64" aria-labelledby="title"
+  <svg className="mx-auto" xmlns="http://www.w3.org/2000/svg" height="5rem" width="5rem" viewBox="0 0 64 64" aria-labelledby="title"
 aria-describedby="desc" role="img" >
   <title>Spacecraft</title>
   <desc>A line styled icon from Orion Icon Library.</desc>
@@ -53,11 +54,11 @@ aria-describedby="desc" role="img" >
   stroke-Width="2"></path>
 </svg>
 
-<span className="text-gray-500 font-bold text-center mt-3 mx-auto">Launch your space</span>
+<span className="text-gray-500 font-bold text-center text-sm mt-3 mx-auto">Launch your space</span>
   </div>
 
-  <div className="flex flex-col justify-center mt-5 mb-5 align-middle mx-auto">
-  <svg className="mx-auto" height="6rem" width="6rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+  <div className="flex flex-col justify-center mt-5 mb-5 align-middle mx-auto ">
+  <svg className="mx-auto" height="5rem" width="5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
 aria-describedby="desc" role="img">
   <title>Social</title>
   <desc>A line styled icon from Orion Icon Library.</desc>
@@ -82,12 +83,12 @@ aria-describedby="desc" role="img">
   stroke-Linecap="round"></path>
 </svg>
 
-<span className="text-gray-500 font-bold text-center mt-3 mx-auto">Connect & build your community</span>
+<span className="text-gray-500 font-bold text-center text-sm mt-3 mx-auto">Connect & build your community</span>
   </div>
 
   <div className="flex flex-col justify-center mt-5 mb-5 align-middle mx-auto">
 
-  <svg className="mx-auto" height="6rem" width="6rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+  <svg className="mx-auto" height="5rem" width="5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
 aria-describedby="desc" role="img">
   <title>Luxury</title>
   <desc>A line styled icon from Orion Icon Library.</desc>
@@ -98,11 +99,48 @@ aria-describedby="desc" role="img">
   stroke-Linejoin="round" stroke-Width="2" d="M32 55L2 22l8-13h44l8 13-30 33z"></path>
 </svg>
 
-<span className="text-gray-500 font-bold text-center mt-3 mx-auto">Learn from <b>PRO</b> creators</span>
+<span className="text-gray-500 font-bold text-center text-sm mt-3 mx-auto">Learn from <b>PRO</b> creators</span>
 
 </div>
+
+{/* WordCopy Start */}
+
+<div className="flex flex-col justify-center align-middle mt-5 mb-5 mx-auto">
+<div className="mt-10">
+  <Image className=" opacity-40"  alt="label" src="/../public/svg.svg" layout="fill"/>
+</div>
+</div>
 </div>
 
+<div className="px-7 py-5 mt-5 mb-5 flex flex-wrap justify-center md:justify-between sm:align-middle border-b border-gray-200 md:flex-row-reverse flex-col-reverse ">
+
+  <Image  alt="label" src="/../public/wfh_9.svg"  height="400" width="400"/>
+
+
+<div className="mt-1 md:mt-16 md:w-1/2">
+<h1 className="mb-3">
+<span className="cursor-pointer font-semibold flex text-2xl text-gray-700"><svg width="2rem" height="2rem" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title"
+aria-describedby="desc" role="img" >
+  <title>Feather</title>
+  <desc>A line styled icon from Orion Icon Library.</desc>
+  <path d="M51.491 12.509L2 62m19.938-19.939V26.517M32.41 31.59h16.651m-21.654 5.005h16.815"
+  stroke-Width="5" stroke-Miterlimit="10" stroke="#007e85" fill="none" data-name="layer2"
+  stroke-Linejoin="round" stroke-Linecap="round"></path>
+  <path stroke-Width="5" stroke-Miterlimit="10" stroke="#007e85"
+  fill="none" d="M42.1 21.9V8.169c-10.828 5.992-23.594 17.8-31.528 41.086l2.087 2.086 2.087 2.088C61.553 37.478 62 2 62 2a41.974 41.974 0 0 0-13.147 3.014l-6.634 16.767"
+  data-name="layer1" stroke-Linejoin="round" stroke-Linecap="round"></path>
+</svg>
+Scrawlo
+</span>
+</h1>
+
+<p className=" md:pr-30 xl:pr-42 text-gray-500">
+A personal space for you to start blogging, reading and building community.
+Write amazing stuffs anywhere, connect & create memories, be in charge of everything.
+</p>
+</div>
+
+</div>
 {/* Ends Here */}
 
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-10 mb-2 text-center">
