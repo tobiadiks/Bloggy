@@ -30,7 +30,7 @@ export default function Home() {
 <div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52 flex flex-col justify-center">
 <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 text-center z-40">All that you need to start writing to the <p className="text-blue-700 font-black">world!</p></h1>
 <h4 className="text-gray-500 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">Share your ideas, build a personal brand, and connect with audience around the globe.</h4>
-<Link href="/#formify" passHref={true}><span className="bg-gray-900 text-white p-2 text-center rounded-md hover:bg-gray-800 z-40">Launch For <b>FREE</b></span></Link>
+<Link href="/#formify" passHref={true}><span className="bg-gray-900 text-white p-2 text-center rounded-md hover:bg-gray-800 z-40">Start a Scrawlo</span></Link>
 {/* /profile to / */}
 </div>
 {/* Copy ends */}
