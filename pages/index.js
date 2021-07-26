@@ -32,10 +32,13 @@ export default function Home() {
 <h4 className="text-gray-500 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">Share your ideas, build a personal brand, and connect with audience around the globe.</h4>
 <Link href="/#formify" passHref={true}><span className="bg-gray-900 text-white p-2 text-center rounded-md hover:bg-gray-800 z-40">Start a Scrawlo</span></Link>
 {/* /profile to / */}
+<div className="mt-10 absolute">
+  <Image className=" opacity-40"  alt="label" src={require("../public/svg.svg")} height="500" width="500"/>
+</div>
 </div>
 {/* Copy ends */}
 
-<div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-10 justify-center align-middle border-b md:justify-between md:mx-auto w-full border-gray-200 py-10 z-40 md:mt-20 lg:mt-52">
+<div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-2 justify-center align-middle border-b md:justify-between md:mx-auto w-full border-gray-200 py-10 z-40 md:mt-14 lg:mt-2">
  
   <div className="flex flex-col justify-center align-middle mt-5 mb-5 mx-auto">
 
@@ -103,15 +106,10 @@ aria-describedby="desc" role="img">
 
 </div>
 
+
+
+</div>
 {/* WordCopy Start */}
-
-<div className="flex flex-col justify-center align-middle mt-5 mb-5 mx-auto">
-<div className="mt-10">
-  <Image className=" opacity-40"  alt="label" src={require("../public/svg.svg")} layout="fill"/>
-</div>
-</div>
-</div>
-
 <div className="px-7 py-5 mt-5 mb-5 flex flex-wrap justify-center md:justify-between sm:align-middle border-b border-gray-200 md:flex-row-reverse flex-col-reverse ">
 
   <Image  alt="label" src={require("../public/wfh_9.svg")}  height="400" width="400"/>
