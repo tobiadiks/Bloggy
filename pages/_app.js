@@ -103,7 +103,7 @@ Scrawlo
 {/* Footer */}
     <div className="flex  flex-row flex-wrap justify-between font-mono text-xs text-gray-500 py-10 px-7 w-screen mt-10 mb-5 border-t border-gray-200">
       
-      <div className="flex mt-5 flex-col flex-nowrap w-32">
+      <div className="flex mt-5 flex-col flex-nowrap w-28">
         <h5 className="text-gray-700 text-sm font-bold mb-3 ">Explore</h5>
         <span className="mt-1">Feeds</span>
         <span className="mt-1">Trending</span>
@@ -111,14 +111,14 @@ Scrawlo
         <span className="mt-1 border-b-2 border-green-400 w-16">Hack it</span>
       </div>
 
-      <div className="flex mt-5 flex-col flex-nowrap w-32">
+      <div className="flex mt-5 flex-col flex-nowrap w-28">
         <h5 className="text-gray-700 text-sm font-bold mb-3">Company</h5>
         <span className="mt-1">About Scrawlo</span>
         <span className="mt-1">Career</span>
         <span className="mt-1">Become an Ambassador</span>
       </div>
 
-      <div className="flex mt-5 flex-col flex-nowrap w-32">
+      <div className="flex mt-5 flex-col flex-nowrap w-28">
         <h5 className="text-gray-700 text-sm font-bold mb-3">Support</h5>
         <span className="mt-1">Documentation</span>
         <span className="mt-1">Contact</span>

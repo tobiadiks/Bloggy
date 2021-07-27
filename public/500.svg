@@ -1,0 +1,133 @@
+<svg width="1000" height="1000" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1">
+
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_104">
+   <g id="XMLID_52_">
+    <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#CECECE" fill="none" d="m455.7,501.5l139,114.2c6.9,5.7 16.9,5.7 23.8,0l0,0c9.1,-7.5 9.1,-21.5 0,-28.9l-150,-123.2c-7.4,-6.1 -18.1,-6.1 -25.6,0l-149.9,123.1c-9.1,7.5 -9.1,21.5 0,28.9l0,0c6.9,5.7 16.9,5.7 23.8,0l138.9,-114.1z" class="st1" id="XMLID_37_"/>
+    <polygon stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#CECECE" fill="none" points="455.7,501.5 341.5,595.3 351.4,784.4 560.1,784.4 569.9,595.3  " class="st1" id="XMLID_44_"/>
+    <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#CECECE" fill="none" d="m455.7,623.2l0,0c-40.7,0 -72.6,27.3 -71.4,60l3.8,101.2l135.2,0l3.8,-101.2c1.2,-32.7 -30.7,-60 -71.4,-60z" class="st1" id="XMLID_36_"/>
+    <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#CECECE" fill="none" d="m435,590c1.9,4.4 7,6.4 11.4,4.6c2.8,-1.1 6,-1.8 9.3,-1.8s6.5,0.6 9.3,1.8c4.4,1.8 9.5,-0.2 11.4,-4.6c0.9,-2.1 1.4,-4.4 1.4,-6.7c0,-10.6 -9.9,-19.1 -22.2,-19.1s-22.2,8.6 -22.2,19.1c0.2,2.4 0.6,4.6 1.6,6.7z" class="st1" id="XMLID_41_"/>
+    <ellipse stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#CECECE" fill="none" ry="6.6" rx="7.8" cy="555.6" cx="429.1" class="st1" transform="matrix(0.7866 -0.6174 0.6174 0.7866 -251.5098 383.4871)" id="XMLID_42_"/>
+    <ellipse stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#CECECE" fill="none" ry="6.9" rx="10.2" cy="546.6" cx="455.7" class="st1" id="XMLID_34_"/>
+    <ellipse stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#CECECE" fill="none" ry="7.8" rx="6.6" cy="558.3" cx="480" class="st1" transform="matrix(0.6174 -0.7866 0.7866 0.6174 -255.5751 591.1545)" id="XMLID_39_"/>
+   </g>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" y2="784.2" x2="200" y1="784.2" x1="188.5" class="st3" id="XMLID_10_"/>
+   <path fill="#D1D1D1" d="m495.2,625.8c2.9,-17.4 9.8,-37.4 18,-54.1c-11.4,18.6 -21.7,45.1 -25.4,67.5c-5.7,34.1 -3.8,65.4 4.9,85.3l5.2,-18.8c-6.8,-19.9 -7.9,-48.7 -2.7,-79.9z" class="st4" id="XMLID_72_"/>
+   <g id="XMLID_51_">
+    <path fill="#01D392" d="m255.4,454.2c-28.6,-2 -29.6,31 -24.6,53c2,12 -11,19 -16.9,28.2c-2.5,4 -4.8,8.7 -6,14.7c-3.3,15.9 6.1,29.4 7.6,43.9c0.4,3.6 0.3,7.3 -0.6,11.1c-1.1,4.1 -3.1,8.1 -5.1,12.1c-16,18 -42,39 -24,63c3.3,4.2 6.9,7.9 10.8,11.2c31.2,26.8 78.2,24.8 114.2,7.8c13,-7 26,-17 29,-32c2,-16 -5,-31 -15.7,-41.6c-3.2,-3.5 -6.7,-6.8 -10.3,-9.7c-2.6,-4 -4.2,-7.8 -5,-11.5c-1.9,-9.2 1,-17.8 3.8,-26.5c1.4,-4.3 2.7,-8.7 3.4,-13.2c3.8,-22.6 -18.2,-36.6 -30.2,-52.6c-5,-7 -3,-16 -1,-24c4,-19 -11,-35 -28.9,-34" class="st5" id="XMLID_43_"/>
+    <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m259.9,548.9c-4.6,21.7 -5.6,43 -5,64.3c0.2,5.3 13.9,94 5.1,132.8c-0.2,5.6 -0.2,8.9 -0.2,8.9" class="st3" id="XMLID_35_"/>
+    <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" y2="654.3" x2="259.9" y1="632.8" x1="274.8" class="st3" id="XMLID_45_"/>
+    <path fill="#F7BF46" d="m283.8,787.2l-46,0c-0.6,0 -1.1,-0.4 -1.2,-1l-11.8,-49.8l72,0l-11.8,49.9c-0.1,0.5 -0.6,0.9 -1.2,0.9z" class="st6" id="XMLID_32_"/>
+    <line stroke-miterlimit="10" stroke="#F7BF46" fill="none" opacity="0.68" y2="764" x2="289.6" y1="764" x1="232" class="st7" id="XMLID_47_"/>
+    <line stroke-miterlimit="10" stroke="#F7BF46" fill="none" opacity="0.68" y2="767.6" x2="288.7" y1="767.6" x1="232.9" class="st7" id="XMLID_48_"/>
+   </g>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" y2="784" x2="503.4" y1="773" x1="503.4" class="st3" id="XMLID_23_"/>
+   <ellipse fill="#01D392" ry="17.4" rx="10.7" cy="589.2" cx="190.3" class="st5" id="XMLID_69_"/>
+   <rect fill="#01D392" height="14" width="14" class="st5" transform="matrix(0.7071 0.7071 -0.7071 0.7071 712.1226 -364.7542)" y="670.2" x="789.4" id="XMLID_74_"/>
+   <rect fill="#01D392" height="9" width="9" class="st5" transform="matrix(0.7071 0.7071 -0.7071 0.7071 487.6996 -402.4377)" y="383" x="725.1" id="XMLID_119_"/>
+   <g id="XMLID_104_">
+    <g id="XMLID_75_">
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="270.6" x2="227.1" y1="256.3" x1="227.1" class="st8" id="XMLID_76_"/>
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="303" x2="227.1" y1="288.7" x1="227.1" class="st8" id="XMLID_78_"/>
+    </g>
+    <g id="XMLID_77_">
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="275.1" x2="219.2" y1="268" x1="206.8" class="st8" id="XMLID_80_"/>
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="291.3" x2="247.4" y1="284.2" x1="235" class="st8" id="XMLID_79_"/>
+    </g>
+    <g id="XMLID_81_">
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="284.2" x2="219.2" y1="291.3" x1="206.8" class="st8" id="XMLID_83_"/>
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="268" x2="247.4" y1="275.1" x1="235" class="st8" id="XMLID_82_"/>
+    </g>
+   </g>
+   <g id="XMLID_91_">
+    <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="327.3" x2="853.1" y1="317.4" x1="853.1" class="st8" id="XMLID_93_"/>
+    <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="349.9" x2="853.1" y1="339.9" x1="853.1" class="st8" id="XMLID_92_"/>
+   </g>
+   <g id="XMLID_88_">
+    <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="330.5" x2="847.7" y1="325.5" x1="839.1" class="st8" id="XMLID_90_"/>
+    <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="341.7" x2="867.2" y1="336.8" x1="858.6" class="st8" id="XMLID_89_"/>
+   </g>
+   <g id="XMLID_85_">
+    <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="336.8" x2="847.7" y1="341.7" x1="839.1" class="st8" id="XMLID_87_"/>
+    <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="325.5" x2="867.2" y1="330.5" x1="858.6" class="st8" id="XMLID_86_"/>
+   </g>
+   <circle fill="#F7BF46" r="15.1" cy="464.8" cx="776.5" class="st6" id="XMLID_84_"/>
+   <g id="XMLID_103_">
+    <g id="XMLID_100_">
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="454.9" x2="776.5" y1="442.8" x1="776.5" class="st8" id="XMLID_102_"/>
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="486.7" x2="776.5" y1="474.6" x1="776.5" class="st8" id="XMLID_101_"/>
+    </g>
+    <g id="XMLID_97_">
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="459.8" x2="768" y1="453.8" x1="757.5" class="st8" id="XMLID_99_"/>
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="475.7" x2="795.6" y1="469.7" x1="785.1" class="st8" id="XMLID_98_"/>
+    </g>
+    <g id="XMLID_94_">
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="469.7" x2="768" y1="476.4" x1="757.5" class="st8" id="XMLID_96_"/>
+     <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#00354C" fill="none" y2="453.8" x2="795.6" y1="459.8" x1="785.1" class="st8" id="XMLID_95_"/>
+    </g>
+   </g>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="155.6" x2="550.5" y1="140.9" x1="550.5" class="st9" id="XMLID_106_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="148.2" x2="543.2" y1="148.2" x1="557.8" class="st9" id="XMLID_105_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="669.8" x2="889.7" y1="655.1" x1="889.7" class="st9" id="XMLID_110_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="662.5" x2="882.3" y1="662.5" x1="897" class="st9" id="XMLID_109_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="405" x2="375.2" y1="396" x1="375.2" class="st9" id="XMLID_107_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="400.5" x2="370.7" y1="400.5" x1="379.7" class="st9" id="XMLID_63_"/>
+   <rect fill="#F7BF46" height="10" width="10" class="st6" transform="matrix(0.7071 0.7071 -0.7071 0.7071 432.3811 -97.0651)" y="468.4" x="328.3" id="XMLID_108_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="431.2" x2="138.5" y1="431.2" x1="112.1" class="st9" id="XMLID_111_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="431.2" x2="157.6" y1="431.2" x1="147.5" class="st9" id="XMLID_22_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="444" x2="156" y1="444" x1="126.8" class="st9" id="XMLID_113_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="555.1" x2="710.5" y1="555.1" x1="684.2" class="st9" id="XMLID_117_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="555.1" x2="729.6" y1="555.1" x1="719.5" class="st9" id="XMLID_116_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#00354C" fill="none" y2="565.8" x2="728.1" y1="565.8" x1="698.8" class="st9" id="XMLID_115_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" y2="784.2" x2="806.3" y1="784.2" x1="765" class="st3" id="XMLID_66_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" y2="784.2" x2="303.7" y1="784.2" x1="221" class="st3" id="XMLID_30_"/>
+   <circle fill="#F7BF46" r="51.7" cy="192.7" cx="700.5" class="st6" id="XMLID_16_"/>
+   <circle fill="#F7BF46" r="51.7" cy="151.7" cx="752.2" class="st6" id="XMLID_33_"/>
+   <circle fill="#F7BF46" r="47.2" cy="170.2" cx="823.9" class="st6" id="XMLID_123_"/>
+   <circle fill="#F7BF46" r="51.5" cy="222" cx="752.2" class="st6" id="XMLID_126_"/>
+   <circle fill="#F7BF46" r="34.3" cy="222" cx="807" class="st6" id="XMLID_124_"/>
+   <path fill="#F7BF46" d="m698.8,327.6c0,7.8 -2,12.5 -9.8,12.5s-14.2,-3 -14.2,-10.8c0,-7.8 4.1,-14.8 12,-14.8c7.9,0 12,5.3 12,13.1z" class="st6" id="XMLID_125_"/>
+   <path fill="#F7BF46" d="m726.9,288.7c0,11.8 -2.9,18.8 -14.7,18.8s-21.2,-4.5 -21.2,-16.3s9.5,-21.3 21.3,-21.3s14.6,7.1 14.6,18.8z" class="st6" id="XMLID_130_"/>
+   <path fill="#FFFFFF" d="m717,640.2c0.2,2.7 0.3,5.4 0.3,8.1c0,55.9 -45,101.3 -100.5,101.3c-46.6,0 -85.8,-32 -97.2,-75.4c4.1,52.1 47.4,93.2 100.2,93.2c55.5,0 100.5,-45.3 100.5,-101.3c0.1,-9 -1.1,-17.6 -3.3,-25.9z" class="st0" id="XMLID_31_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m717,640.2c0.2,2.7 0.3,5.4 0.3,8.1c0,55.9 -45,101.3 -100.5,101.3c-46.6,0 -85.8,-32 -97.2,-75.4c4.1,52.1 47.4,93.2 100.2,93.2c55.5,0 100.5,-45.3 100.5,-101.3c0.1,-9 -1.1,-17.6 -3.3,-25.9z" class="st3" id="XMLID_17_"/>
+   <path fill="#FFFFFF" d="m541.3,549.2c-17,-7.6 -46.6,48.4 -53.5,90c-5.7,34.1 -3.8,65.4 4.9,85.3l48.6,-175.3z" class="st0" id="XMLID_28_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m541.3,549.2c-17,-7.6 -46.6,48.4 -53.5,90c-5.7,34.1 -3.8,65.4 4.9,85.3l48.6,-175.3z" class="st3" id="XMLID_1_"/>
+   <path fill="#FFFFFF" d="m593.7,549.2c17,-7.6 46.6,48.4 53.5,90c5.7,34.1 3.8,65.4 -4.9,85.3l-48.6,-175.3z" class="st0" id="XMLID_68_"/>
+   <path fill="#D1D1D1" d="m639.9,625.8c-2.9,-17.4 -9.8,-37.4 -18,-54.1c11.4,18.6 21.7,45.1 25.4,67.5c5.7,34.1 3.8,65.4 -4.9,85.3l-5.2,-18.8c6.8,-19.9 7.8,-48.7 2.7,-79.9z" class="st4" id="XMLID_56_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m593.7,549.2c17,-7.6 46.6,48.4 53.5,90c5.7,34.1 3.8,65.4 -4.9,85.3l-48.6,-175.3z" class="st3" id="XMLID_54_"/>
+   <path fill="#FFFFFF" d="m645.3,732c-1.1,-16.6 -44.3,-196.8 -56,-205.8l-21.1,0l-21.7,0c-11.7,9 -55,189.1 -56,205.8c-1.3,20.7 -8.1,52.2 31.2,52.2l46.5,0l46,0c39.2,0 32.4,-31.5 31.1,-52.2z" class="st0" id="XMLID_18_"/>
+   <path fill="#D1D1D1" d="m495.2,706.5c0,0 -3.1,26.4 11.7,36.1c11.6,7.7 21.8,10.8 40.9,14.3c10.3,1.9 21.5,2.7 21.5,2.7l1.2,23.7l-81.4,0.6c0,0 -1.4,-33.3 0.6,-43.3c2,-9.9 3,-26.5 5.5,-34.1z" class="st4" id="XMLID_20_"/>
+   <path fill="#D1D1D1" d="m641.4,706.5c0,0 3.1,26.4 -11.7,36.1c-11.6,7.7 -21.8,10.8 -40.9,14.3c-10.3,1.9 -21.5,2.7 -21.5,2.7l-1.2,23.7l81.4,0.6c0,0 1.4,-33.3 -0.6,-43.3c-2,-9.9 -3,-26.5 -5.5,-34.1z" class="st4" id="XMLID_5_"/>
+   <path fill="#F7BF46" d="m603.6,562.5c-2.5,-0.7 -4.9,-1.1 -7,-1.1c-12.2,0 -21.9,6.5 -21.9,21.5c0,15.1 21.9,33 34.1,33c3.3,0 6.4,-0.9 9.2,-2.5c-4.9,-18.4 -9.9,-36.2 -14.4,-50.9z" class="st6" id="XMLID_64_"/>
+   <path fill="#F7BF46" d="m511.1,692.1c13.5,0 24.5,-13.3 24.5,-29.7c0,-15.7 -10.1,-28.6 -22.9,-29.6c-5,19.6 -9.7,39 -13.5,55.5c3.6,2.4 7.6,3.8 11.9,3.8z" class="st6" id="XMLID_58_"/>
+   <path fill="#D1D1D1" d="m543.4,530.5c0,0 7.1,5.7 23.4,5.7c13.2,0 24.8,-5.7 24.8,-5.7l-1,-3.9l-46.5,0l-0.7,3.9z" class="st4" id="XMLID_46_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m645.3,732c-1.1,-16.6 -44.3,-196.8 -56,-205.8l-21.1,0l-21.7,0c-11.7,9 -55,189.1 -56,205.8c-1.3,20.7 -8.1,52.2 31.2,52.2l46.5,0l46,0c39.2,0 32.4,-31.5 31.1,-52.2z" class="st3" id="XMLID_4_"/>
+   <path fill="#FFFFFF" d="m643,454.2c-1.9,-19.5 -11.5,-68.8 -22.3,-103.3c-17.2,-55.1 -37.4,-69.5 -49.1,-71c-1.2,-0.2 -3.8,-0.2 -3.8,-0.2s-2.5,0 -3.8,0.2c-11.7,1.4 -31.8,15.7 -49.1,70.9c-10.8,34.5 -20.3,83.9 -22.3,103.5c-4.3,44 16.8,68.3 44.2,71.8c7.8,1 23.2,1 31,1c7.7,0 23.1,0 31,-1c27.3,-3.6 48.5,-27.9 44.2,-71.9z" class="st0" id="XMLID_9_"/>
+   <ellipse fill="#D1D1D1" ry="14.9" rx="18.9" cy="479.6" cx="567.8" class="st4" id="XMLID_49_"/>
+   <path fill="#D1D1D1" d="m550.5,285.5c0,0 -9,33.9 -27.8,43.7c4.8,-10.8 11.3,-23.7 11.3,-23.7s11.2,-18.5 16.5,-20z" class="st4" id="XMLID_55_"/>
+   <path fill="#D1D1D1" d="m571.6,280c0,0 24.4,42 44.7,58.1c0,0 -4.6,-29.8 -9.1,-38.8s-26.5,-22.1 -35.6,-19.3z" class="st4" id="XMLID_53_"/>
+   <path fill="#F7BF46" d="m519.8,441.3c39.3,-16.9 62.8,-50.2 52.4,-74.3c-7.3,-16.9 -29.3,-24.8 -55.3,-22.2c-0.6,1.9 -1.3,3.9 -1.9,6c-10,32 -18.9,76.7 -21.7,98.6c8.6,-1.6 17.6,-4.2 26.5,-8.1z" class="st6" id="XMLID_15_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m624.1,487.1c-11.2,16.3 -35.7,27.3 -61.8,27.3c-24.2,0 -38.7,-14.2 -47.2,-31.9" class="st3" id="XMLID_14_"/>
+   <ellipse fill="#00354C" ry="12.2" rx="23.7" cy="477" cx="567.8" class="st2" id="XMLID_7_"/>
+   <path fill="#FFFFFF" d="m697.9,777.9c-15.2,-14.3 -44.4,-21.4 -72.9,-19.2c-24.4,1.8 -42.5,10.1 -49.6,21.1c-1.2,1.9 0.3,4.4 2.6,4.4l115.5,0c4.5,0 7.2,-3.7 4.4,-6.3z" class="st0" id="XMLID_2_"/>
+   <path fill="#D1D1D1" d="m697.1,777.7c-0.3,0.1 -0.7,0.2 -1.1,0.2l-115.5,0c-1.4,0 -2.6,-0.3 -3.5,-0.9c-0.3,0.3 -0.7,0.6 -1,0.9c-2.8,2.6 -0.1,6.3 4.5,6.3l115.5,0c2.3,0 3.8,-2.6 2.6,-4.4c-0.5,-0.8 -1,-1.5 -1.5,-2.1z" class="st4" id="XMLID_50_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m697.9,777.9c-15.2,-14.3 -44.4,-21.4 -72.9,-19.2c-24.4,1.8 -42.5,10.1 -49.6,21.1c-1.2,1.9 0.3,4.4 2.6,4.4l115.5,0c4.5,0 7.2,-3.7 4.4,-6.3z" class="st3" id="XMLID_19_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" y2="784" x2="635.4" y1="773" x1="635.4" class="st3" id="XMLID_8_"/>
+   <path fill="#FFFFFF" d="m441,777.9c15.2,-14.3 44.4,-21.4 72.9,-19.2c24.4,1.8 42.5,10.1 49.6,21.1c1.2,1.9 -0.3,4.4 -2.6,4.4l-115.5,0c-4.5,0 -7.2,-3.7 -4.4,-6.3z" class="st0" id="XMLID_25_"/>
+   <path fill="#D1D1D1" d="m562.1,777.7c-0.3,0.1 -0.7,0.2 -1.1,0.2l-115.5,0c-1.4,0 -2.6,-0.3 -3.5,-0.9c-0.3,0.3 -0.7,0.6 -1,0.9c-2.8,2.6 -0.1,6.3 4.5,6.3l115.5,0c2.3,0 3.8,-2.6 2.6,-4.4c-0.5,-0.8 -1,-1.5 -1.5,-2.1z" class="st4" id="XMLID_67_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m441,777.9c15.2,-14.3 44.4,-21.4 72.9,-19.2c24.4,1.8 42.5,10.1 49.6,21.1c1.2,1.9 -0.3,4.4 -2.6,4.4l-115.5,0c-4.5,0 -7.2,-3.7 -4.4,-6.3z" class="st3" id="XMLID_24_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m643,454.2c-1.9,-19.5 -11.5,-68.8 -22.3,-103.3c-17.2,-55.1 -37.4,-69.5 -49.1,-71c-1.2,-0.2 -3.8,-0.2 -3.8,-0.2s-2.5,0 -3.8,0.2c-11.7,1.4 -31.8,15.7 -49.1,70.9c-10.8,34.5 -20.3,83.9 -22.3,103.5c-4.3,44 16.8,68.3 44.2,71.8c7.8,1 23.2,1 31,1c7.7,0 23.1,0 31,-1c27.3,-3.6 48.5,-27.9 44.2,-71.9z" class="st3" id="XMLID_13_"/>
+   <path fill="#FFFFFF" d="m569.8,279.5c0,0 34.9,-7.4 44.5,-2.9c9.9,4.6 27.8,39.7 20.4,53.4c-11.3,21 -44.5,-55 -64.9,-50.5z" class="st0" id="XMLID_29_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m569.8,279.5c0,0 34.9,-7.4 44.5,-2.9c9.9,4.6 27.8,39.7 20.4,53.4c-11.3,21 -44.5,-55 -64.9,-50.5z" class="st3" id="XMLID_11_"/>
+   <path fill="#FFFFFF" d="m504.3,285.8l48.3,-1.4c0,0 -44.8,48.2 -65.5,58.6c-20.7,10.4 0.5,-57.3 17.2,-57.2z" class="st0" id="XMLID_27_"/>
+   <path stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" d="m504.3,285.8l48.3,-1.4c0,0 -44.8,48.2 -65.5,58.6c-20.7,10.4 0.5,-57.3 17.2,-57.2z" class="st3" id="XMLID_12_"/>
+   <ellipse fill="#00354C" ry="6.5" rx="5" cy="387.5" cx="548.7" class="st2" id="XMLID_3_"/>
+   <ellipse fill="#00354C" ry="6.5" rx="5" cy="387.5" cx="590.9" class="st2" id="XMLID_6_"/>
+   <line stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="#00354C" fill="none" y2="784.2" x2="739" y1="784.2" x1="392.3" class="st3" id="XMLID_57_"/>
+   <path fill="#F7BF46" d="m668.2,347c0,5.6 -1.4,8.9 -7,8.9s-10.1,-2.1 -10.1,-7.7s4.5,-10.1 10.1,-10.1s7,3.3 7,8.9z" class="st6" id="XMLID_128_"/>
+   <text xml:space="preserve" text-anchor="start" font-family="'Rounded Mplus 1c Black'" font-size="39" stroke-width="0" id="svg_102" y="192.69987" x="715.74029" fill="#ffffff">500</text>
+   <text xml:space="preserve" text-anchor="start" font-family="'Rounded Mplus 1c Black'" font-size="39" id="svg_103" y="220.87118" x="706.74029" stroke-width="0" fill="#ffffff">error</text>
+  </g>
+ </g>
+</svg>
