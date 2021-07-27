@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import Link from 'next/link';
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import {useRouter} from 'next/router'
 import supabase from '../utils/initSupabase'
 
@@ -9,6 +9,8 @@ function MyApp({ Component, pageProps }) {
   const [user, setUser]=useState(null);
   // early access mail 
   const [email, setEmail]= useState("");
+  let buttonStatus= useRef();
+  let inputStatus=useRef();
 
   useEffect(()=>{
     const {data: authListener}= supabase.auth.onAuthStateChange(
@@ -27,8 +29,32 @@ function MyApp({ Component, pageProps }) {
   }
 
   async function sendEmailAddress(){
+  const {data, error} = await supabase.from("early-access-email").select('*').filter('email','eq', email);
+  
+
+   if (data.length>0){
+
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]/
+     if(!email.match(re) )
+     {
+    inputStatus.current.placeholder="Please insert a valid email";
+    buttonStatus.current.style.background="#ffa0a0";
+    console.log(buttonStatus)
+     }
+   else {
+  buttonStatus.current.innerHTML="Requested Earlier";
+  buttonStatus.current.style.background="#9ca3af";
+   }
+  }
+ 
+    
+   
+   else{
    await supabase.from("early-access-email").insert([{email}])
    router.push("/subscribe/early-access")
+   
+   }
+  
    
   }
 
@@ -128,9 +154,10 @@ Scrawlo
     </div>
 
 <div id="formify" className=" px-7 py-10 w-screen mt-5 mb-5 flex flex-wrap sm:justify-center sm:align-middle border-t border-b border-gray-200 flex-col">
-  <input value={email} onChange={e=> setEmail(e.target.value)}  placeholder="Email" required type="email" className="pl-2 outline-none border-2 bg-gray-50 border-gray-200 placeholder-gray-500 rounded-md mt-2 mx-auto  w-full md:w-1/3 p-1 text-sm font-normal"/>
   
-  <button onClick={sendEmailAddress} type="button"  className="p-2 outline-none rounded-md text-sm font-normal bg-green-500 text-white mx-auto mt-2">Request Access</button>
+  <input ref={inputStatus} value={email} onChange={e=> setEmail(e.target.value)}  placeholder="Email" required type="email" className="pl-2 outline-none border-2 bg-gray-50 border-gray-200 placeholder-gray-500 rounded-md mt-2 mx-auto  w-full md:w-1/3 p-1 text-sm font-normal"/>
+  
+  <button ref={buttonStatus} onClick={sendEmailAddress} type="button"  className="p-2 outline-none rounded-md text-sm font-normal bg-green-500 text-white mx-auto mt-2">Request Access</button>
   
   <div className="font-mono text-gray-500 text-xs font-medium tracking-wide mt-4 mb-4 text-center block">
   Write, read, build a community and reach out to your audience in millions...

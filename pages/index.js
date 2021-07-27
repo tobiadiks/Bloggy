@@ -7,6 +7,7 @@ import supabase from "../utils/initSupabase";
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
     fetchPosts();
     const mySubscription = supabase
