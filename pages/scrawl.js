@@ -1,4 +1,4 @@
-// pages/my-posts.js
+// pages/scrawl.js
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import supabase from "../utils/initSupabase";
@@ -26,7 +26,7 @@ export default function MyPosts() {
   }
   return (
     <div>
-      <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2 text-center">My Posts</h1>
+      <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2 text-center">My Scrawls</h1>
       <div className="flex flex-wrap mt-7 w-full justify-around">
       {
         posts.map((post, index) => (

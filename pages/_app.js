@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import Link from 'next/link';
+import Head from 'next/head';
 import {useState, useEffect, useRef} from 'react'
 import {useRouter} from 'next/router'
 import supabase from '../utils/initSupabase'
@@ -28,6 +29,7 @@ function MyApp({ Component, pageProps }) {
     setUser(user)
   }
 
+  // Early access
   async function sendEmailAddress(){
   const {data, error} = await supabase.from("early-access-email").select('*').filter('email','eq', email);
   
@@ -38,7 +40,7 @@ function MyApp({ Component, pageProps }) {
      if(!email.match(re) )
      {
     inputStatus.current.placeholder="Please insert a valid email";
-    buttonStatus.current.style.background="#ffa0a0";
+    buttonStatus.current.style.background="rgba(239,68,68,1)";
     console.log(buttonStatus)
      }
    else {
@@ -57,21 +59,30 @@ function MyApp({ Component, pageProps }) {
   
    
   }
+  // Early access ends here
 
   return(
     <div>
+
+<Head>
+        <title>Scrawlo</title>
+        <meta charSet="UTF-8"/>
+        <meta name="description" content="Free Space For Everyone"/>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+</Head>
+    
       <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-full z-50 flex justify-between flex-row">
 <Link href="/" passHref={true}>
 <span className="cursor-pointer font-medium text-gray-700 flex handwriting"><svg width="1rem" height="1rem" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title"
 aria-describedby="desc" role="img" >
-  <title>Feather</title>
+  <title>Scrawlo</title>
   <desc>A line styled icon from Orion Icon Library.</desc>
   <path d="M51.491 12.509L2 62m19.938-19.939V26.517M32.41 31.59h16.651m-21.654 5.005h16.815"
-  stroke-Width="4" stroke-Miterlimit="10" stroke="#007e85" fill="none" data-name="layer2"
-  stroke-Linejoin="round" stroke-Linecap="round"></path>
-  <path stroke-Width="4" stroke-Miterlimit="10" stroke="#007e85"
+  strokeWidth="4" strokeMiterlimit="10" stroke="#007e85" fill="none" data-name="layer2"
+  strokeLinejoin="round" strokeLinecap="round"></path>
+  <path strokeWidth="4" strokeMiterlimit="10" stroke="#007e85"
   fill="none" d="M42.1 21.9V8.169c-10.828 5.992-23.594 17.8-31.528 41.086l2.087 2.086 2.087 2.088C61.553 37.478 62 2 62 2a41.974 41.974 0 0 0-13.147 3.014l-6.634 16.767"
-  data-name="layer1" stroke-Linejoin="round" stroke-Linecap="round"></path>
+  data-name="layer1" strokeLinejoin="round" strokeLinecap="round"></path>
 </svg>
 
 Scrawlo
@@ -88,15 +99,15 @@ Scrawlo
 }
       {
         user && (
-          <Link href="/create-post" passHref={true}>
-            <span className="mr-6 cursor-pointer hidden md:inline">Create</span>
+          <Link href="/new" passHref={true}>
+            <span className="mr-6 cursor-pointer hidden md:inline">New</span>
           </Link>
         )
       }
       {
   user && (
-    <Link href="/my-posts" passHref={true}>
-      <span className="mr-6 cursor-pointer hidden md:inline">My Posts</span>
+    <Link href="/scrawl" passHref={true}>
+      <span className="mr-6 cursor-pointer hidden md:inline">My Scrawls</span>
     </Link>
   )
 }
@@ -108,7 +119,7 @@ Scrawlo
         <span className="mr-6 cursor-pointer hidden md:inline">About us</span>
         <span className="mr-6 cursor-pointer pb-1 border-b border-green-400 hidden md:inline">Hack it</span>
         <span className="mr-6 cursor-pointer hidden md:inline">Career</span>
-        <Link href="/#formify" passHref={true}><span className="mr-6 cursor-pointer bg-green-500 text-white mt-2 pt-2 pb-2 pr-3 pl-3 rounded-r-2xl rounded-l-2xl font-semibold">Early Access</span></Link>
+        <Link href="/#formify" passHref={true}><span className=" cursor-pointer bg-green-500 text-white mt-2 pt-2 pb-2 pr-3 pl-3 rounded-r-2xl rounded-l-2xl font-semibold">Early Access</span></Link>
        {/* /profile to / */}
         </>
         )
@@ -155,7 +166,7 @@ Scrawlo
 
 <div id="formify" className=" px-7 py-10 w-screen mt-5 mb-5 flex flex-wrap sm:justify-center sm:align-middle border-t border-b border-gray-200 flex-col">
   
-  <input ref={inputStatus} value={email} onChange={e=> setEmail(e.target.value)}  placeholder="Email" required type="email" className="pl-2 outline-none border-2 bg-gray-50 border-gray-200 placeholder-gray-500 rounded-md mt-2 mx-auto  w-full md:w-1/3 p-1 text-sm font-normal"/>
+  <input ref={inputStatus} value={email} onChange={e=> setEmail(e.target.value)}  placeholder="Email" required type="email" className="pl-2 outline-none border-2 bg-gray-50 border-gray-200 placeholder-gray-500 rounded-md mt-2 mx-auto py-2  w-full md:w-1/3 p-1 text-sm font-normal"/>
   
   <button ref={buttonStatus} onClick={sendEmailAddress} type="button"  className="p-2 outline-none rounded-md text-sm font-normal bg-green-500 text-white mx-auto mt-2">Request Access</button>
   

@@ -1,4 +1,4 @@
-// pages/create-post.js
+// pages/new.js
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import { useRouter } from 'next/router'
@@ -9,7 +9,7 @@ import supabase from "../utils/initSupabase";
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
 const initialState = { title: '', content: '' }
 
-function CreatePost() {
+function New() {
   const [post, setPost] = useState(initialState)
   const { title, content } = post
   const router = useRouter()
@@ -54,4 +54,4 @@ function CreatePost() {
   )
 }
 
-export default CreatePost
+export default New;

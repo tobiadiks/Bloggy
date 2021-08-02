@@ -11,6 +11,7 @@ function EditPost() {
   const [post, setPost] = useState(null)
   const router = useRouter()
   const { id } = router.query
+  
 
   useEffect(() => {
     fetchPost()
@@ -24,6 +25,7 @@ function EditPost() {
       setPost(data)
     }
   }, [id])
+  
   if (!post) return null
   function onChange(e) {
     setPost(() => ({ ...post, [e.target.name]: e.target.value }))
@@ -39,6 +41,7 @@ function EditPost() {
       .match({ id })
     router.push('/my-posts')
   }
+
   return (
     <div>
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2">Edit post</h1>
