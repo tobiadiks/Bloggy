@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import supabase from "../utils/initSupabase";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -370,7 +372,13 @@ export default function Home() {
         <div className="flex flex-wrap  mt-7 justify-around">
           {loading ? (
             <p className="text-xl mt-5 text-gray-800 text-center">
-              Loading ...
+            <Loader
+        type="Puff"
+        color="rgba(31,41,55)"
+        height={80}
+        width={80}
+        
+      />
             </p>
           ) : !posts.length ? (
             <p className="text-xl mt-5 text-gray-800 text-center">

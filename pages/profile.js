@@ -5,6 +5,7 @@ const { Text } = Typography;
 import supabase from "../utils/initSupabase";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import Loader from "react-loader-spinner";
 
 
 const DynamicImage=dynamic(()=>import('../components/profilepic'), {ssr:false})
@@ -33,6 +34,7 @@ function Profile(props) {
   const [profile, setProfile]= useState(initialState);
   const [visible, setVisible] = useState(false);
   const inputButton = useRef();
+  const [loading, setLoading] = useState(true);
 
   function toggle() {
     setVisible(!visible);
@@ -84,6 +86,7 @@ useEffect(()=>{
   else{
   setProfile(data[0])
   }
+  setLoading(false);
 
   }
 }
@@ -181,7 +184,22 @@ async function Submit(){
       <div className="mt-20">
         {/* profile starts */}
 
+
         {/* profile container starts */}
+        {/* Loader Condition Opens */}
+        {loading ? (
+          <div className="flex justify-center align-middle">
+            <p className="text-xl mt-5 mx-auto text-gray-800 text-center">
+            <Loader
+        type="Puff"
+        color="rgba(31,41,55)"
+        height={80}
+        width={80}
+        
+      />
+            </p>
+        </div>  ):
+
         <div className="flex w-full mb-12 flex-col md:flex-row lg:flex-row">
           {/* container 1 start*/}
 
@@ -407,9 +425,13 @@ async function Submit(){
 
           {/* 2 and 3 end */}
         </div>
+        
+
+        }
+        {/* Loader condition ends */}
         {/* profile container ends */}
         {/* button */}
-        <div>
+        <div style={{display:`${loading?'none':'block'}`}}>
         <Button className="mt-5 h-10" onClick={Submit} block>
             Save
           </Button>
@@ -432,6 +454,7 @@ async function Submit(){
       </div>
       // profile ends
     );
+      
 
   return props.children;
 }
