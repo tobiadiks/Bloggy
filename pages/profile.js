@@ -179,16 +179,9 @@ async function Submit(){
   toggle()
 }
 
-  if (user)
-    return (
-      <div className="mt-20">
-        {/* profile starts */}
-
-
-        {/* profile container starts */}
-        {/* Loader Condition Opens */}
-        {loading ? (
-          <div className="flex justify-center align-middle">
+if (loading){
+return (
+  <div className="flex justify-center align-middle mt-20">
             <p className="text-xl mt-5 mx-auto text-gray-800 text-center">
             <Loader
         type="Puff"
@@ -198,7 +191,20 @@ async function Submit(){
         
       />
             </p>
-        </div>  ):
+        </div> 
+)
+}
+
+else {
+  if (user)
+    return (
+      <div className="mt-20">
+        {/* profile starts */}
+
+
+        {/* profile container starts */}
+        {/* Loader Condition Opens */}
+        
 
         <div className="flex w-full mb-12 flex-col md:flex-row lg:flex-row">
           {/* container 1 start*/}
@@ -427,8 +433,7 @@ async function Submit(){
         </div>
         
 
-        }
-        {/* Loader condition ends */}
+        
         {/* profile container ends */}
         {/* button */}
         <div style={{display:`${loading?'none':'block'}`}}>
@@ -457,6 +462,7 @@ async function Submit(){
       
 
   return props.children;
+}
 }
 
 export default function AuthProfile() {
