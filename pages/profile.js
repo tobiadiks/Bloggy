@@ -81,16 +81,17 @@ useEffect(()=>{
   .select()
   .filter('user_id', "eq", supabase.auth.user() === null?" ":supabase.auth.user().id)
   
-
-  if(!data)return null;
+  if(!data){
+    setLoading(false);
+    return null;}
   else{
   setProfile(data[0])
+  setLoading(false);
   }
   setLoading(false);
-
   }
 }
-, [user])
+, [user,loading])
 
 
 
@@ -179,9 +180,10 @@ async function Submit(){
   toggle()
 }
 
-if (loading){
-return (
-  <div className="flex justify-center align-middle mt-20">
+
+
+while (loading){
+return (<div className="flex justify-center align-middle mt-20">
             <p className="text-xl mt-5 mx-auto text-gray-800 text-center">
             <Loader
         type="Puff"
@@ -191,11 +193,9 @@ return (
         
       />
             </p>
-        </div> 
-)
+        </div>)
 }
 
-else {
   if (user)
     return (
       <div className="mt-20">
@@ -204,13 +204,13 @@ else {
 
         {/* profile container starts */}
         {/* Loader Condition Opens */}
-        
+
 
         <div className="flex w-full mb-12 flex-col md:flex-row lg:flex-row">
           {/* container 1 start*/}
 
           <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 mr-0 md:mr-4 lg:mr-4">
-            <div className="mb-5 flex justify-center">
+            <div className="mb-5 flex justify-center border-t-8 border-gray-700 pt-6 rounded-t-md">
               {/* imagepic */}
               <DynamicImage src={`${publicURL}`}/>
               <IconCamera onClick={toggleFileUpload}/>
@@ -459,11 +459,14 @@ else {
       </div>
       // profile ends
     );
-      
+
+
+else{
 
   return props.children;
 }
 }
+
 
 export default function AuthProfile() {
   return (
