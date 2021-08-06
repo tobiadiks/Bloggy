@@ -3,7 +3,8 @@ import { Auth} from "@supabase/ui";
 import supabase from "../utils/initSupabase";
 import {useRouter} from 'next/router';
 import Loader from "react-loader-spinner";
- function Home(props){
+
+function Profile(props) {
     const { user } = Auth.useUser();
     const [loading, setLoading] = useState(true);
     const router=useRouter()
@@ -40,31 +41,31 @@ import Loader from "react-loader-spinner";
                     </p>
                 </div>)
         }
+        
+            if (user){
+            router.push('/home')
+            return null
+            }
 
-    if(user){
-        return (
-        <div>
-            
-        </div>
-    )
-}
-else{
-    return props.children
-}
+            else{
+            return props.children;
+            }
+
+
 }
 
 
 export default function AuthProfile() {
     return (
       <Auth.UserContextProvider supabaseClient={supabase}>
-        <Home supabaseClient={supabase}>
+        <Profile supabaseClient={supabase}>
           <Auth
             className="mt-20"
             supabaseClient={supabase}
             providers={["github","google"]}
             socialLayout="horizontal"
           />
-        </Home>
+        </Profile>
       </Auth.UserContextProvider>
     );
   }

@@ -1,9 +1,7 @@
 // pages/profile.js
 import { useState, useEffect, useRef } from 'react'
-import { Auth, Typography, Button, Modal, IconPlusCircle, IconCamera } from "@supabase/ui";
-const { Text } = Typography;
+import { Auth, Button, Modal, IconCamera } from "@supabase/ui";
 import supabase from "../utils/initSupabase";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import Loader from "react-loader-spinner";
 
@@ -210,7 +208,7 @@ return (<div className="flex justify-center align-middle mt-20">
           {/* container 1 start*/}
 
           <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 mr-0 md:mr-4 lg:mr-4">
-            <div className="mb-5 flex justify-center border-t-8 border-gray-700 pt-6 rounded-t-md">
+            <div className="mb-5 flex justify-center border-t-8 border-gray-600 pt-6 rounded-t-md">
               {/* imagepic */}
               <DynamicImage src={`${publicURL}`}/>
               <IconCamera onClick={toggleFileUpload}/>
