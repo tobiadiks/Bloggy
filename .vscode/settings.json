@@ -6,6 +6,7 @@
         "describedby",
         "formify",
         "labelledby",
-        "upsert"
+        "upsert",
+        "useravatar"
     ]
 }
