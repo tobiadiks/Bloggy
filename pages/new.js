@@ -32,7 +32,7 @@ function New() {
 
   return (
     <div>
-      <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 text-center">Create new post</h1>
+      <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-10 text-center">Create new post</h1>
       <input
         onChange={onChange}
         name="title"

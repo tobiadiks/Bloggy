@@ -196,7 +196,7 @@ return (<div className="flex justify-center align-middle mt-20">
 
   if (user)
     return (
-      <div className="mt-20">
+      <div className="mt-10">
         {/* profile starts */}
 
 

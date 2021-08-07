@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Auth} from "@supabase/ui";
+import { Auth, Input, Button, IconSearch, IconMoreHorizontal} from "@supabase/ui";
 import supabase from "../utils/initSupabase";
 import {useRouter} from 'next/router';
 import Loader from "react-loader-spinner";
@@ -8,7 +8,9 @@ import ContentCard from "../components/contentcard";
  function Home(props){
     const { user } = Auth.useUser();
     const [loading, setLoading] = useState(true);
+    const loadMore=useRef(null);
     const router=useRouter()
+
 
     useEffect(()=>{
         getProfile()
@@ -29,9 +31,18 @@ import ContentCard from "../components/contentcard";
       , [user,loading])
 
 
+    
+
+      
+
+      
+        
+      
+
+
       while (loading){
         return (<div className="flex justify-center align-middle mt-20">
-                    <p className="text-xl mt-5 mx-auto text-gray-800 text-center">
+                    <div className="text-xl mt-5 mx-auto text-gray-800 text-center">
                     <Loader
                 type="Puff"
                 color="rgba(31,41,55)"
@@ -39,32 +50,133 @@ import ContentCard from "../components/contentcard";
                 width={80}
                 
               />
-                    </p>
+                    </div>
                 </div>)
         }
 
     if(user){
         return (
-        <div className="mt-20 flex">
+        <div className=" mt-10 flex">
             
-            <div className='h-screen overflow-y-scroll w-64 hidden md:block'>
+            <div className='h-full  w-64 hidden md:block'>
+            <div className="flex justify-between py-3 px-2 align-middle border-b mb-2 w-44">
+              <div className="font-semibold">Recommended</div>
+            </div>
 <UserCard useravatar={require('../public/profile.jpg')}/>
 <UserCard useravatar={require('../public/profile.jpg')}/>
 <UserCard useravatar={require('../public/profile.jpg')}/>
 <UserCard useravatar={require('../public/profile.jpg')}/>
 <UserCard useravatar={require('../public/profile.jpg')}/>
 <UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
+
+
+<div className="font-light text-sm cursor-pointer text-blue-600">See more...</div>
             </div>
 
-            <div className="md:h-screen h-full md:overflow-y-scroll overflow-hidden w-full md:px-2 px-0 md:w-3/4 ">
+
+
+            <div className=" w-full md:px-2 px-0 md:w-3/4 ">
+            <div className="flex justify-between align-middle py-3 px-2 border-b mb-2">
+              <div className="font-semibold mr-2">Posts</div>
+              <div className="font-light text-sm cursor-pointer text-blue-600">
+<Input
+  className="h-1"
+  actions={[
+        <Button key='search' size="tiny" type="link" icon={<IconSearch />}>
+          Search
+        </Button>]}
+/>
+              </div>
+            </div>
+
+            <div>
             <ContentCard useravatar={require('../public/profile.jpg')}/>
             <ContentCard useravatar={require('../public/profile.jpg')}/>
             <ContentCard useravatar={require('../public/profile.jpg')}/>
             <ContentCard useravatar={require('../public/profile.jpg')}/>
             </div>
+
+
+            <div className='w-full md:hidden block shadow border-2 rounded border-blue-600 mt-5 px-1'>
+              <div className="flex justify-between py-3 border-b mb-2">
+              <div className="font-semibold text-blue-600 p-2">Join Big Events 🎊</div>
+              <div className=" text-sm cursor-pointer bg-blue-600 hover:bg-blue-400 text-white p-2 rounded-sm font-semibold">Browse</div>
+            </div>
+
+
+
+            <div className="flex p-2 flex-wrap">
+            <span className="font-medium text-gray-800">
+            Be part of events & hackathons, building careers and leveraging your skill by taking internships & browsing job openings from top companies.
+            </span>
+            </div>
+            </div>
+
+{/* loading more */}
+            {/* <div ref={loadMore} className="flex justify-center align-middle mt-20">
+                    <div className="text-xl mt-5 mx-auto text-gray-800 text-center">
+                    <Loader
+                type="Puff"
+                color="rgba(31,41,55)"
+                height={30}
+                width={30}
+                
+              />
+                    </div>
+                </div> */}
+
+                <div ref={loadMore} className="flex justify-center align-middle mt-10">
+                    <div className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Load More&nbsp;...</div>
+</div>
+            </div>
+            
+            <div className='h-full  w-64 hidden md:block'>
+            <div className=' w-64 hidden md:block shadow border px-1'>
+              <div className="flex justify-between py-3 border-b mb-2">
+              <div className="font-semibold">Interests</div>
+              <div className="font-light text-sm cursor-pointer text-blue-600">More...</div>
+            </div>
+
+
+
+            <div className="flex flex-wrap">
+            <span className="font-extralight text-white bg-blue-700 px-2  rounded-sm cursor-pointer hover:text-blue-200 mr-2 mb-2">featured</span>
+            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">technology</span>
+            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">fashion</span>
+            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">law</span>
+            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">art</span>
+            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">politics</span>
+            <span className="font-extralight text-white bg-blue-700 px-2  rounded-sm cursor-pointer hover:text-blue-200 mr-2 mb-2">food</span>
+            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">nature</span>
+            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">education</span>
+
+            </div>
+            </div>
+
+
+
+            <div className=' w-64 hidden md:block shadow border-2 rounded border-blue-600 mt-5 px-1'>
+              <div className="flex justify-between py-3 border-b mb-2">
+              <div className="font-semibold text-blue-600 p-2">Join Big Events 🎊</div>
+              <div className=" text-sm cursor-pointer bg-blue-600 hover:bg-blue-400 text-white p-2 rounded-sm font-semibold">Browse</div>
+            </div>
+
+
+
+            <div className="flex p-2 flex-wrap">
+            <span className="font-light text-gray-800">
+            Be part of events & hackathons, building careers and leveraging your skill by taking internships & browsing job openings from top companies.
+            </span>
+            </div>
+            </div>
+
+</div>
+
+
 
         </div>
+
+        
     )
 }
 else{

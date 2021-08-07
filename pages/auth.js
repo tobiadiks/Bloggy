@@ -29,7 +29,7 @@ function Profile(props) {
 
 
       while (loading){
-        return (<div className="flex justify-center align-middle mt-20">
+        return (<div className="flex justify-center align-middle mt-10">
                     <p className="text-xl mt-5 mx-auto text-gray-800 text-center">
                     <Loader
                 type="Puff"

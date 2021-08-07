@@ -335,7 +335,7 @@ export default function Home() {
                   d="M51.491 12.509L2 62m19.938-19.939V26.517M32.41 31.59h16.651m-21.654 5.005h16.815"
                   strokeWidth="5"
                   strokeMiterlimit="10"
-                  stroke="#1d4ed8"
+                  stroke="rgba(55, 65, 81,1)"
                   fill="none"
                   data-name="layer2"
                   strokeLinejoin="round"
@@ -344,7 +344,7 @@ export default function Home() {
                 <path
                   strokeWidth="5"
                   strokeMiterlimit="10"
-                  stroke="#1d4ed8"
+                  stroke="rgba(55, 65, 81,1)"
                   fill="none"
                   d="M42.1 21.9V8.169c-10.828 5.992-23.594 17.8-31.528 41.086l2.087 2.086 2.087 2.088C61.553 37.478 62 2 62 2a41.974 41.974 0 0 0-13.147 3.014l-6.634 16.767"
                   data-name="layer1"
