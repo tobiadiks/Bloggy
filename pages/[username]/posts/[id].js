@@ -1,7 +1,7 @@
 // pages/posts/[id].js
 import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
-import supabase from "../../utils/initSupabase";
+import supabase from "../../../utils/initSupabase";
 
 export default function Post({ post }) {
   

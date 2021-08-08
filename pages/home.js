@@ -5,11 +5,31 @@ import {useRouter} from 'next/router';
 import Loader from "react-loader-spinner";
 import UserCard from "../components/usercard";
 import ContentCard from "../components/contentcard";
+import {categoryList} from '../constants/categories'
+
  function Home(props){
     const { user } = Auth.useUser();
     const [loading, setLoading] = useState(true);
     const loadMore=useRef(null);
     const router=useRouter()
+    const [posts, setPosts] = useState([])
+    const [currentCategory,setCategory]=useState('programming');
+
+    
+
+
+  useEffect(() => {
+    fetchPosts()
+  }, [currentCategory])
+
+  async function fetchPosts() {
+    const user = supabase.auth.user()
+    const { data } = await supabase
+      .from('posts')
+      .select('*')
+      .filter('category', 'eq', currentCategory)
+    setPosts(data)
+  }
 
 
     useEffect(()=>{
@@ -89,11 +109,14 @@ import ContentCard from "../components/contentcard";
               </div>
             </div>
 
+{/* posts */}
             <div>
-            <ContentCard useravatar={require('../public/profile.jpg')}/>
-            <ContentCard useravatar={require('../public/profile.jpg')}/>
-            <ContentCard useravatar={require('../public/profile.jpg')}/>
-            <ContentCard useravatar={require('../public/profile.jpg')}/>
+            {
+             (<div className="flex justify-center align-middle mt-10">
+              <div className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
+              </div>)
+             &&
+              (posts.map((post)=><ContentCard key={post.id} title={post.title} category={post.category} useravatar={require('../public/profile.jpg')}/>))}
             </div>
 
 
@@ -138,17 +161,10 @@ import ContentCard from "../components/contentcard";
             </div>
 
 
-
+{/* category */}
             <div className="flex flex-wrap">
             <span className="font-extralight text-white bg-blue-700 px-2  rounded-sm cursor-pointer hover:text-blue-200 mr-2 mb-2">featured</span>
-            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">technology</span>
-            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">fashion</span>
-            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">law</span>
-            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">art</span>
-            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">politics</span>
-            <span className="font-extralight text-white bg-blue-700 px-2  rounded-sm cursor-pointer hover:text-blue-200 mr-2 mb-2">food</span>
-            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">nature</span>
-            <span className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">education</span>
+            {categoryList.map((cat)=><span onClick={()=>setCategory(cat)} key={cat} className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">{cat}</span>)}
 
             </div>
             </div>

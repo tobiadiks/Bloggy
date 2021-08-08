@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import "easymde/dist/easymde.min.css"
-import supabase from "../../utils/initSupabase";
+import supabase from "../../../utils/initSupabase";
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
 

@@ -1,9 +1,10 @@
 // pages/profile.js
 import { useState, useEffect, useRef } from 'react'
-import { Auth, Button, Modal, IconCamera } from "@supabase/ui";
+import { Auth, Button, Modal, IconCamera , Input} from "@supabase/ui";
 import supabase from "../utils/initSupabase";
 import dynamic from "next/dynamic";
 import Loader from "react-loader-spinner";
+
 
 
 const DynamicImage=dynamic(()=>import('../components/profilepic'), {ssr:false})
@@ -25,7 +26,8 @@ function Profile(props) {
     twitter:'',
     facebook:'',
     linkdin:'',
-    google:''
+    google:'',
+    username:''
   }
 
   const { user } = Auth.useUser();
@@ -66,7 +68,8 @@ function Profile(props) {
     twitter,
     facebook,
     linkdin,
-    google
+    google,
+    username
   }=profile;
 
   // profile updates and inputs
@@ -133,7 +136,8 @@ await supabase
   twitter,
   facebook,
   linkdin,
-  google
+  google,
+  
 }
 ])
 .match({user_id})
@@ -208,7 +212,7 @@ return (<div className="flex justify-center align-middle mt-20">
           {/* container 1 start*/}
 
           <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 mr-0 md:mr-4 lg:mr-4">
-            <div className="mb-5 flex justify-center border-t-8 border-gray-600 pt-6 rounded-t-md">
+            <div className="mb-5 flex justify-center border-t-8 border-gray-900 pt-6 rounded-t-md">
               {/* imagepic */}
               <DynamicImage src={`${publicURL}`}/>
               <IconCamera onClick={toggleFileUpload}/>
@@ -216,7 +220,21 @@ return (<div className="flex justify-center align-middle mt-20">
               <input onChange={ProfilePictureSubmit} accept="image/*" style={{display:'none'}} ref={inputButton} type='file'/>
             </div>
 
-            <div className="flex flex-col md:flex-row lg:flex-row justify-between">
+            <div className="flex flex-col mt-4">
+              <label className="text-gray-500 text-xs font-bold">Username</label>
+             <div className='flex justify-between'>
+              <input
+                readOnly
+                value={`@${username}`}
+                name="username"
+                className="border mr-4 border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight w-3/4"
+                type="text"
+              />
+
+              <div className="bg-gray-900 hover:bg-gray-800 p-2 text-md rounded-sm text-white font-medium">Check</div>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row lg:flex-row justify-between">         
               <div className="flex mt-4 flex-col w-full md:w-1/2 lg:w-1/2">
                 <label className="text-gray-500 text-xs font-bold">
                   First Name

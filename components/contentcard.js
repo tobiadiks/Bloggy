@@ -12,8 +12,9 @@ export default function ContentCard(props){
 
 <div><span className="text-xs font-thin text-gray-500">5 min read</span></div>
         </div>
-
-        <h3 className="md:text-xl mt-2 text-sm font-semibold text-gray-900 hover:text-blue-600">How i secured my first job as a manager without a degree.</h3>
+        
+        <div className="mt-2"><span className="text-xs text-white rounded-md p-1 font-medium bg-gray-900 hover:bg-gray-700">{props.category}</span></div>
+        <h3 className="md:text-xl mt-2 text-sm font-semibold text-gray-900 hover:text-blue-600">{props.title}</h3>
 
         <div className="mt-4 flex justify-between">
         <div className="flex">

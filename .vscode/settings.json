@@ -3,9 +3,17 @@
         "Kage",
         "Scrawlo",
         "apos",
+        "dateofbirth",
         "describedby",
+        "extralight",
+        "firstname",
         "formify",
+        "imagepic",
         "labelledby",
+        "lastname",
+        "linkdin",
+        "multiselect",
+        "profilepic",
         "upsert",
         "useravatar"
     ]

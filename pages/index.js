@@ -37,7 +37,7 @@ export default function Home() {
           and content creators to write about whatever they want, without being
           censored.
         </h4>
-        <Link href="/#formify" passHref={true}>
+        <Link href="/auth" passHref={true}>
           <span className="bg-gray-900 text-white p-2 text-center rounded-md hover:bg-gray-800 z-40">
             Start a Scrawl
           </span>
@@ -309,7 +309,7 @@ export default function Home() {
       </div>
 
       {/* WordCopy Start */}
-      <div className=" py-5 mt-5 mb-5 flex flex-wrap justify-center md:justify-between sm:align-middle border-t border-b border-gray-200 md:flex-row-reverse flex-col-reverse ">
+      <div className=" py-5 mt-5  flex flex-wrap justify-center md:justify-between sm:align-middle border-t  border-gray-200 md:flex-row-reverse flex-col-reverse ">
         <Image
           alt="label"
           src={require("../public/wfh_9.svg")}
@@ -362,43 +362,16 @@ export default function Home() {
             be in charge of everything.
           </p>
         </div>
+
       </div>
+      
+      <Link href="/auth" passHref={true}>
+          <div className="bg-blue-700 font-semibold text-white p-2 text-center rounded-md hover:bg-blue-500 z-40">
+            Log In/Sign Up
+          </div>
+        </Link>
       {/* Ends Here */}
-      {/* Content start */}
-      <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-10 mb-2 text-center">
-        Trending
-      </h1>
-      <div className="flex flex-wrap mt-7 flex-col w-full">
-        <div className="flex flex-wrap  mt-7 justify-around">
-          {loading ? (
-            <p className="text-xl mt-5 text-gray-800 text-center">
-            <Loader
-        type="Puff"
-        color="rgba(31,41,55)"
-        height={80}
-        width={80}
-        
-      />
-            </p>
-          ) : !posts.length ? (
-            <p className="text-xl mt-5 text-gray-800 text-center">
-              No scrawls.
-            </p>
-          ) : (
-            posts.map((post) => (
-              <Link key={post.id} href={`/posts/${post.id}`} passHref={true}>
-                <div className="cursor-pointer border-b border-gray-300	mt-1 p-4 bg-gray-800 text-white h-28 rounded-sm flex flex-col justify-between font-mono md:w-1/3  w-full md:border-r-2 md:border-white">
-                  <h2 className="font-semibold text-xs">{post.title}</h2>
-                  <p className="text-gray-500 mt-2 text-xs">
-                    Author: Scrawlo Kage
-                  </p>
-                </div>
-              </Link>
-            ))
-          )}
-          {/* Checks if its loading above */}
-        </div>
-      </div>
+
     </div>
   );
 }

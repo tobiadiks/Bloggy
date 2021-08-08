@@ -2585,6 +2585,11 @@
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
   "version" "2.1.2"
 
+"multiselect-react-dropdown@^2.0.5":
+  "integrity" "sha512-KIkhycdCrzLSMxnI9l2Q77BMx+qF3RYQwegZ5H70g3tcSae6h6JvEnwNm4oQWRiP0EMjlbYFl0aqd6KJEJyo5A=="
+  "resolved" "https://registry.npmjs.org/multiselect-react-dropdown/-/multiselect-react-dropdown-2.0.5.tgz"
+  "version" "2.0.5"
+
 "nanoid@^3.1.22", "nanoid@^3.1.23":
   "integrity" "sha512-FiB0kzdP0FFVGDKlRLEQ1BgDzU87dy5NnzjeW9YZNt+/c3+q82EQDUwniSAUxp/F0gFNI1ZhKU1FqYsMuqZVnw=="
   "resolved" "https://registry.npmjs.org/nanoid/-/nanoid-3.1.23.tgz"
@@ -3302,7 +3307,7 @@
     "@types/codemirror" "0.0.109"
     "@types/marked" "^2.0.2"
 
-"react@*", "react@^16 || ^17 || ^18", "react@^16.13.1 || ^17.0.1", "react@^16.8.0 || ^17.0.0", "react@^17.0.2", "react@>=16", "react@>=16.8.2", "react@15.x.x || 16.x.x || 17.x.x", "react@17.0.2":
+"react@*", "react@^16 || ^17 || ^18", "react@^16.13.1 || ^17.0.1", "react@^16.7.0 || ^17.0.0-0", "react@^16.8.0 || ^17.0.0", "react@^17.0.2", "react@>=16", "react@>=16.8.2", "react@15.x.x || 16.x.x || 17.x.x", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
