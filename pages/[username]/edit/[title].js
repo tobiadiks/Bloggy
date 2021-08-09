@@ -39,13 +39,13 @@ function EditPost() {
   function onChange(e) {
     setPost(() => ({ ...post, [e.target.name]: e.target.value }))
   }
-  const { title, content } = post
+  
   async function updateCurrentPost() {
-    if (!title || !content) return
+    if (!post.title || !content) return
     await supabase
       .from('posts')
       .update([
-          { title, content }
+          { title:post.title, content:post.content}
       ])
       .match({ id })
     router.push('/scrawl')
