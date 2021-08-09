@@ -1,5 +1,5 @@
 // pages/new.js
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import {Select, Checkbox, Input} from '@supabase/ui'
 import { v4 as uuid } from 'uuid'
 import { useRouter } from 'next/router'
@@ -15,6 +15,7 @@ function New() {
   const [post, setPost] = useState(initialState)
   const { title,category, content, isPrivate } = post
   const router = useRouter()
+  const [username, setUserName]=useState('')
   const [checked, setChecked]=useState(false)
 
   function onChange(e) {
@@ -25,6 +26,23 @@ function New() {
     setChecked(!checked);
   }
 
+  useEffect(()=>{
+getUserName()
+
+    async function getUserName(){
+    const user = await supabase.auth.user()
+    const {data} = await supabase
+    .from('profile')
+    .select('*')
+    .filter('user_id', 'eq', user.id)
+  setUserName(data[0].username)
+  }
+
+    
+
+  },[username])
+
+
   async function createNewPost() {
     if (!title || !content) return
     const user = supabase.auth.user()
@@ -33,10 +51,10 @@ function New() {
     const { data } = await supabase
       .from('posts')
       .insert([
-          { title, content,category,isPrivate:checked, user_id: user.id, user_email: user.email }
+          { title, content,category,isPrivate:checked, user_id: user.id, user_email: user.email,username }
       ])
       .single()
-    router.push(`/posts/${data.id}`)
+     router.push(`/${username}/${title.replaceAll(' ', '-')}`)
   }
 
   return (

@@ -1,12 +1,14 @@
 import { Button, IconHeart,IconSave, IconShare2, IconActivity } from '@supabase/ui';
 import CardAvatar from './cardavatar';
+import Link from 'next/link';
+import moment from 'moment'
 
 export default function ContentCard(props){
     return(
-       
+      <Link href={props.route} passHref={true}>
         <div className=" w-full h-auto bg-white p-2 rounded shadow-md border cursor-pointer hover:shadow-lg mb-5">
         <div className="flex justify-between">
- <div className="flex"><CardAvatar src={props.useravatar}/> <div className="flex flex-col ml-2"><span className="text-xs font-medium text-gray-500 hover:text-gray-900">@tobiadiks</span><span className="text-xs font-thin text-gray-500 hover:text-gray-900">Aug 5</span>
+ <div className="flex"><CardAvatar src={props.useravatar}/> <div className="flex flex-col ml-2"><span className="text-xs font-medium text-gray-500 hover:text-gray-900">@{props.username}</span><span className="text-xs font-thin text-gray-500 hover:text-gray-900">{moment(props.timestamp).fromNow()}</span>
 </div>
 </div>
 
@@ -40,7 +42,7 @@ export default function ContentCard(props){
 
         </div>
         </div>
-       
+       </Link> 
     
     )
 }
