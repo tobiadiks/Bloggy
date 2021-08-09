@@ -5,7 +5,7 @@ import {Select, Checkbox, Input} from '@supabase/ui'
 import dynamic from 'next/dynamic'
 import "easymde/dist/easymde.min.css"
 import supabase from "../../../utils/initSupabase";
-import {categoryList} from '../constants/categories'
+import {categoryList} from '../../../constants/categories'
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
 
