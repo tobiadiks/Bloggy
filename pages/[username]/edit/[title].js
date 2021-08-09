@@ -13,7 +13,7 @@ function EditPost() {
   const [post, setPost] = useState(null)
   const router = useRouter()
   const {username,title}=router.query;
-  const { title,category, content, isPrivate } = post
+  const {category, content, isPrivate } = post
   const [checked, setChecked]=useState(false)
 
   
