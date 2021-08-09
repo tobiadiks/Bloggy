@@ -27,7 +27,7 @@ function EditPost() {
       if (!id) return
       const { data } = await supabase
         .from('posts')
-        .select()
+        .select("*")
         .filter('id', 'eq', username)
         .filter('title','eq',title)
         
