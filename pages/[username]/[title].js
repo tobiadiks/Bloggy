@@ -1,12 +1,11 @@
 import { useRouter } from 'next/router'
-import ReactMarkdown from 'react-markdown'
 import supabase from "../../utils/initSupabase";
 import {useEffect,useState} from 'react'
+import dynamic from 'next/dynamic'
 
 
+const ReactMarkdown= dynamic(() => import('react-markdown'), { ssr: false })
 export default function PostView(){
-
-
 
     const [post,setPost]=useState(null)
     const router=useRouter();

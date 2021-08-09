@@ -9,6 +9,7 @@ import Loader from "react-loader-spinner";
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+ 
 
   useEffect(() => {
     fetchPosts();
@@ -24,6 +25,8 @@ export default function Home() {
     setLoading(false);
   }
 
+  
+
   return (
     <div>
       {/* Copy starts */}
@@ -32,13 +35,13 @@ export default function Home() {
           All that you need to start writing to the{" "}
           <p className="text-blue-700 font-black">world!</p>
         </h1>
-        <h4 className="text-gray-500 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">
+        <h5 className="text-gray-600 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">
           Where your voice will be heard. Scrawlo gives blog space for writers
           and content creators to write about whatever they want, without being
           censored.
-        </h4>
+        </h5>
         <Link href="/auth" passHref={true}>
-          <span className="bg-gray-900 text-white p-2 text-center rounded-md hover:bg-gray-800 z-40">
+          <span className="bg-blue-700 font-semibold text-white p-2 text-center rounded-md hover:bg-blue-500 z-40">
             Start a Scrawl
           </span>
         </Link>
@@ -240,9 +243,9 @@ export default function Home() {
 
       {/* Convince them */}
       <div className=" flex flex-col">
-        <h1 className="text-gray-600 text-3xl font-semibold tracking-wide mt-10 text-center z-40">
+        <h3 className="text-gray-600 text-3xl font-semibold tracking-wide mt-10 text-center z-40">
           Yes! you own it
-        </h1>
+        </h3>
         <div className="flex flex-wrap md:flex-row flex-col justify-between mt-8">
           <div className="w-full md:w-1/3 border border-gray-200 px-2 py-2 mt-1 flex flex-col justify-center md:inline-block lg:inline-block">
             <Image
@@ -252,15 +255,15 @@ export default function Home() {
               height="350"
               width="350"
             />
-            <h2 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full ">
+            <h5 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full ">
               Share scrawls with swags
-            </h2>
-            <h4 className="text-gray-500 text-md font-sm tracking-wide mt-2 mb-4 text-left z-40">
+            </h5>
+            <h6 className="text-gray-500 text-md font-sm tracking-wide mt-2 mb-4 text-left z-40">
               Create a scrawl and share with your audience. Scrawls are instant,
               unique for creative expression. Let the world see your scrawls,
               including photos, videos, drawings, and more. Make connections
               with strangers through likes, follows, comments and more.
-            </h4>
+            </h6>
           </div>
 
           <div className="w-full md:w-1/3 border-l border-r border-gray-200 px-2 py-2 mt-1 flex flex-col justify-center md:inline-block lg:inline-block">
@@ -271,18 +274,18 @@ export default function Home() {
               height="350"
               width="350"
             />
-            <h2 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full ">
+            <h5 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full ">
               Free space for everyone
-            </h2>
+            </h5>
 
-            <h4 className="text-gray-500 text-md font-sm tracking-wide mt-2 mb-4 text-left z-40">
+            <h6 className="text-gray-500 text-md font-sm tracking-wide mt-2 mb-4 text-left z-40">
               Scrawlo promotes your blog, and gives an additional ecosystem for
               people to read quickly or click through links. No more lengthy
               introductions and abstracts just to get to the good stuff.
               Bloggers can now focus on what they do best and get readers to
               visit their blogs directly. Users can simply click on the Scrawlo
               link in the post, which will take them directly to the blog.
-            </h4>
+            </h6>
           </div>
 
           <div className="w-full md:w-1/3 border border-gray-200 px-2 py-2 flex flex-col justify-center md:inline-block lg:inline-block">
@@ -293,17 +296,17 @@ export default function Home() {
               height="350"
               width="350"
             />
-            <h2 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full">
+            <h5 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full">
               Reach your brand goal
-            </h2>
-            <h4 className="text-gray-500 text-md font-sm tracking-wide  text-left z-40 mt-2">
+            </h5>
+            <h6 className="text-gray-500 text-md font-sm tracking-wide  text-left z-40 mt-2">
               Scrawlo is a tool that helps you create content that gets shared.
               When used strategically, scrawlo can help you reach your brand
               goals, increase engagement, and grow your audience. It&apos;s the
               only tool you need to create amazing original content. We built it
               to be easy to use, with features that help all types of businesses
               produce engaging content quickly and easily.
-            </h4>
+            </h6>
           </div>
         </div>
       </div>
@@ -318,43 +321,12 @@ export default function Home() {
         />
 
         <div className="mt-1 md:mt-16 md:w-1/2">
-          <h1 className="mb-3">
-            <span className=" font-medium flex text-2xl text-gray-700 handwriting">
-              <svg
-                width="2rem"
-                height="2rem"
-                viewBox="0 0 64 64"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-labelledby="title"
-                aria-describedby="desc"
-                role="img"
-              >
-                <title>Scrawlo</title>
-                <desc>A line styled icon from Orion Icon Library.</desc>
-                <path
-                  d="M51.491 12.509L2 62m19.938-19.939V26.517M32.41 31.59h16.651m-21.654 5.005h16.815"
-                  strokeWidth="5"
-                  strokeMiterlimit="10"
-                  stroke="rgba(55, 65, 81,1)"
-                  fill="none"
-                  data-name="layer2"
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                ></path>
-                <path
-                  strokeWidth="5"
-                  strokeMiterlimit="10"
-                  stroke="rgba(55, 65, 81,1)"
-                  fill="none"
-                  d="M42.1 21.9V8.169c-10.828 5.992-23.594 17.8-31.528 41.086l2.087 2.086 2.087 2.088C61.553 37.478 62 2 62 2a41.974 41.974 0 0 0-13.147 3.014l-6.634 16.767"
-                  data-name="layer1"
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                ></path>
-              </svg>
+          <h5 className="mb-3">
+            <span className=" font-medium flex text-2xl text-blue-700 handwriting">
+              
               Scrawlo
             </span>
-          </h1>
+          </h5>
 
           <p className=" md:pr-30 xl:pr-42 text-gray-500">
             A personal space for you to start blogging, reading and building

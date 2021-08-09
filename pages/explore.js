@@ -3,12 +3,11 @@ import { Auth, Input, Button, IconSearch, IconMoreHorizontal} from "@supabase/ui
 import supabase from "../utils/initSupabase";
 import {useRouter} from 'next/router';
 import Loader from "react-loader-spinner";
-import UserCard from "../components/usercard";
 import ContentCard from "../components/contentcard";
+import ActionCard from "../components/ActionAuth";
 import {categoryList} from '../constants/categories'
 
- function Home(props){
-    const { user } = Auth.useUser();
+ export default function Explore(props){
     const [loading, setLoading] = useState(true);
     const loadMore=useRef(null);
     const router=useRouter()
@@ -24,33 +23,30 @@ import {categoryList} from '../constants/categories'
   }, [currentCategory, currentRange])
 
   async function fetchPosts() {
-    const user = supabase.auth.user()
+    const {id}=supabase.auth.user
+    if(id){
+        router.push('/home')
+    }
+    else{
     const { data } = await supabase
       .from('posts')
       .select('*')
       .filter('category', 'eq', currentCategory)
       .range(0,currentRange)
-    setPosts(data)
+
+      if(!data){
+        setLoading(false);
+      }
+      else{
+      setLoading(false);
+      setPosts(data)
+      }
+    }
+    
   }
 
 
-    useEffect(()=>{
-        getProfile()
-        async function getProfile(){
-        const {data} = await supabase
-        .from('profile')
-        .select()
-        .filter('user_id', "eq", supabase.auth.user() === null?" ":supabase.auth.user().id)
-        
-        if(!data){
-          setLoading(false);
-        }
-        else{
-        setLoading(false);
-        }
-        }
-      }
-      , [user,loading])
+   
 
 
     
@@ -76,23 +72,15 @@ import {categoryList} from '../constants/categories'
                 </div>)
         }
 
-    if(user){
+    
         return (
-        <div className=" mt-10 flex">
+        <div className=" mt-10 flex flex-col md:flex-row">
             
-            <div className='h-full  w-64 hidden md:block'>
-            <div className="flex justify-between py-3 px-2 align-middle border-b mb-2 w-44">
-              <div className="font-semibold">Recommended</div>
+            <div className='h-full  md:w-64 w-full  block'>
+            <div className=" justify-between py-3 px-2 align-middle border-b mb-2 w-44 hidden md:flex">
+              <div className="font-semibold text-green-500">Quick Link</div>
             </div>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-
-
-<div className="font-light text-sm cursor-pointer text-blue-600">See more...</div>
+<ActionCard/>
             </div>
 
 
@@ -124,8 +112,8 @@ import {categoryList} from '../constants/categories'
 
             <div className='w-full md:hidden block shadow border-2 rounded border-blue-600 mt-5 px-1'>
               <div className="flex justify-between py-3 border-b mb-2">
-              <div className="font-semibold text-blue-600 p-2">Join Big Events 🎊</div>
-              <div className=" text-sm cursor-pointer bg-blue-600 hover:bg-blue-400 text-white p-2 rounded-sm font-semibold">Browse</div>
+              <div className="font-semibold px-2 text-gray-900 mt-2">Join Big Events 🎊</div>
+              <div className=" text-sm cursor-pointer mr-2 bg-blue-600 hover:bg-blue-400 text-white p-2 rounded-sm font-semibold">Browse</div>
             </div>
 
 
@@ -197,23 +185,7 @@ import {categoryList} from '../constants/categories'
         
     )
 }
-else{
-    return props.children
-}
-}
 
 
-export default function AuthProfile() {
-    return (
-      <Auth.UserContextProvider supabaseClient={supabase}>
-        <Home supabaseClient={supabase}>
-          <Auth
-            className="mt-20"
-            supabaseClient={supabase}
-            providers={["github","google"]}
-            socialLayout="horizontal"
-          />
-        </Home>
-      </Auth.UserContextProvider>
-    );
-  }
+
+
