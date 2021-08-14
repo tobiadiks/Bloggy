@@ -30,8 +30,12 @@ import {categoryList} from '../constants/categories'
       .select('*')
       .filter('category', 'eq', currentCategory)
       .range(0,currentRange)
+    
     setPosts(data)
   }
+    
+  
+  
 
 
     useEffect(()=>{
@@ -53,10 +57,9 @@ import {categoryList} from '../constants/categories'
       , [user,loading])
 
 
-    
-
       
 
+      
       
         
       
@@ -84,12 +87,12 @@ import {categoryList} from '../constants/categories'
             <div className="flex justify-between py-3 px-2 align-middle border-b mb-2 w-44">
               <div className="font-semibold">Recommended</div>
             </div>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
-<UserCard useravatar={require('../public/profile.jpg')}/>
+<UserCard useravatar={require('../public/profile.png')}/>
+<UserCard useravatar={require('../public/profile.png')}/>
+<UserCard useravatar={require('../public/profile.png')}/>
+<UserCard useravatar={require('../public/profile.png')}/>
+<UserCard useravatar={require('../public/profile.png')}/>
+<UserCard useravatar={require('../public/profile.png')}/>
 
 
 <div className="font-light text-sm cursor-pointer text-blue-600">See more...</div>
@@ -118,7 +121,7 @@ import {categoryList} from '../constants/categories'
               <div className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
              &&
-              (posts.map((post)=><ContentCard key={post.id} timestamp={post.inserted_at} username={post.username} route={`/${post.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={post.category} useravatar={require('../public/profile.jpg')}/>))}
+              (posts.map((post)=><ContentCard key={post.id} timestamp={post.inserted_at} username={post.username} route={`/${post.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={require('../public/profile.png')}/>))}
             </div>
 
 

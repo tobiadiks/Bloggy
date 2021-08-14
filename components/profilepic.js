@@ -5,7 +5,7 @@ export default function ProfilePic(props){
         <Image
                 objectFit
                 className="mx-auto rounded-full"
-                alt="thinker"
+                alt="profile"
                 src={props.src}
                 height="80"
                 width="80"

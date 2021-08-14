@@ -106,7 +106,7 @@ import {categoryList} from '../constants/categories'
               <div className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
              &&
-              (posts.map((post)=><ContentCard key={post.id} timestamp={post.inserted_at} username={post.username} route={`/${post.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={post.category} useravatar={require('../public/profile.jpg')}/>))}
+              (posts.map((post)=><ContentCard key={post.id} timestamp={post.inserted_at} username={post.username} route={`/${post.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={post.category} useravatar={require('../public/profile.png')}/>))}
             </div>
 
 

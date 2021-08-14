@@ -6,14 +6,17 @@ import dynamic from 'next/dynamic'
 import "easymde/dist/easymde.min.css"
 import supabase from "../../../utils/initSupabase";
 import {categoryList} from '../../../constants/categories'
+import Loader from "react-loader-spinner";
 
-const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
+const SimpleMDEX = dynamic(() => import('react-simplemde-editor'), { ssr: false })
 
 function EditPost() {
   const [post, setPost] = useState(null)
   const router = useRouter()
-  const {username,title}=router.query;
+  const {title}=router.query;
   const [checked, setChecked]=useState(false)
+  const [username, setUserName]=useState(null);
+  const [loading, setLoading] = useState(true);
 
   
   function handleOnChange() {
@@ -23,18 +26,41 @@ function EditPost() {
   useEffect(() => {
     fetchPost()
     async function fetchPost() {
-      if (!username) return
+      if (username){
       const { data } = await supabase
         .from('posts')
         .select("*")
         .filter('username', 'eq', username)
         .filter('title','eq',title.replaceAll('-',' '))
-        
-      setPost(data[0])
+      setPost(data[0]);
+      setLoading(false);
+      }
+      
     }
-  }, [username,title])
+  }, [username,title,router])
+
+  useEffect(()=>{
+    getUserName()
+    
+        async function getUserName(){
+        const user = await supabase.auth.user()
+        if (user){
+        const {data} = await supabase
+        .from('profile')
+        .select('*')
+        .filter('user_id', 'eq', user.id)
+        setUserName(data[0].username)
+        setLoading(false)
+        }
+        else{
+          router.push('/auth')
+        }
+      
+      }
+    }, [username, router])
   
   if (!post) return null
+
   function onChange(e) {
     setPost(() => ({ ...post, [e.target.name]: e.target.value }))
   }
@@ -49,6 +75,20 @@ function EditPost() {
       .match({ id:post.id })
     router.push('/scrawl')
   }
+
+  while (loading){
+    return (<div className="flex justify-center align-middle mt-20">
+                <div className="text-xl mt-5 mx-auto text-gray-800 text-center">
+                <Loader
+            type="Puff"
+            color="rgba(31,41,55)"
+            height={80}
+            width={80}
+            
+          />
+                </div>
+            </div>)
+    }
 
   return (
     <div>
@@ -66,7 +106,7 @@ function EditPost() {
 {categoryList.map((cat)=><Select.Option key={cat}>{cat}</Select.Option>)}
 </Select>
 </div>
-      <SimpleMDE className="text-gray-800" value={post.content} onChange={value => setPost({ ...post, content: value })} />
+     <div><SimpleMDEX  className="text-gray-800" value={post.content} onChange={value => setPost({ ...post, content: value })} /></div>
       <div className="mt-5 mb-5">
 <Checkbox
           checked={post.isPrivate}

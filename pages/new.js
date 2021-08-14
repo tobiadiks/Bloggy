@@ -51,7 +51,7 @@ getUserName()
     const { data } = await supabase
       .from('posts')
       .insert([
-          { title, content,category,isPrivate:checked, user_id: user.id, user_email: user.email,username }
+          { title, content,category,isPrivate:checked, user_id: user.id, user_email: user.email}
       ])
       .single()
      router.push(`/${username}/${title.replaceAll(' ', '-')}`)

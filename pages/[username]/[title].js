@@ -36,7 +36,7 @@ getPost()
       <p className="text-gray-800 text-sm font-light my-4 text-center">by @{post.username}</p>
       <div className="mt-8 text-gray-800">
         {// eslint-disable-next-line react/no-children-prop 
-        <ReactMarkdown className='prose mx-auto' children={post.content} />
+        <ReactMarkdown  className='prose mx-auto' children={post.content} />
         
         }</div>
     </div>
