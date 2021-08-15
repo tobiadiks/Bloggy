@@ -32,9 +32,9 @@ getUserName()
     async function getUserName(){
     const user = await supabase.auth.user()
     const {data} = await supabase
-    .from('profile')
+    .from('profiles')
     .select('*')
-    .filter('user_id', 'eq', user.id)
+    .filter('id', 'eq', user.id)
   setUserName(data[0].username)
   }
 
@@ -51,7 +51,7 @@ getUserName()
     const { data } = await supabase
       .from('posts')
       .insert([
-          { title, content,category,isPrivate:checked, user_id: user.id, user_email: user.email}
+          { title, content,category,isPrivate:checked, user_id: user.id}
       ])
       .single()
      router.push(`/${username}/${title.replaceAll(' ', '-')}`)

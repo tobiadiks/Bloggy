@@ -1,79 +1,74 @@
-// pages/edit-post/[id].js
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+// pages/new.js
+import { useState , useEffect, useCallback} from 'react'
 import {Select, Checkbox, Input} from '@supabase/ui'
+import { v4 as uuid } from 'uuid'
+import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import "easymde/dist/easymde.min.css"
 import supabase from "../../../utils/initSupabase";
 import {categoryList} from '../../../constants/categories'
 import Loader from "react-loader-spinner";
 
-const SimpleMDEX = dynamic(() => import('react-simplemde-editor'), { ssr: false })
+const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
+const initialState = { title: '', content: '',category:'' }
 
-function EditPost() {
-  const [post, setPost] = useState(null)
-  const router = useRouter()
-  const {title}=router.query;
-  const [checked, setChecked]=useState(false)
-  const [username, setUserName]=useState(null);
-  const [loading, setLoading] = useState(true);
-
+function Edit() {
+  const [post, setPost] = useState(initialState)
   
-  function handleOnChange() {
-    setChecked(!checked);
+  const router = useRouter()
+  const [checked, setChecked]=useState(false)
+  const [loading, setLoading] = useState(true);
+const {title}=router.query;
+
+
+const fetchPost=useCallback(()=>{
+const user = supabase.auth.user()
+Get()
+async function Get(){
+    const { data } = await supabase
+      .from('posts')
+      .select(`category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname)`)
+      .filter('user_id', 'eq', user.id)
+      .filter('title', 'eq',  title.replaceAll('-', ' '))
+      // .range(0,currentRange)
+      if(!data){
+        return null
+      }
+      else{
+      setPost(data[0]);
+      setChecked(data[0].isPrivate)
+      setLoading(false)
   }
+    }
+  },[title])
+  
 
   useEffect(() => {
     fetchPost()
-    async function fetchPost() {
-      if (username){
-      const { data } = await supabase
-        .from('posts')
-        .select("*")
-        .filter('username', 'eq', username)
-        .filter('title','eq',title.replaceAll('-',' '))
-      setPost(data[0]);
-      setLoading(false);
-      }
-      
-    }
-  }, [username,title,router])
-
-  useEffect(()=>{
-    getUserName()
+  }, [fetchPost])
+ 
     
-        async function getUserName(){
-        const user = await supabase.auth.user()
-        if (user){
-        const {data} = await supabase
-        .from('profile')
-        .select('*')
-        .filter('user_id', 'eq', user.id)
-        setUserName(data[0].username)
-        setLoading(false)
-        }
-        else{
-          router.push('/auth')
-        }
-      
-      }
-    }, [username, router])
   
-  if (!post) return null
 
   function onChange(e) {
     setPost(() => ({ ...post, [e.target.name]: e.target.value }))
   }
-  
-  async function updateCurrentPost() {
-    if (!post.title || !post.title) return
+
+  function handleOnChange() {
+    setChecked(!checked);
+  }
+
+
+
+  async function UpdatePost() {
+    if (!title || !content) return  
     await supabase
       .from('posts')
       .update([
-          { title:post.title, content:post.content, isPrivate:post.isPrivate, category:post.category}
+          { title, content,category,isPrivate:checked}
       ])
-      .match({ id:post.id })
-    router.push('/scrawl')
+      .single()
+     router.push(`/${post.creator.username}/${post.title.replaceAll(' ', '-')}`)
   }
 
   while (loading){
@@ -92,7 +87,7 @@ function EditPost() {
 
   return (
     <div>
-      <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2">Edit post</h1>
+      <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-10 text-center">Create</h1>
       <Input
         onChange={onChange}
         name="title"
@@ -100,28 +95,36 @@ function EditPost() {
         value={post.title}
         className=" text-lg my-4 focus:outline-none w-full font-light text-gray-500 placeholder-gray-500 "
       /> 
-
+{console.log(post)}
 <div className="mt-5 mb-5">
-<Select name='category' value={post.category}  onChange={onChange}>
+<Select name='category'  onChange={onChange}>
 {categoryList.map((cat)=><Select.Option key={cat}>{cat}</Select.Option>)}
 </Select>
 </div>
-     <div><SimpleMDEX  className="text-gray-800" value={post.content} onChange={value => setPost({ ...post, content: value })} /></div>
-      <div className="mt-5 mb-5">
+      <SimpleMDE
+        className="text-gray-800"
+        value={post.content}
+        onChange={value => setPost({ ...post, content: value })}
+      />
+
+<div className="mt-5 mb-5">
 <Checkbox
-          checked={post.isPrivate}
+          value={checked}
+          checked={checked}
           label="Private"
           description="This will make your post visible to who you want"
           name="isPrivate"
           onChange={handleOnChange}
         />
 </div>
-     
+
       <button
-        className="mb-4 bg-blue-600 text-white font-semibold px-8 py-2 rounded-lg"
-        onClick={updateCurrentPost}>Update Post</button>
+        type="button"
+        className="mb-4 mt-5 bg-green-500 text-white font-semibold px-8 py-2 rounded-lg"
+        onClick={UpdatePost}
+      >Update</button>
     </div>
   )
 }
 
-export default EditPost
+export default Edit;

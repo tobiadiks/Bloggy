@@ -91,10 +91,10 @@ else{
         const user = await supabase.auth.user()
         if(user){
         const {data} = await supabase
-        .from('profile')
+        .from('profiles')
         .select('*')
-        .filter('user_id', 'eq', user.id)
-      setUserName(!data[0]?' ':data[0].username)}
+        .filter('id', 'eq', user.id)
+      setUserName(!data.length?" ":data[0].username)}
       }
     }
       ,[username])

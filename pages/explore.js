@@ -28,12 +28,12 @@ import {categoryList} from '../constants/categories'
         router.push('/home')
     }
     else{
-    const { data } = await supabase
+      const { data } = await supabase
       .from('posts')
-      .select('*')
+      .select(`category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname)`)
       .filter('category', 'eq', currentCategory)
       .range(0,currentRange)
-
+   
       if(!data){
         setLoading(false);
       }
@@ -101,12 +101,13 @@ import {categoryList} from '../constants/categories'
 
 {/* posts */}
             <div>
-            {
+            {!posts.length?
              (<div className="flex justify-center align-middle mt-10">
               <div className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
-             &&
-              (posts.map((post)=><ContentCard key={post.id} timestamp={post.inserted_at} username={post.username} route={`/${post.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={post.category} useravatar={require('../public/profile.png')}/>))}
+             :
+             (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={require('../public/profile.png')}/>))}
+            
             </div>
 
 

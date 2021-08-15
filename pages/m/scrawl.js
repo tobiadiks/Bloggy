@@ -16,20 +16,27 @@ import Loader from "react-loader-spinner";
 
   async function fetchPosts() {
     const user = supabase.auth.user()
-    if(user){
     const { data } = await supabase
       .from('posts')
-      .select('*')
+      .select(`category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname)`)
       .filter('user_id', 'eq', user.id)
-      
-      setPosts(data)
+      // .range(0,currentRange)
+      if(!data){
+        setLoading(false)
+        return null;
+        
       }
+      else{
+      setPosts(data);
+      setLoading(false)
   }
-  async function deletePost(id) {
+  }
+
+  async function deletePost(id,title) {
     await supabase
       .from('posts')
       .delete()
-      .match({ id })
+      .match({ id,title })
     fetchPosts()
   }
 
@@ -40,9 +47,9 @@ import Loader from "react-loader-spinner";
         const user = await supabase.auth.user()
         if (user){
         const {data} = await supabase
-        .from('profile')
+        .from('profiles')
         .select('*')
-        .filter('user_id', 'eq', user.id)
+        .filter('id', 'eq', user.id)
         setUserName(data[0].username)
         }
       
@@ -69,14 +76,14 @@ import Loader from "react-loader-spinner";
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2 text-center">My Scrawls</h1>
       <div className="flex flex-wrap mt-7 w-full justify-around">
       {
-        posts.map((post) => (
-          <div key={post.id} className="border-r border-gray-300	mt-8 pr-1 ">
+        posts.map((post,index) => (
+          <div key={index} className="border-r border-gray-300	mt-8 pr-1 ">
             <h2 className="text-xl font-semibold text-gray-800">{post.title}</h2>
             <Link href={`/m/edit/${post.title.replaceAll(' ', '-')}`} passHref={true}><a className="text-sm mr-4 text-blue-500">Edit</a></Link>
-            <Link href={`/${username}/${post.title.replaceAll(' ','-')}`} passHref={true}><a className="text-sm mr-4 text-blue-500">View</a></Link>
+            <Link href={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} passHref={true}><a className="text-sm mr-4 text-blue-500">View</a></Link>
             <button
               className="text-sm mr-4 text-red-500"
-              onClick={() => deletePost(post.id)}
+              onClick={() => deletePost(post.id,post.title)}
             >Delete</button>
           </div>
         ))

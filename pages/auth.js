@@ -13,9 +13,9 @@ function Profile(props) {
         getProfile()
         async function getProfile(){
         const {data} = await supabase
-        .from('profile')
+        .from('profiles')
         .select()
-        .filter('user_id', "eq", supabase.auth.user() === null?" ":supabase.auth.user().id)
+        .filter('id', "eq", supabase.auth.user() === null?" ":supabase.auth.user().id)
         
         if(!data){
           setLoading(false);

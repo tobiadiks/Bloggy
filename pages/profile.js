@@ -15,9 +15,8 @@ const DynamicImage=dynamic(()=>import('../components/profilepic'), {ssr:false})
 function Profile(props) {
 
   const initialState={
-    user_id:'',
-    firstname:'',
-    lastname:'',
+    id:'',
+    fullname:'',
     phone:'',
     address:'',
     bio:'',
@@ -52,19 +51,18 @@ function Profile(props) {
   }
 
   async function handleFileUpload(entry){
-  await supabase.storage.from('avatar').upload(`${user.id}/avatar`,entry, { cacheControl: 3600,
+  await supabase.storage.from('avatars').upload(`${user.id}/avatar`,entry, { cacheControl: 3600,
     upsert: false})
   }
   
   async function handleFileUploadUpdate(entry){
-    await supabase.storage.from('avatar').update(`${user.id}/avatar`,entry, { cacheControl: 3600,
+    await supabase.storage.from('avatars').update(`${user.id}/avatar`,entry, { cacheControl: 3600,
       upsert: false})
     }
 
   const {
-    user_id,
-    firstname,
-    lastname,
+    id,
+    fullname,
     phone,
     address,
     bio,
@@ -77,7 +75,7 @@ function Profile(props) {
     linkdin,
     google,
     username
-  }=profile;
+  }=profile?profile:initialState;
 
   // profile updates and inputs
 
@@ -88,13 +86,13 @@ useEffect(()=>{
   if(loggedInUser){
      
   const {data} = await supabase
-  .from('profile')
+  .from('profiles')
   .select('*')
-  .filter('user_id', "eq", supabase.auth.user() === null?" ":supabase.auth.user().id)
+  .filter('id', "eq", supabase.auth.user() === null?" ":supabase.auth.user().id)
   
   
   if(!data.length){
-   await supabase.from('profile').insert([{user_id:supabase.auth.user().id}]);
+   await supabase.from('profiles').insert([{id:supabase.auth.user().id}]);
    
     console.log(data)
     setLoading(false);
@@ -102,9 +100,15 @@ useEffect(()=>{
   else{
   setProfile(data[0])
   console.log(data)
-  setCurrentUserName(data[0].username)
+  setCurrentUserName(!data.length?" ":data[0].username)
   setLoading(false);
   }
+
+  
+}
+
+else{
+  router.push('/auth')
 }
 
   }
@@ -114,22 +118,22 @@ useEffect(()=>{
 
 
 function onChange(e){
-setProfile({...profile,user_id:user.id,[e.target.name]: e.target.value})
+setProfile({...profile,id:user.id,[e.target.name]: e.target.value})
 }
 
 
 
 
-const {publicURL}=supabase.storage.from('avatar').getPublicUrl(`${user_id}/avatar`);
+const {publicURL}=supabase.storage.from('avatar').getPublicUrl(`${id}/avatar`);
 async function ProfilePictureSubmit(e){
-  const {publicURL}=await supabase.storage.from('avatar').getPublicUrl(`${user_id}/avatar`);
+  const {publicURL}=await supabase.storage.from('avatar').getPublicUrl(`${id}/avatar`);
   if(!publicURL.length){
-    handleFileUpload(e.target.files[0])
-   await toggle()
+   await handleFileUpload(e.target.files[0])
+    toggle()
   }
   else{
-  handleFileUploadUpdate(e.target.files[0]);
-  await toggle()
+ await handleFileUploadUpdate(e.target.files[0]);
+   toggle()
   }
 
 }
@@ -137,11 +141,11 @@ async function ProfilePictureSubmit(e){
 
 async function setUpdate(){
 await supabase
-.from('profile')
+.from('profiles')
 .update([
 {
-  firstname,
-  lastname,
+  fullname,
+  
   phone,
   address,
   bio,
@@ -156,17 +160,17 @@ await supabase
   
 }
 ])
-.match({user_id})
+.match({id})
 }
 
 async function setInsert(){
-  await supabase.from('profile')
+  await supabase.from('profiles')
   .insert(
     [
       {
-  user_id:supabase.auth.user().id,
-  firstname,
-  lastname,
+  id:supabase.auth.user().id,
+  fullname,
+  
   phone,
   address,
   bio,
@@ -185,9 +189,9 @@ async function setInsert(){
   
 async function Submit(){
   const {data} = await supabase
-  .from('profile')
-  .select('user_id')
-  .match({user_id})
+  .from('profiles')
+  .select('id')
+  .match({id})
   if(!data.length){
     setInsert()
   }
@@ -201,7 +205,7 @@ async function Submit(){
 
 async function InsertUsername(){
   if (username){
-    const {data}= await supabase.from('profile').select('username').filter('username', 'eq',currentUserName)
+    const {data}= await supabase.from('profiles').select('username').filter('username', 'eq',currentUserName)
     if ((currentUserName.length<=2)||(data.length)){
       setUsernameAvailable(false)
       setIsTooltipVisible(true)
@@ -209,13 +213,13 @@ async function InsertUsername(){
     }
     else{
       setUsernameAvailable(true)
-  await supabase.from('profile').update([{username:currentUserName}]).match({user_id})
+  await supabase.from('profiles').update([{username:currentUserName}]).match({id})
   setIsTooltipVisible(true)
   router.push('/profile')
 }
   }
   else{
-    const {data}= await supabase.from('profile').select('username').filter('username', 'eq',currentUserName)
+    const {data}= await supabase.from('profiles').select('username').filter('username', 'eq',currentUserName)
     if ((currentUserName.length<=2)||(data.length)){
       setUsernameAvailable(false)
       setIsTooltipVisible(true)
@@ -224,7 +228,7 @@ async function InsertUsername(){
     }
     else{
       setUsernameAvailable(true)
-  await supabase.from('profile').update([{username:currentUserName}]).match({user_id})
+  await supabase.from('profiles').update([{username:currentUserName}]).match({id})
   setIsTooltipVisible(true)
   router.push('/profile')
 }
@@ -286,19 +290,19 @@ return (<div className="flex justify-center align-middle mt-20">
             <div className={`${isTooltipVisible?'block':'hidden'}`}>{usernameAvailable?<div className='text-xs font-light text-green-600'>Username Saved</div>:<div className='text-xs font-light text-red-600'>Username Taken, Minimum of 3 Character</div>}</div>
             </div>
             <div className="flex flex-col md:flex-row lg:flex-row justify-between">         
-              <div className="flex mt-4 flex-col w-full md:w-1/2 lg:w-1/2">
+              <div className="flex mt-4 flex-col w-full ">
                 <label className="text-gray-500 text-xs font-bold">
-                  First Name
+                  Full Name
                 </label>
                 <input
-                  value={firstname}
+                  value={fullname}
                   onChange={onChange}
-                  name="firstname"
+                  name="fullname"
                   className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
                   type="text"
                 />
               </div>
-              <div className="flex mt-4 flex-col">
+              {/* <div className="flex mt-4 flex-col">
                 <label className="text-gray-500 text-xs font-bold">
                   Last Name
                 </label>
@@ -309,7 +313,7 @@ return (<div className="flex justify-center align-middle mt-20">
                   className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
                   type="text"
                 />
-              </div>
+              </div> */}
             </div>
 
             <div className="flex flex-col mt-4">

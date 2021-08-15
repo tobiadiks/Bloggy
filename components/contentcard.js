@@ -5,10 +5,10 @@ import moment from 'moment'
 
 export default function ContentCard(props){
     return(
-      <Link href={props.route} passHref={true}>
+      
         <div className=" w-full h-auto bg-white p-2 rounded shadow-md border cursor-pointer hover:shadow-lg mb-5">
         <div className="flex justify-between">
- <div className="flex"><CardAvatar src={props.useravatar}/> <div className="flex flex-col ml-2"><span className="text-xs font-medium text-gray-500 hover:text-gray-900">@{props.username}</span><span className="text-xs font-thin text-gray-500 hover:text-gray-900">{moment(props.timestamp).fromNow()}</span>
+ <div className="flex"><CardAvatar src={props.useravatar}/> <div className="flex flex-col ml-2"><span className="text-xs font-semibold text-gray-500 hover:text-gray-900">{props.name}</span><span className="text-xs font-thin text-gray-500 hover:text-gray-900">{moment(props.timestamp).fromNow()}</span>
 </div>
 </div>
 
@@ -16,7 +16,8 @@ export default function ContentCard(props){
         </div>
         
         <div className="mt-2"><span className="text-xs text-white rounded-md p-1 font-medium bg-gray-900 hover:bg-gray-700">{props.category}</span></div>
-        <h3 className="md:text-xl mt-2 text-sm font-semibold text-gray-900 hover:text-blue-600">{props.title}</h3>
+        
+<Link href={props.route} passHref={true}><h3 className="md:text-xl mt-2 text-sm font-semibold text-gray-900 hover:text-blue-600">{props.title}</h3></Link>
 
         <div className="mt-4 flex justify-between">
         <div className="flex">
@@ -42,7 +43,7 @@ export default function ContentCard(props){
 
         </div>
         </div>
-       </Link> 
+        
     
     )
 }

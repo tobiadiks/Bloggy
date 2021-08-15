@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Auth, Input, Button, IconSearch, IconMoreHorizontal} from "@supabase/ui";
 import supabase from "../utils/initSupabase";
 import {useRouter} from 'next/router';
@@ -7,34 +7,52 @@ import UserCard from "../components/usercard";
 import ContentCard from "../components/contentcard";
 import {categoryList} from '../constants/categories'
 
+
  function Home(props){
     const { user } = Auth.useUser();
     const [loading, setLoading] = useState(true);
     const loadMore=useRef(null);
     const router=useRouter()
     const [posts, setPosts] = useState([])
+    const [formattedPosts, setFormattedPosts] = useState()
     const [currentRange, setRange]=useState(10)
     const [currentCategory,setCategory]=useState('programming');
 
     
 
 
-  useEffect(() => {
-    fetchPosts()
-  }, [currentCategory, currentRange])
 
-  async function fetchPosts() {
+
+  const fetchPosts=useCallback(()=>{
+
+ Get()
+  async function Get() {
     const user = supabase.auth.user()
     const { data } = await supabase
       .from('posts')
-      .select('*')
+      .select(`category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname)`)
       .filter('category', 'eq', currentCategory)
       .range(0,currentRange)
-    
-    setPosts(data)
+      if(!data){
+        return null;
+      }
+      else{
+      setPosts(data);
   }
-    
+  }
+
+},[currentCategory,currentRange])
+
+useEffect(()=>{
+  fetchPosts()
+},[fetchPosts])
+
+
   
+  
+
+//  posts.forEach((value)=>{b.push({...posts,creator:getCreator(value.id)})})
+
   
 
 
@@ -42,15 +60,15 @@ import {categoryList} from '../constants/categories'
         getProfile()
         async function getProfile(){
         const {data} = await supabase
-        .from('profile')
-        .select()
-        .filter('user_id', "eq", supabase.auth.user() === null?" ":supabase.auth.user().id)
+        .from('profiles')
+        .select('*')
+        .filter('id', "eq", supabase.auth.user() === null?" ":supabase.auth.user().id)
         
         if(!data){
           setLoading(false);
         }
         else{
-        setLoading(false);
+          setLoading(false);
         }
         }
       }
@@ -116,12 +134,12 @@ import {categoryList} from '../constants/categories'
 
 {/* posts */}
             <div>
-            {
+            {!posts.length?
              (<div className="flex justify-center align-middle mt-10">
               <div className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
-             &&
-              (posts.map((post)=><ContentCard key={post.id} timestamp={post.inserted_at} username={post.username} route={`/${post.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={require('../public/profile.png')}/>))}
+             :
+              (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={require('../public/profile.png')}/>))}
             </div>
 
 
