@@ -16,6 +16,7 @@ function Profile(props) {
 
   const initialState={
     id:'',
+    avatar_url:null,
     fullname:'',
     phone:'',
     address:'',
@@ -62,6 +63,7 @@ function Profile(props) {
 
   const {
     id,
+    avatar_url,
     fullname,
     phone,
     address,
@@ -113,7 +115,7 @@ else{
 
   }
 }
-, [loading])
+, [loading,router])
 
 
 
@@ -124,18 +126,21 @@ setProfile({...profile,id:user.id,[e.target.name]: e.target.value})
 
 
 
-const {publicURL}=supabase.storage.from('avatar').getPublicUrl(`${id}/avatar`);
+
 async function ProfilePictureSubmit(e){
-  const {publicURL}=await supabase.storage.from('avatar').getPublicUrl(`${id}/avatar`);
-  if(!publicURL.length){
+ let picture=await supabase.storage.from('avatars').getPublicUrl(`${id}/avatar`);
+  if(picture){
    await handleFileUpload(e.target.files[0])
+   await supabase
+  .from('profiles')
+  .update([{avatar_url:picture.publicURL}])
+  .match({id})
     toggle()
   }
   else{
  await handleFileUploadUpdate(e.target.files[0]);
    toggle()
   }
-
 }
 
 
@@ -145,7 +150,6 @@ await supabase
 .update([
 {
   fullname,
-  
   phone,
   address,
   bio,
@@ -266,9 +270,9 @@ return (<div className="flex justify-center align-middle mt-20">
           <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 mr-0 md:mr-4 lg:mr-4">
             <div className="mb-5 flex justify-center border-t-8 border-gray-900 pt-6 rounded-t-md">
               {/* imagepic */}
-              <DynamicImage src={`${publicURL?publicURL:require('../public/profile.png')}`}/>
+              <DynamicImage src={!profile.avatar_url===null?profile.avatar_url:require('../public/profile.png')}/>
               <IconCamera onClick={toggleFileUpload}/>
-
+{console.log(profile.avatar_url)}
               <input onChange={ProfilePictureSubmit} accept="image/*" style={{display:'none'}} ref={inputButton} type='file'/>
             </div>
 

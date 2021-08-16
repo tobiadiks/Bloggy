@@ -9,17 +9,16 @@ import supabase from "../utils/initSupabase";
 import {categoryList} from '../constants/categories'
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
-const initialState = { title: '', content: '',category:'' }
+const initialState = { title: '', content: '',category:'technology'}
 
 function New() {
   const [post, setPost] = useState(initialState)
-  const { title,category, content, isPrivate } = post
   const router = useRouter()
   const [username, setUserName]=useState('')
   const [checked, setChecked]=useState(false)
 
   function onChange(e) {
-    setPost(() => ({ ...post, [e.target.name]: e.target.value }))
+    setPost(() => ({...post,[e.target.name]: e.target.value }))
   }
 
   function handleOnChange() {
@@ -38,23 +37,19 @@ getUserName()
   setUserName(data[0].username)
   }
 
-    
-
   },[username])
 
 
   async function createNewPost() {
-    if (!title || !content) return
-    const user = supabase.auth.user()
-    const id = uuid()
-    post.id = id
-    const { data } = await supabase
+    if (!post.title || !post.content) return null
+    const {id} = await supabase.auth.user()
+    await supabase
       .from('posts')
       .insert([
-          { title, content,category,isPrivate:checked, user_id: user.id}
+        { title:post.title, content:post.content,category:post.category,isPrivate:checked,user_id:id}
       ])
-      .single()
-     router.push(`/${username}/${title.replaceAll(' ', '-')}`)
+     router.push(`/${username}/${post.title.replaceAll(' ', '-')}`)
+     
   }
 
   return (
@@ -69,7 +64,7 @@ getUserName()
       /> 
 
 <div className="mt-5 mb-5">
-<Select name='category'  onChange={onChange}>
+<Select name='category' value={post.category}  onChange={onChange}>
 {categoryList.map((cat)=><Select.Option key={cat}>{cat}</Select.Option>)}
 </Select>
 </div>
@@ -81,6 +76,7 @@ getUserName()
 
 <div className="mt-5 mb-5">
 <Checkbox
+          value={checked}
           checked={checked}
           label="Private"
           description="This will make your post visible to who you want"

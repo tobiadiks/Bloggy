@@ -62,7 +62,7 @@ while (loading){
           </div>)
   }
 
-   if (post===null) {
+   if (post===undefined) {
      console.log(post)
     return <div className="text-gray-800 text-3xl mt-20 font-semibold tracking-wide text-center">Not found</div>
   }
