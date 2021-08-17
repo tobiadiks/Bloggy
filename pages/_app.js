@@ -117,7 +117,7 @@ else{
   user && (<>
     <Link href='/new' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer text-green-500  flex hover:text-blue-700"><IconPlus/><span className=" hidden md:flex">&nbsp;New</span></span></Link>
     <Link href='/home' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconHome/><span className=" hidden md:flex">&nbsp;Home</span></span></Link>
-   <Link href={`/m/scrawl`} passHref={true}><span className="mr-4 md:mr-6 cursor-pointer hidden md:flex hover:text-blue-700"><IconEdit/><span className=" hidden md:flex">&nbsp;Edits</span></span></Link>
+   <Link href={`/m/scrawl`} passHref={true}><span className="mr-4 md:mr-6 cursor-pointer flex hover:text-blue-700"><IconEdit/><span className=" hidden md:flex">&nbsp;Edits</span></span></Link>
     {/* <span className="mr-6 cursor-pointer  hidden md:flex hover:text-blue-700"><IconTag/>&nbsp;Tags</span> */}
   {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconBell/><span className=" hidden md:flex">&nbsp;Notification</span></span> */}
     <Link href='/profile' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconUser/><span className=" hidden md:flex">&nbsp;Profile</span></span></Link>

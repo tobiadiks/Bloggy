@@ -30,7 +30,7 @@ import {categoryList} from '../constants/categories'
     const user = supabase.auth.user()
     const { data } = await supabase
       .from('posts')
-      .select(`category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname)`)
+      .select(`category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname,avatar_url)`)
       .filter('category', 'eq', currentCategory)
       .range(0,currentRange)
       if(!data){
@@ -108,9 +108,6 @@ useEffect(()=>{
 <UserCard useravatar={require('../public/profile.png')}/>
 <UserCard useravatar={require('../public/profile.png')}/>
 <UserCard useravatar={require('../public/profile.png')}/>
-<UserCard useravatar={require('../public/profile.png')}/>
-<UserCard useravatar={require('../public/profile.png')}/>
-<UserCard useravatar={require('../public/profile.png')}/>
 
 
 <div className="font-light text-sm cursor-pointer text-blue-600">See more...</div>
@@ -132,6 +129,21 @@ useEffect(()=>{
               </div>
             </div>
 
+ {/* category */}<div className='w-full block md:hidden lg:hidden shadow border mb-3 border-b-8'>
+ <div className="flex justify-between py-3 border-b mb-2 px-1">
+              <div className="font-semibold">Interests</div>
+              <div className="font-light text-sm cursor-pointer text-blue-600">More...</div>
+            </div>
+
+
+
+            <div className="flex flex-wrap px-1">
+            <span className="font-extralight text-white bg-blue-700 px-2  rounded-sm cursor-pointer hover:text-blue-200 mr-2 mb-2">featured</span>
+            {categoryList.map((cat)=><span onClick={()=>setCategory(cat)} key={cat} className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">{cat}</span>)}
+
+            </div>
+            </div>
+
 {/* posts */}
             <div>
             {!posts.length?
@@ -139,7 +151,7 @@ useEffect(()=>{
               <div className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
              :
-              (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={require('../public/profile.png')}/>))}
+              (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url}/>))}
             </div>
 
 
@@ -177,14 +189,14 @@ useEffect(()=>{
             </div>
             
             <div className='h-full  w-64 hidden md:block'>
-            <div className=' w-64 hidden md:block shadow border px-1'>
+        {/* category */}    <div className=' w-64 hidden md:block shadow border px-1'>
               <div className="flex justify-between py-3 border-b mb-2">
               <div className="font-semibold">Interests</div>
               <div className="font-light text-sm cursor-pointer text-blue-600">More...</div>
             </div>
 
 
-{/* category */}
+
             <div className="flex flex-wrap">
             <span className="font-extralight text-white bg-blue-700 px-2  rounded-sm cursor-pointer hover:text-blue-200 mr-2 mb-2">featured</span>
             {categoryList.map((cat)=><span onClick={()=>setCategory(cat)} key={cat} className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">{cat}</span>)}

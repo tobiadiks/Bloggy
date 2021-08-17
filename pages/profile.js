@@ -9,6 +9,7 @@ import {useRouter} from 'next/router'
 
 
 
+
 const DynamicImage=dynamic(()=>import('../components/profilepic'), {ssr:false})
 
 
@@ -51,14 +52,15 @@ function Profile(props) {
     inputButton.current.click();
   }
 
-  async function handleFileUpload(entry){
-  await supabase.storage.from('avatars').upload(`${user.id}/avatar`,entry, { cacheControl: 3600,
-    upsert: false})
-  }
+  // async function handleFileUpload(entry){
+  // await supabase.storage.from('avatars').upload(`${user.id}/avatar`,entry, { cacheControl: 3600,
+  //   upsert: false})
+  // }
   
-  async function handleFileUploadUpdate(entry){
-    await supabase.storage.from('avatars').update(`${user.id}/avatar`,entry, { cacheControl: 3600,
-      upsert: false})
+  async function handleImageUploadUpdate(e){
+    await supabase.storage.from('avatars').update(`${user.id}/avatar`,e.target.files[0], { cacheControl: 3600,
+      upsert: false});
+toggle();
     }
 
   const {
@@ -86,7 +88,6 @@ useEffect(()=>{
   async function getProfile(){
   const loggedInUser=await supabase.auth.user()  
   if(loggedInUser){
-     
   const {data} = await supabase
   .from('profiles')
   .select('*')
@@ -94,14 +95,14 @@ useEffect(()=>{
   
   
   if(!data.length){
-   await supabase.from('profiles').insert([{id:supabase.auth.user().id}]);
-   
-    console.log(data)
+    await supabase.storage.from('avatars').upload(`${supabase.auth.user().id}/avatar`,'../public/profile.png', { cacheControl: 3600,
+      upsert: false});
+   let picture=await supabase.storage.from('avatars').getPublicUrl(`${supabase.auth.user().id}/avatar`);
+   await supabase.from('profiles').insert([{id:loggedInUser.id,avatar_url:picture.publicURL}]);
     setLoading(false);
   }
   else{
   setProfile(data[0])
-  console.log(data)
   setCurrentUserName(!data.length?" ":data[0].username)
   setLoading(false);
   }
@@ -127,21 +128,7 @@ setProfile({...profile,id:user.id,[e.target.name]: e.target.value})
 
 
 
-async function ProfilePictureSubmit(e){
- let picture=await supabase.storage.from('avatars').getPublicUrl(`${id}/avatar`);
-  if(picture){
-   await handleFileUpload(e.target.files[0])
-   await supabase
-  .from('profiles')
-  .update([{avatar_url:picture.publicURL}])
-  .match({id})
-    toggle()
-  }
-  else{
- await handleFileUploadUpdate(e.target.files[0]);
-   toggle()
-  }
-}
+
 
 
 async function setUpdate(){
@@ -174,7 +161,6 @@ async function setInsert(){
       {
   id:supabase.auth.user().id,
   fullname,
-  
   phone,
   address,
   bio,
@@ -270,10 +256,9 @@ return (<div className="flex justify-center align-middle mt-20">
           <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 mr-0 md:mr-4 lg:mr-4">
             <div className="mb-5 flex justify-center border-t-8 border-gray-900 pt-6 rounded-t-md">
               {/* imagepic */}
-              <DynamicImage src={!profile.avatar_url===null?profile.avatar_url:require('../public/profile.png')}/>
+              <DynamicImage src={profile.avatar_url}/>
               <IconCamera onClick={toggleFileUpload}/>
-{console.log(profile.avatar_url)}
-              <input onChange={ProfilePictureSubmit} accept="image/*" style={{display:'none'}} ref={inputButton} type='file'/>
+              <input onChange={handleImageUploadUpdate} accept="image/*" style={{display:'none'}} ref={inputButton} type='file'/>
             </div>
 
             <div className="flex flex-col mt-4">

@@ -6,7 +6,7 @@ export default function ProfilePic(props){
                 objectFit
                 className="mx-auto rounded-full"
                 alt="profile"
-                src={props.src}
+                src={props.src?props.src:require('../public/profile.png')}
                 height="80"
                 width="80"
               />

@@ -34,14 +34,21 @@ getUserName()
     .from('profiles')
     .select('*')
     .filter('id', 'eq', user.id)
-  setUserName(data[0].username)
+    if(data[0]===undefined){
+      router.push('/profile')
+  }
+  else{
+   setUserName(data[0].username)
+  }
   }
 
-  },[username])
+  },[username,router])
 
 
   async function createNewPost() {
-    if (!post.title || !post.content) return null
+    if (!post.title || !post.content) return null;
+    if (username===null) router.push('/profile');
+    else{
     const {id} = await supabase.auth.user()
     await supabase
       .from('posts')
@@ -49,6 +56,7 @@ getUserName()
         { title:post.title, content:post.content,category:post.category,isPrivate:checked,user_id:id}
       ])
      router.push(`/${username}/${post.title.replaceAll(' ', '-')}`)
+    }
      
   }
 
