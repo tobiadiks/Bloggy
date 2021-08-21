@@ -103,21 +103,21 @@ else{
     <div>
 
 <Head>
-        <title>Scrawlo</title>
+        <title>Cstory</title>
         <meta charSet="UTF-8"/>
         <meta name="description" content="Free Space For Everyone"/>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 </Head>
     
       <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-full z-50 flex justify-between flex-row">
-<Link href={`${username?'/home':'/'}`} passHref={true}><span className="cursor-pointer text-lg font-medium text-blue-700 flex handwriting">Scrawlo</span></Link>
+<Link href={`${username?'/home':'/'}`} passHref={true}><span className="cursor-pointer text-lg font-medium text-blue-700 flex handwriting">C<span className='text-gray-700 text-md'>story</span></span></Link>
 
       <div className="text-xs font-medium flex flex-row align-middle">
       {
   user && (<>
     <Link href='/new' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer text-green-500  flex hover:text-blue-700"><IconPlus/><span className=" hidden md:flex">&nbsp;New</span></span></Link>
     <Link href='/home' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconHome/><span className=" hidden md:flex">&nbsp;Home</span></span></Link>
-   <Link href={`/m/scrawl`} passHref={true}><span className="mr-4 md:mr-6 cursor-pointer flex hover:text-blue-700"><IconEdit/><span className=" hidden md:flex">&nbsp;Edits</span></span></Link>
+   <Link href={`/m/story`} passHref={true}><span className="mr-4 md:mr-6 cursor-pointer flex hover:text-blue-700"><IconEdit/><span className=" hidden md:flex">&nbsp;Edits</span></span></Link>
     {/* <span className="mr-6 cursor-pointer  hidden md:flex hover:text-blue-700"><IconTag/>&nbsp;Tags</span> */}
   {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconBell/><span className=" hidden md:flex">&nbsp;Notification</span></span> */}
     <Link href='/profile' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconUser/><span className=" hidden md:flex">&nbsp;Profile</span></span></Link>
@@ -162,7 +162,7 @@ else{
 
       <div className="flex mt-5 flex-col flex-nowrap w-28">
         <h5 className="text-gray-700 text-sm font-bold mb-3">Company</h5>
-        <span className="mt-1">About Scrawlo</span>
+        <span className="mt-1">About cstory</span>
         <span className="mt-1">Career</span>
         <span className="mt-1">Become an Ambassador</span>
       </div>
@@ -209,7 +209,7 @@ else{
 </div>
 
 <div className="flex  flex-row flex-wrap justify-between font-mono text-xs text-gray-500 py-5 px-7 w-screen mb-2">
-  <span>© Scrawlo Inc.</span>
+  <span>© cstory Inc.</span>
   <div>
     <span>Privacy Policy </span>
     &nbsp;

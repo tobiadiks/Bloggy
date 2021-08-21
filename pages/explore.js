@@ -154,7 +154,6 @@ import {categoryList} from '../constants/categories'
 
 {/* category */}
             <div className="flex flex-wrap">
-            <span className="font-extralight text-white bg-blue-700 px-2  rounded-sm cursor-pointer hover:text-blue-200 mr-2 mb-2">featured</span>
             {categoryList.map((cat)=><span onClick={()=>setCategory(cat)} key={cat} className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">{cat}</span>)}
 
             </div>

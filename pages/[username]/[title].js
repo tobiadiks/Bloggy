@@ -69,7 +69,7 @@ while (loading){
   return (
     <div>
       <h1 className="text-gray-800 text-3xl mt-20 font-semibold tracking-wide text-center">{post.title}</h1>
-      <p className="text-gray-800 text-sm font-semibold my-4 text-center">By {post.creator.fullname}</p>
+      <p className="text-gray-800 text-sm font-semibold my-4 text-center">{post.creator.fullname}</p>
       <div className="mt-8 text-gray-800">
         {// eslint-disable-next-line react/no-children-prop 
         <ReactMarkdown  className='prose mx-auto' children={post.content} />

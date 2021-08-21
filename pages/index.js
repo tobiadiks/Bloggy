@@ -36,13 +36,13 @@ export default function Home() {
           <p className="text-blue-700 font-black">world!</p>
         </h1>
         <h5 className="text-gray-600 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">
-          Where your voice will be heard. Scrawlo gives blog space for writers
+          Where your voice will be heard. Cstory gives blog space for writers
           and content creators to write about whatever they want, without being
           censored.
         </h5>
         <Link href="/auth" passHref={true}>
           <span className="bg-blue-700 font-semibold text-white p-2 text-center rounded-md hover:bg-blue-500 z-40">
-            Start a Scrawl
+            Try it free
           </span>
         </Link>
         {/* /profile to / */}
@@ -250,17 +250,17 @@ export default function Home() {
           <div className="w-full md:w-1/3 border border-gray-200 px-2 py-2 mt-1 flex flex-col justify-center md:inline-block lg:inline-block">
             <Image
               className="mx-auto"
-              src={require("../public/scrawler_with_cup.svg")}
-              alt="scrawler_with_cup"
+              src={require("../public/cstory_with_cup.svg")}
+              alt="cstory_with_cup"
               height="350"
               width="350"
             />
             <h5 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full ">
-              Share scrawls with swags
+              Share with swags
             </h5>
             <h6 className="text-gray-500 text-md font-sm tracking-wide mt-2 mb-4 text-left z-40">
-              Create a scrawl and share with your audience. Scrawls are instant,
-              unique for creative expression. Let the world see your scrawls,
+              Create a story and share with your audience. story are instant,
+              unique for creative expression. Let the world see your story,
               including photos, videos, drawings, and more. Make connections
               with strangers through likes, follows, comments and more.
             </h6>
@@ -269,8 +269,8 @@ export default function Home() {
           <div className="w-full md:w-1/3 border-l border-r border-gray-200 px-2 py-2 mt-1 flex flex-col justify-center md:inline-block lg:inline-block">
             <Image
               className="mx-auto"
-              src={require("../public/scrawler_with_pc.svg")}
-              alt="scrawler_with_cup"
+              src={require("../public/cstory_with_pc.svg")}
+              alt="cstory_with_cup"
               height="350"
               width="350"
             />
@@ -279,11 +279,11 @@ export default function Home() {
             </h5>
 
             <h6 className="text-gray-500 text-md font-sm tracking-wide mt-2 mb-4 text-left z-40">
-              Scrawlo promotes your blog, and gives an additional ecosystem for
+              Cstory promotes your blog, and gives an additional ecosystem for
               people to read quickly or click through links. No more lengthy
               introductions and abstracts just to get to the good stuff.
               Bloggers can now focus on what they do best and get readers to
-              visit their blogs directly. Users can simply click on the Scrawlo
+              visit their blogs directly. Users can simply click on the Cstory
               link in the post, which will take them directly to the blog.
             </h6>
           </div>
@@ -291,8 +291,8 @@ export default function Home() {
           <div className="w-full md:w-1/3 border border-gray-200 px-2 py-2 flex flex-col justify-center md:inline-block lg:inline-block">
             <Image
               className="mx-auto"
-              src={require("../public/scrawler_with_bike.svg")}
-              alt="scrawler_with_cup"
+              src={require("../public/cstory_with_bike.svg")}
+              alt="cstory_with_cup"
               height="350"
               width="350"
             />
@@ -300,8 +300,8 @@ export default function Home() {
               Reach your brand goal
             </h5>
             <h6 className="text-gray-500 text-md font-sm tracking-wide  text-left z-40 mt-2">
-              Scrawlo is a tool that helps you create content that gets shared.
-              When used strategically, scrawlo can help you reach your brand
+              Cstory is a tool that helps you create content that gets shared.
+              When used strategically, Cstory can help you reach your brand
               goals, increase engagement, and grow your audience. It&apos;s the
               only tool you need to create amazing original content. We built it
               to be easy to use, with features that help all types of businesses
@@ -324,7 +324,7 @@ export default function Home() {
           <h5 className="mb-3">
             <span className=" font-medium flex text-2xl text-blue-700 handwriting">
               
-              Scrawlo
+              Cstory
             </span>
           </h5>
 

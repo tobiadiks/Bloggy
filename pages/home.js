@@ -17,9 +17,11 @@ import {categoryList} from '../constants/categories'
     const [formattedPosts, setFormattedPosts] = useState()
     const [currentRange, setRange]=useState(10)
     const [currentCategory,setCategory]=useState('programming');
+    const [liked,setLike]=useState(false);
 
     
 
+    
 
 
 
@@ -30,7 +32,7 @@ import {categoryList} from '../constants/categories'
     const user = supabase.auth.user()
     const { data } = await supabase
       .from('posts')
-      .select(`category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname,avatar_url)`)
+      .select(`category,content,inserted_at,isPrivate,title,user_id,id,creator: user_id(username,fullname,avatar_url),featured`)
       .filter('category', 'eq', currentCategory)
       .range(0,currentRange)
       if(!data){
@@ -74,8 +76,10 @@ useEffect(()=>{
       }
       , [user,loading])
 
-
-      
+     async function LikeCount(id){
+        const {count}= await supabase.from('likes').select('post_id',{count:'exact'}).match(id);
+      return count;
+      }
 
       
       
@@ -138,7 +142,6 @@ useEffect(()=>{
 
 
             <div className="flex flex-wrap px-1">
-            <span className="font-extralight text-white bg-blue-700 px-2  rounded-sm cursor-pointer hover:text-blue-200 mr-2 mb-2">featured</span>
             {categoryList.map((cat)=><span onClick={()=>setCategory(cat)} key={cat} className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">{cat}</span>)}
 
             </div>
@@ -151,7 +154,7 @@ useEffect(()=>{
               <div className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
              :
-              (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url}/>))}
+              (posts.map((post, index)=><ContentCard key={index} liked={liked} id={post.id} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url} featured={post.featured}/>))}
             </div>
 
 
@@ -198,7 +201,7 @@ useEffect(()=>{
 
 
             <div className="flex flex-wrap">
-            <span className="font-extralight text-white bg-blue-700 px-2  rounded-sm cursor-pointer hover:text-blue-200 mr-2 mb-2">featured</span>
+            
             {categoryList.map((cat)=><span onClick={()=>setCategory(cat)} key={cat} className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">{cat}</span>)}
 
             </div>

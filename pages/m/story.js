@@ -1,4 +1,4 @@
-// pages/scrawl.js
+// pages/cstory.js
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import supabase from "../../utils/initSupabase";
@@ -18,7 +18,7 @@ import Loader from "react-loader-spinner";
     const user = supabase.auth.user()
     const { data } = await supabase
       .from('posts')
-      .select(`category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname)`)
+      .select(`id,category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname)`)
       .filter('user_id', 'eq', user.id)
       // .range(0,currentRange)
       if(!data){
@@ -73,12 +73,14 @@ import Loader from "react-loader-spinner";
   if (username)  {
   return (
     <div>
-      <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2 text-center">My Scrawls</h1>
-      <div className="flex flex-wrap mt-7 w-full justify-around">
+      <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2 text-center">My Story</h1>
+      <div className="flex flex-wrap mt-7 w-full justify-start">
+      
+      
       {
         posts.map((post,index) => (
-          <div key={index} className="border-r border-gray-300	mt-8 pr-1 ">
-            <h2 className="text-xl font-semibold text-gray-800">{post.title}</h2>
+          <div key={index} className="w-full md:w-1/4 mr-0 md:mr-1 h-auto p-2 rounded shadow-md border cursor-pointer hover:shadow-lg mb-5">
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">{post.title}</h2>
             <Link href={`/m/edit/${post.title.replaceAll(' ', '-')}`} passHref={true}><a className="text-sm mr-4 text-blue-500">Edit</a></Link>
             <Link href={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} passHref={true}><a className="text-sm mr-4 text-blue-500">View</a></Link>
             <button
@@ -88,6 +90,8 @@ import Loader from "react-loader-spinner";
           </div>
         ))
       }
+
+
       </div>
     </div>
   )}
