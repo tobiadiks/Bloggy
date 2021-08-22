@@ -30,7 +30,7 @@ import {categoryList} from '../constants/categories'
     else{
       const { data } = await supabase
       .from('posts')
-      .select(`category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname,avatar_url)`)
+      .select(`category,content,inserted_at,isPrivate,featured,title,user_id, creator: user_id(username,fullname,avatar_url)`)
       .filter('category', 'eq', currentCategory)
       .range(0,currentRange)
    
@@ -106,7 +106,7 @@ import {categoryList} from '../constants/categories'
               <div className="text-sm flex mx-auto font-medium hover:text-purple-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
              :
-             (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url}/>))}
+             (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url} featured={post.featured}/>))}
             
             </div>
 
