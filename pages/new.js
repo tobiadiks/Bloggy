@@ -80,6 +80,7 @@ getUserName()
         className="text-gray-800"
         value={post.content}
         onChange={value => setPost({ ...post, content: value })}
+      
       />
 
 <div className="mt-5 mb-5">
@@ -95,7 +96,7 @@ getUserName()
 
       <button
         type="button"
-        className="mb-4 mt-5 bg-green-500 text-white font-semibold px-8 py-2 rounded-lg"
+        className="mb-4 mt-5 bg-purple-500 text-white font-semibold px-8 py-2 rounded-lg"
         onClick={createNewPost}
       >Create Post</button>
     </div>

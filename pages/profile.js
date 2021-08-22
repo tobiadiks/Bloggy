@@ -273,10 +273,10 @@ return (<div className="flex justify-center align-middle mt-20">
                 onChange={(e)=>setCurrentUserName(e.target.value)}
               />
 
-            { <div className="bg-gray-900 hover:bg-green-600 p-2 text-md rounded-sm text-white font-medium animate-pulse cursor-pointer" onClick={InsertUsername}>{`${usernameAvailable?'Saved':'Check'}`}</div>}
+            { <div className="bg-gray-900 hover:bg-purple-600 p-2 text-md rounded-sm text-white font-medium animate-pulse cursor-pointer" onClick={InsertUsername}>{`${usernameAvailable?'Saved':'Check'}`}</div>}
               
               </div>
-            <div className={`${isTooltipVisible?'block':'hidden'}`}>{usernameAvailable?<div className='text-xs font-light text-green-600'>Username Saved</div>:<div className='text-xs font-light text-red-600'>Username Taken, Minimum of 3 Character</div>}</div>
+            <div className={`${isTooltipVisible?'block':'hidden'}`}>{usernameAvailable?<div className='text-xs font-light text-purple-600'>Username Saved</div>:<div className='text-xs font-light text-red-600'>Username Taken, Minimum of 3 Character</div>}</div>
             </div>
             <div className="flex flex-col md:flex-row lg:flex-row justify-between">         
               <div className="flex mt-4 flex-col w-full ">
@@ -317,7 +317,7 @@ return (<div className="flex justify-center align-middle mt-20">
                   className="border border-gray-300 rounded-sm text-md py-2 pl-1 w-1/2 outline-none text-gray-700 font-extralight"
                   type="password"
                 />
-                <span className="my-auto ml-5 text-blue-500 text-xs font-medium cursor-pointer line-through">
+                <span className="my-auto ml-5 text-purple-500 text-xs font-medium cursor-pointer line-through">
                   CHANGE PASSWORD
                 </span>
               </div>

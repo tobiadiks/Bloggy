@@ -124,7 +124,7 @@ function Edit() {
 
       <button
         type="button"
-        className="mb-4 mt-5 bg-green-500 text-white font-semibold px-8 py-2 rounded-lg"
+        className="mb-4 mt-5 bg-purple-500 text-white font-semibold px-8 py-2 rounded-lg"
         onClick={UpdatePost}
       >
         Update

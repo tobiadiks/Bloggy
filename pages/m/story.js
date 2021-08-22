@@ -81,8 +81,8 @@ import Loader from "react-loader-spinner";
         posts.map((post,index) => (
           <div key={index} className="w-full md:w-1/4 mr-0 md:mr-1 h-auto p-2 rounded shadow-md border cursor-pointer hover:shadow-lg mb-5">
             <h2 className="text-xl font-semibold text-gray-800 mb-2">{post.title}</h2>
-            <Link href={`/m/edit/${post.title.replaceAll(' ', '-')}`} passHref={true}><a className="text-sm mr-4 text-blue-500">Edit</a></Link>
-            <Link href={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} passHref={true}><a className="text-sm mr-4 text-blue-500">View</a></Link>
+            <Link href={`/m/edit/${post.title.replaceAll(' ', '-')}`} passHref={true}><a className="text-sm mr-4 text-purple-500">Edit</a></Link>
+            <Link href={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} passHref={true}><a className="text-sm mr-4 text-purple-500">View</a></Link>
             <button
               className="text-sm mr-4 text-red-500"
               onClick={() => deletePost(post.id,post.title)}

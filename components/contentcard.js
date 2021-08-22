@@ -89,14 +89,14 @@ else{
           {props.category}
         </span>
         {props.featured ? (
-          <span className="text-xs ml-1 text-white rounded-md p-1 font-medium bg-blue-700 hover:bg-blue-600">
+          <span className="text-xs ml-1 text-white rounded-md p-1 font-medium bg-purple-700 hover:bg-purple-600">
             #featured
           </span>
         ) : null}
       </div>
 
       <Link href={props.route} passHref={true}>
-        <h3 className="md:text-xl mt-2 text-sm font-semibold text-gray-900 hover:text-blue-600">
+        <h3 className="md:text-xl mt-2 text-sm font-semibold text-gray-900 hover:text-purple-600">
           {props.title}
         </h3>
       </Link>
@@ -106,10 +106,10 @@ else{
           <div onClick={()=>Like(props.id)} className={`mr-4 flex align-middle hover:text-red-600 ${props.liked?'text-red-700':''}`}>
             <IconHeart />
           </div>
-          {/* <div className="mr-4 hover:text-blue-600">
+          {/* <div className="mr-4 hover:text-purple-600">
             <IconActivity />
           </div> */}
-          <div onClick={()=>Save(props.id)} className="mr-4 hover:text-green-600">
+          <div onClick={()=>Save(props.id)} className="mr-4 hover:text-purple-600">
             <IconSave />
           </div>
         </div>
@@ -117,7 +117,7 @@ else{
         <div className="flex">
           <div
             className="mr-4 flex align-middle justify-center
-             hover:text-blue-600"
+             hover:text-purple-600"
           >
             <IconShare2 />
             &nbsp;<div className="text-xs">Share</div>

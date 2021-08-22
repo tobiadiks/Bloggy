@@ -106,22 +106,24 @@ else{
         <title>Cstory</title>
         <meta charSet="UTF-8"/>
         <meta name="description" content="Free Space For Everyone"/>
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="rgba(109,40,217,1)"/>
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="rgba(109,40,217,1)"/>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 </Head>
     
       <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-full z-50 flex justify-between flex-row">
-<Link href={`${username?'/home':'/'}`} passHref={true}><span className="cursor-pointer text-lg font-medium text-blue-700 flex handwriting">C<span className='text-gray-700 text-md'>story</span></span></Link>
+<Link href={`${username?'/home':'/'}`} passHref={true}><span className="cursor-pointer text-lg font-medium text-purple-700 flex handwriting">C<span className='text-gray-700 text-md'>story</span></span></Link>
 
       <div className="text-xs font-medium flex flex-row align-middle">
       {
   user && (<>
-    <Link href='/new' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer text-green-500  flex hover:text-blue-700"><IconPlus/><span className=" hidden md:flex">&nbsp;New</span></span></Link>
-    <Link href='/home' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconHome/><span className=" hidden md:flex">&nbsp;Home</span></span></Link>
-   <Link href={`/m/story`} passHref={true}><span className="mr-4 md:mr-6 cursor-pointer flex hover:text-blue-700"><IconEdit/><span className=" hidden md:flex">&nbsp;Edits</span></span></Link>
-    {/* <span className="mr-6 cursor-pointer  hidden md:flex hover:text-blue-700"><IconTag/>&nbsp;Tags</span> */}
-  {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconBell/><span className=" hidden md:flex">&nbsp;Notification</span></span> */}
-    <Link href='/profile' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconUser/><span className=" hidden md:flex">&nbsp;Profile</span></span></Link>
-    <span onClick={SignOut} className="mr-0 md:mr-6 cursor-pointer text-blue-700 hover:text-red-600  flex"><IconLogOut/><span className=" hidden md:flex">&nbsp;Log Out</span></span>
+    <Link href='/new' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer text-purple-500  flex hover:text-purple-700"><IconPlus/><span className=" hidden md:flex">&nbsp;New</span></span></Link>
+    <Link href='/home' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconHome/><span className=" hidden md:flex">&nbsp;Home</span></span></Link>
+   <Link href={`/m/story`} passHref={true}><span className="mr-4 md:mr-6 cursor-pointer flex hover:text-purple-700"><IconEdit/><span className=" hidden md:flex">&nbsp;Edits</span></span></Link>
+    {/* <span className="mr-6 cursor-pointer  hidden md:flex hover:text-purple-700"><IconTag/>&nbsp;Tags</span> */}
+  {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconBell/><span className=" hidden md:flex">&nbsp;Notification</span></span> */}
+    <Link href='/profile' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconUser/><span className=" hidden md:flex">&nbsp;Profile</span></span></Link>
+    <span onClick={SignOut} className="mr-0 md:mr-6 cursor-pointer text-purple-700 hover:text-red-600  flex"><IconLogOut/><span className=" hidden md:flex">&nbsp;Log Out</span></span>
  
  </>
   )
@@ -131,10 +133,10 @@ else{
         {
         !user &&
         (<>
-          <Link href='/explore' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconBookOpen/><span className=" hidden md:flex">&nbsp;Explore</span></span></Link>
-          {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconTag/><span className=" hidden md:flex">&nbsp;Tags</span></span> */}
-          {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-blue-700"><IconBell/><span className=" hidden md:flex">&nbsp;Notification</span></span> */}
-        <Link href='/auth' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer text-blue-700  flex hover:text-blue-500"><IconLogIn/><span className=" hidden md:flex">&nbsp;Log In</span></span></Link>
+          <Link href='/explore' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconBookOpen/><span className=" hidden md:flex">&nbsp;Explore</span></span></Link>
+          {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconTag/><span className=" hidden md:flex">&nbsp;Tags</span></span> */}
+          {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconBell/><span className=" hidden md:flex">&nbsp;Notification</span></span> */}
+        <Link href='/auth' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer text-purple-700  flex hover:text-purple-500"><IconLogIn/><span className=" hidden md:flex">&nbsp;Log In</span></span></Link>
         
        {/* /profile to / */}
         </>
@@ -157,7 +159,7 @@ else{
         <span className="mt-1">Feeds</span>
         <span className="mt-1">Trending</span>
         <span className="mt-1">Tags</span>
-        <span className="mt-1 border-b-2 border-green-400 w-16">Hack it</span>
+        <span className="mt-1 border-b-2 border-purple-400 w-16">Hack it</span>
       </div>
 
       <div className="flex mt-5 flex-col flex-nowrap w-28">
@@ -189,8 +191,8 @@ else{
 
 
           <Modal
-        title={<span className="text-green-500">Success</span>}
-        description={<h3 className="text-gray-900">Thanks for subscribing to our <span className="font-bold text-blue-900">Newsletter</span></h3>}
+        title={<span className="text-purple-500">Success</span>}
+        description={<h3 className="text-gray-900">Thanks for subscribing to our <span className="font-bold text-purple-900">Newsletter</span></h3>}
         visible={visibleSuccess}
         onCancel={toggleSuccess}
         onConfirm={toggleSuccess}
@@ -201,7 +203,7 @@ else{
   
   <input ref={inputStatus} value={email} onChange={e=> setEmail(e.target.value)}  placeholder="Email" required type="email" className="pl-2 outline-none border-2 bg-gray-50 border-gray-200 placeholder-gray-500 rounded-md mt-2 mx-auto py-2  w-full md:w-1/3 p-1 text-sm font-normal"/>
   
-  <button ref={buttonStatus} onClick={sendEmailAddress} type="button"  className="p-2 outline-none rounded-md text-sm font-normal bg-green-500 text-white mx-auto mt-2">Subscribe</button>
+  <button ref={buttonStatus} onClick={sendEmailAddress} type="button"  className="p-2 outline-none rounded-md text-sm font-normal bg-purple-500 text-white mx-auto mt-2">Subscribe</button>
   
   <div className="font-mono text-gray-500 text-xs font-medium tracking-wide mt-4 mb-4 text-center block">
   Receive exclusive updates and tips to make you the best creator...

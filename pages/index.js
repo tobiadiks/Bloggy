@@ -33,7 +33,7 @@ export default function Home() {
       <div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52  flex flex-col justify-center">
         <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 text-center z-40">
           All that you need to start writing to the{" "}
-          <p className="text-blue-700 font-black">world!</p>
+          <p className="text-purple-700 font-black">world!</p>
         </h1>
         <h5 className="text-gray-600 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">
           Where your voice will be heard. Cstory gives blog space for writers
@@ -41,7 +41,7 @@ export default function Home() {
           censored.
         </h5>
         <Link href="/auth" passHref={true}>
-          <span className="bg-blue-700 font-semibold text-white p-2 text-center rounded-md hover:bg-blue-500 z-40">
+          <span className="bg-purple-700 font-semibold text-white p-2 text-center rounded-md hover:bg-purple-500 z-40">
             Try it free
           </span>
         </Link>
@@ -322,7 +322,7 @@ export default function Home() {
 
         <div className="mt-1 md:mt-16 md:w-1/2">
           <h5 className="mb-3">
-            <span className=" font-medium flex text-2xl text-blue-700 handwriting">
+            <span className=" font-medium flex text-2xl text-purple-700 handwriting">
               
               Cstory
             </span>
@@ -338,7 +338,7 @@ export default function Home() {
       </div>
       
       <Link href="/auth" passHref={true}>
-          <div className="bg-blue-700 font-semibold text-white p-2 text-center rounded-md hover:bg-blue-500 z-40">
+          <div className="bg-purple-700 font-semibold text-white p-2 text-center rounded-md hover:bg-purple-500 z-40">
             Log In/Sign Up
           </div>
         </Link>

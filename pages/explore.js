@@ -78,7 +78,7 @@ import {categoryList} from '../constants/categories'
             
             <div className='h-full  md:w-64 w-full  block'>
             <div className=" justify-between py-3 px-2 align-middle border-b mb-2 w-44 hidden md:flex">
-              <div className="font-semibold text-green-500">Quick Link</div>
+              <div className="font-semibold text-purple-500">Quick Link</div>
             </div>
 <ActionCard/>
             </div>
@@ -88,13 +88,13 @@ import {categoryList} from '../constants/categories'
             <div className=" w-full md:px-2 px-0 md:w-3/4 ">
             <div className="flex justify-between align-middle py-3 px-2 border-b mb-2">
               <div className="font-semibold mr-2">Posts</div>
-              <div className="font-light text-sm cursor-pointer text-blue-600">
+              <div className="font-light text-sm cursor-pointer text-purple-600">
 <Input
   className="h-1"
   actions={[
-        <Button key='search' size="tiny" type="link" icon={<IconSearch />}>
-          Search
-        </Button>]}
+    <p className='flex text-xs text-white px-2 py-1 rounded bg-purple-300 hover:bg-purple-500' key='search'>
+          <IconSearch />Search
+        </p>]}
 />
               </div>
             </div>
@@ -103,7 +103,7 @@ import {categoryList} from '../constants/categories'
             <div>
             {!posts.length?
              (<div className="flex justify-center align-middle mt-10">
-              <div className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
+              <div className="text-sm flex mx-auto font-medium hover:text-purple-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
              :
              (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url}/>))}
@@ -111,10 +111,10 @@ import {categoryList} from '../constants/categories'
             </div>
 
 
-            <div className='w-full md:hidden block shadow border-2 rounded border-blue-600 mt-5 px-1'>
+            <div className='w-full md:hidden block shadow border-2 rounded border-purple-600 mt-5 px-1'>
               <div className="flex justify-between py-3 border-b mb-2">
               <div className="font-semibold px-2 text-gray-900 mt-2">Join Big Events 🎊</div>
-              <div className=" text-sm cursor-pointer mr-2 bg-blue-600 hover:bg-blue-400 text-white p-2 rounded-sm font-semibold">Browse</div>
+              <div className=" text-sm cursor-pointer mr-2 bg-purple-600 hover:bg-purple-400 text-white p-2 rounded-sm font-semibold">Browse</div>
             </div>
 
 
@@ -140,7 +140,7 @@ import {categoryList} from '../constants/categories'
                 </div> */}
 
                 <div ref={loadMore} className="flex justify-center align-middle mt-10">
-                    <div onClick={()=>setRange((value)=>value+10)} className="text-sm flex mx-auto font-medium hover:text-blue-600 text-gray-800 text-center">Load More&nbsp;...</div>
+                    <div onClick={()=>setRange((value)=>value+10)} className="text-sm flex mx-auto font-medium hover:text-purple-600 text-gray-800 text-center">Load More&nbsp;...</div>
 </div>
             </div>
             
@@ -148,23 +148,23 @@ import {categoryList} from '../constants/categories'
             <div className=' w-64 hidden md:block shadow border px-1'>
               <div className="flex justify-between py-3 border-b mb-2">
               <div className="font-semibold">Interests</div>
-              <div className="font-light text-sm cursor-pointer text-blue-600">More...</div>
+              <div className="font-light text-sm cursor-pointer text-purple-600">More...</div>
             </div>
 
 
 {/* category */}
             <div className="flex flex-wrap">
-            {categoryList.map((cat)=><span onClick={()=>setCategory(cat)} key={cat} className="font-extralight text-gray-800 cursor-pointer hover:text-blue-700 mr-2 mb-2">{cat}</span>)}
+            {categoryList.map((cat)=><span onClick={()=>setCategory(cat)} key={cat} className="font-extralight text-gray-800 cursor-pointer hover:text-purple-700 mr-2 mb-2">{cat}</span>)}
 
             </div>
             </div>
 
 
 
-            <div className=' w-64 hidden md:block shadow border-2 rounded border-blue-600 mt-5 px-1'>
+            <div className=' w-64 hidden md:block shadow border-2 rounded border-purple-600 mt-5 px-1'>
               <div className="flex justify-between py-3 border-b mb-2">
-              <div className="font-semibold text-blue-600 p-2">Join Big Events 🎊</div>
-              <div className=" text-sm cursor-pointer bg-blue-600 hover:bg-blue-400 text-white p-2 rounded-sm font-semibold">Browse</div>
+              <div className="font-semibold text-purple-600 p-2">Join Big Events 🎊</div>
+              <div className=" text-sm cursor-pointer bg-purple-600 hover:bg-purple-400 text-white p-2 rounded-sm font-semibold">Browse</div>
             </div>
 
 
