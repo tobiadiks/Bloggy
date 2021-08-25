@@ -5,7 +5,7 @@ import {useRouter} from 'next/router';
 import Loader from "react-loader-spinner";
 import UserCard from "../components/usercard";
 import ContentCard from "../components/contentcard";
-import {categoryList} from '../constants/categories'
+import {categoryList} from '../constants/categories';
 
 
  function Home(props){
@@ -18,6 +18,7 @@ import {categoryList} from '../constants/categories'
     const [currentRange, setRange]=useState(10)
     const [currentCategory,setCategory]=useState('programming');
     const [liked,setLike]=useState(false);
+    const [search,setSearch]=useState('');
 
     
 
@@ -81,8 +82,11 @@ useEffect(()=>{
       return count;
       }
 
-      
-      
+      async function Search(){
+        if(search){
+     await router.push(`/search?q=${search}`)
+        }
+      }
         
       
 
@@ -125,8 +129,9 @@ useEffect(()=>{
               <div className="font-light text-sm cursor-pointer text-purple-600">
 <Input
   className="h-1"
+  onChange={(e)=>{setSearch(e.target.value)}}
   actions={[
-        <p className='flex text-xs text-white px-2 py-1 rounded bg-purple-300 hover:bg-purple-500' key='search'>
+        <p onClick={Search}  className='flex text-xs text-white px-2 py-1 rounded bg-purple-300 hover:bg-purple-500' key='search'>
           <IconSearch />Search
         </p>]}
 />

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback} from 'react'
 import { Auth, Input, Button, IconSearch, IconMoreHorizontal} from "@supabase/ui";
 import supabase from "../utils/initSupabase";
 import {useRouter} from 'next/router';
@@ -14,15 +14,14 @@ import {categoryList} from '../constants/categories'
     const [posts, setPosts] = useState([])
     const [currentRange, setRange]=useState(10)
     const [currentCategory,setCategory]=useState('programming');
+    const [search,setSearch]=useState('');
+
 
     
+  const fetchPosts=useCallback(()=>{
 
-
-  useEffect(() => {
-    fetchPosts()
-  }, [currentCategory, currentRange])
-
-  async function fetchPosts() {
+    Get()
+  async function Get() {
     const {id}=supabase.auth.user
     if(id){
         router.push('/home')
@@ -44,10 +43,19 @@ import {categoryList} from '../constants/categories'
     }
     
   }
+}, [currentCategory, currentRange, router]);
 
+
+useEffect(() => {
+  fetchPosts()
+}, [fetchPosts])
 
    
-
+  async function Search(){
+    if(search){
+ await router.push(`/search?q=${search}`)
+    }
+  }
 
     
 
@@ -90,9 +98,10 @@ import {categoryList} from '../constants/categories'
               <div className="font-semibold mr-2">Posts</div>
               <div className="font-light text-sm cursor-pointer text-purple-600">
 <Input
+  onChange={(e)=>{setSearch(e.target.value)}}
   className="h-1"
   actions={[
-    <p className='flex text-xs text-white px-2 py-1 rounded bg-purple-300 hover:bg-purple-500' key='search'>
+    <p onClick={Search} className='flex text-xs text-white px-2 py-1 rounded bg-purple-300 hover:bg-purple-500' key='search'>
           <IconSearch />Search
         </p>]}
 />
