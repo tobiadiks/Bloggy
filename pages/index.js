@@ -30,35 +30,25 @@ export default function Home() {
   return (
     <div>
       {/* Copy starts */}
-      <div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52  flex flex-col justify-center">
-        <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 text-center z-40">
+      <div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52 mt-20  flex flex-col">
+        <h1 className="text-gray-800 text-3xl font-semibold tracking-wide text-center z-40">
           All that you need to start writing to the{" "}
-          <p className="text-purple-700 font-black">world!</p>
+          <span className="text-purple-700 font-black">world!</span>
         </h1>
-        <h5 className="text-gray-600 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">
+        <span className="text-gray-600 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">
           Where your voice will be heard. Cstory gives blog space for writers
-          and content creators to write about whatever they want, without being
-          censored.
-        </h5>
+          and content creators to write about whatever they want while building a community.
+        </span>
         <Link href="/auth" passHref={true}>
           <span className="bg-purple-700 font-semibold text-white p-2 text-center rounded-md hover:bg-purple-500 z-40">
             Try it free
           </span>
         </Link>
         {/* /profile to / */}
-        <div className="mt-10 absolute">
-          <Image
-            className=" opacity-40"
-            alt="thinker"
-            src={require("../public/svg.svg")}
-            height="400"
-            width="400"
-          />
-        </div>
       </div>
       {/* Copy ends */}
 
-      <div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-2 justify-center align-middle border-b md:justify-between md:mx-auto w-full border-gray-200 py-10 z-40 md:mt-14 lg:mt-2">
+      <div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-8 justify-center align-middle border-b md:justify-between md:mx-auto w-full border-gray-200 py-10 z-40 md:mt-14 lg:mt-2">
         <div className="flex flex-col justify-center align-middle mt-5 mb-5 mx-auto">
           <svg
             className="mx-auto"
@@ -338,7 +328,7 @@ export default function Home() {
       </div>
       
       <Link href="/auth" passHref={true}>
-          <div className="bg-purple-700 font-semibold text-white p-2 text-center rounded-md hover:bg-purple-500 z-40">
+          <div className="bg-purple-700 font-bold text-white p-2 text-center rounded-md hover:bg-purple-500 z-40">
             Log In/Sign Up
           </div>
         </Link>

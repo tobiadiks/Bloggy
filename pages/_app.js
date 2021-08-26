@@ -103,12 +103,16 @@ else{
     <div>
 
 <Head>
-        <title>Cstory</title>
+        <title>Cstory - building organic community for content creators</title>
         <meta charSet="UTF-8"/>
-        <meta name="description" content="Free Space For Everyone"/>
+        <meta name="language" content="en"/>
+        <meta name="robots" content="index,follow,noodp,noydir"/>
+        <meta name="description" content="Free Space For Everyone, Build Commuinity While Writing"/>
+        <meta name="language" content="en"/>
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="rgba(109,40,217,1)"/>
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="rgba(109,40,217,1)"/>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="canonical" href="https://cstory.vercel.app"/>
 </Head>
     
       <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-full z-50 flex justify-between flex-row">
@@ -202,7 +206,7 @@ else{
   
   <input ref={inputStatus} value={email} onChange={e=> setEmail(e.target.value)}  placeholder="Email" required type="email" className="pl-2 outline-none border-2 bg-gray-50 border-gray-200 placeholder-gray-500 rounded-md mt-2 mx-auto py-2  w-full md:w-1/3 p-1 text-sm font-normal"/>
   
-  <button ref={buttonStatus} onClick={sendEmailAddress} type="button"  className="p-2 outline-none rounded-md text-sm font-normal bg-purple-500 text-white mx-auto mt-2">Subscribe</button>
+  <button ref={buttonStatus} onClick={sendEmailAddress} type="button"  className="p-2 outline-none rounded-md text-sm font-normal bg-purple-700 text-white mx-auto mt-2">Subscribe</button>
   
   <div className="font-mono text-gray-500 text-xs font-medium tracking-wide mt-4 mb-4 text-center block">
   Receive exclusive updates and tips to make you the best creator...
