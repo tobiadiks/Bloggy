@@ -162,6 +162,7 @@ export default function Search(props) {
                   category={`#${post.category}`}
                   useravatar={post.creator.avatar_url}
                   featured={post.featured}
+                  username={post.creator.username}
                 />
               ))
             )}

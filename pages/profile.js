@@ -10,7 +10,7 @@ import {useRouter} from 'next/router'
 
 
 
-const DynamicImage=dynamic(()=>import('../components/profilepic'), {ssr:false})
+const DynamicImage=dynamic(()=>import('../components/profilepic'), {ssr:false});
 
 
 function Profile(props) {
@@ -304,6 +304,16 @@ return (<div className="flex justify-center align-middle mt-20">
                 />
               </div> */}
             </div>
+            <div className="flex flex-col mt-4">
+              <label className="text-gray-500 text-xs font-bold">Bio</label>
+              <input
+                value={bio}
+                onChange={onChange}
+                name="bio"
+                className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
+                type="text"
+              />
+            </div>
 
             <div className="flex flex-col mt-4">
               <label className="text-gray-500 text-xs font-bold">
@@ -334,38 +344,6 @@ return (<div className="flex justify-center align-middle mt-20">
               />
             </div>
 
-            <div className="flex flex-col mt-4">
-              <label className="text-gray-500 text-xs font-bold">Phone</label>
-              <input
-                value={phone}
-                onChange={onChange}
-                name="phone"
-                className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
-                type="phone"
-              />
-            </div>
-
-            <div className="flex flex-col mt-4">
-              <label className="text-gray-500 text-xs font-bold">Address</label>
-              <input
-                value={address}
-                onChange={onChange}
-                name="address"
-                className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
-                type="text"
-              />
-            </div>
-
-            <div className="flex flex-col mt-4">
-              <label className="text-gray-500 text-xs font-bold">Bio</label>
-              <input
-                value={bio}
-                onChange={onChange}
-                name="bio"
-                className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
-                type="text"
-              />
-            </div>
 
             <div className="flex flex-col mt-4">
               <label className="text-gray-500 text-xs font-bold">Country</label>
@@ -497,7 +475,7 @@ return (<div className="flex justify-center align-middle mt-20">
         {/* profile container ends */}
         {/* button */}
         <div style={{display:`${loading?'none':'block'}`}}>
-        <Button className="mt-5 h-10" onClick={Submit} block>
+        <Button className="mt-5 h-10 bg-purple-700" onClick={Submit} block>
             Save
           </Button>
 

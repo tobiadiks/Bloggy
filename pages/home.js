@@ -159,7 +159,7 @@ useEffect(()=>{
               <div className="text-sm flex mx-auto font-medium hover:text-purple-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
              :
-              (posts.map((post, index)=><ContentCard key={index} liked={liked} id={post.id} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url} featured={post.featured}/>))}
+              (posts.map((post, index)=><ContentCard key={index} liked={liked} id={post.id} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url} featured={post.featured} username={post.creator.username}/>))}
             </div>
 
 

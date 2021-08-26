@@ -6,7 +6,7 @@ export default function CardAvatar(props){
                 objectFit
                 className="mx-auto rounded-full"
                 alt="avatar"
-                src={props.src}
+                src={props.src?props.src:require('../public/profile.png')}
                 height="50"
                 width="50"
               />
