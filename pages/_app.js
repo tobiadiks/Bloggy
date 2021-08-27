@@ -103,11 +103,11 @@ else{
     <div>
 
 <Head>
-        <title>Cstory - building organic community for content creators</title>
+        <title>Cstory - Get Hired while building community for content creators</title>
         <meta charSet="UTF-8"/>
         <meta name="language" content="en"/>
         <meta name="robots" content="index,follow,noodp,noydir"/>
-        <meta name="description" content="Free Space For Everyone, Build Commuinity While Writing"/>
+        <meta name="description" content="CStory helps you get hired with your proof of work as a content creator, write in your favorite niche and convince your future employee"/>
         <meta name="language" content="en"/>
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="rgba(109,40,217,1)"/>
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="rgba(109,40,217,1)"/>

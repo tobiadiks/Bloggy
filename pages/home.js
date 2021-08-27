@@ -19,6 +19,7 @@ import {categoryList} from '../constants/categories';
     const [currentCategory,setCategory]=useState('programming');
     const [liked,setLike]=useState(false);
     const [search,setSearch]=useState('');
+    const [follow, setFollow] = useState([]);
 
     
 
@@ -77,6 +78,24 @@ useEffect(()=>{
       }
       , [user,loading])
 
+      useEffect(()=>{
+        getFollow()
+        async function getFollow(){
+        const {data} = await supabase
+        .from('profiles')
+        .select('username,fullname,id,avatar_url')
+        .filter('id', "neq", supabase.auth.user() === null?" ":supabase.auth.user().id)
+        
+        if(!data){
+          return null;
+        }
+        else{
+          setFollow(data)
+        }
+        }
+      }
+      , [user,loading])
+
      async function LikeCount(id){
         const {count}= await supabase.from('likes').select('post_id',{count:'exact'}).match(id);
       return count;
@@ -114,9 +133,12 @@ useEffect(()=>{
               <div className="font-semibold">Recommended</div>
             </div>
 
-<UserCard useravatar={require('../public/profile.png')}/>
-<UserCard useravatar={require('../public/profile.png')}/>
-<UserCard useravatar={require('../public/profile.png')}/>
+{follow?
+  follow.map((connection)=><UserCard key={connection.id} fullname={connection.fullname} username={connection.username} useravatar={connection.avatar_url}/>)
+  :<p>Opps you don&apos;t a connection yet!</p>
+}
+
+
 
 <div className="font-light text-sm cursor-pointer text-purple-600">See more...</div>
             </div>

@@ -29,7 +29,9 @@ function Profile(props) {
     twitter:'',
     facebook:'',
     linkdin:'',
-    google:'',
+    website:'',
+    dribble:'',
+    github:'',
     username:''
   }
 
@@ -77,7 +79,9 @@ toggle();
     twitter,
     facebook,
     linkdin,
-    google,
+    website,
+    dribble,
+    github,
     username
   }=profile?profile:initialState;
 
@@ -147,7 +151,9 @@ await supabase
   twitter,
   facebook,
   linkdin,
-  google,
+  website,
+  dribble,
+  github
   
 }
 ])
@@ -171,7 +177,9 @@ async function setInsert(){
   twitter,
   facebook,
   linkdin,
-  google
+  website,
+  dribble,
+  github
       }
     ]
   )
@@ -196,7 +204,7 @@ async function Submit(){
 async function InsertUsername(){
   if (username){
     const {data}= await supabase.from('profiles').select('username').filter('username', 'eq',currentUserName)
-    if ((currentUserName.length<=2)||(data.length)){
+    if ((currentUserName.length<=2)||(currentUserName.length==='profile')||(currentUserName.length==='auth')||(currentUserName.length==='search')||(currentUserName.length==='home')||(currentUserName.length==='index')||(currentUserName.length==='explore')||(currentUserName.length==='new')||(currentUserName.length==='_app')||(currentUserName.length==='notification')||(currentUserName.length==='setting')||(currentUserName.length==='draft')||(currentUserName.startsWith===0|1|2|3|4|5|6|7|8|9)||(data.length)){
       setUsernameAvailable(false)
       setIsTooltipVisible(true)
       
@@ -254,7 +262,7 @@ return (<div className="flex justify-center align-middle mt-20">
           {/* container 1 start*/}
 
           <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 mr-0 md:mr-4 lg:mr-4">
-            <div className="mb-5 flex justify-center border-t-8 border-gray-900 pt-6 rounded-t-md">
+            <div className="mb-5 flex justify-center border-t-8 border-purple-700 pt-6 rounded-t-md">
               {/* imagepic */}
               <DynamicImage src={profile.avatar_url}/>
               <IconCamera onClick={toggleFileUpload}/>
@@ -273,7 +281,7 @@ return (<div className="flex justify-center align-middle mt-20">
                 onChange={(e)=>setCurrentUserName(e.target.value)}
               />
 
-            { <div className="bg-gray-900 hover:bg-purple-600 p-2 text-md rounded-sm text-white font-medium animate-pulse cursor-pointer" onClick={InsertUsername}>{`${usernameAvailable?'Saved':'Check'}`}</div>}
+            { <div className="bg-purple-700 hover:bg-purple-600 p-2 text-md rounded-sm text-white font-medium animate-pulse cursor-pointer" onClick={InsertUsername}>{`${usernameAvailable?'Saved':'Check'}`}</div>}
               
               </div>
             <div className={`${isTooltipVisible?'block':'hidden'}`}>{usernameAvailable?<div className='text-xs font-light text-purple-600'>Username Saved</div>:<div className='text-xs font-light text-red-600'>Username Taken, Minimum of 3 Character</div>}</div>
@@ -418,6 +426,19 @@ return (<div className="flex justify-center align-middle mt-20">
                   type="text"
                 />
               </div>
+
+              <div className="flex flex-col mt-4">
+                <label className="text-gray-500 text-xs font-bold">
+                  Github
+                </label>
+                <input
+                  value={github}
+                  onChange={onChange}
+                  name="github"
+                  className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
+                  type="text"
+                />
+              </div>
             </div>
             {/* container 2 ends */}
 
@@ -438,7 +459,7 @@ return (<div className="flex justify-center align-middle mt-20">
 
               <div className="flex flex-col">
                 <label className="text-gray-500 text-xs mt-4 md:mt-24 lg:mt-24 font-bold">
-                  Linked In
+                  LinkdIn
                 </label>
                 <input
                   value={linkdin}
@@ -451,12 +472,25 @@ return (<div className="flex justify-center align-middle mt-20">
 
               <div className="flex flex-col mt-4">
                 <label className="text-gray-500 text-xs font-bold">
-                  Google
+                  Dribble
                 </label>
                 <input
-                  value={google}
+                  value={dribble}
                   onChange={onChange}
-                  name="google"
+                  name="dribble"
+                  className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
+                  type="text"
+                />
+              </div>
+
+              <div className="flex flex-col mt-4">
+                <label className="text-gray-500 text-xs font-bold">
+                  Website
+                </label>
+                <input
+                  value={website}
+                  onChange={onChange}
+                  name="website"
                   className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
                   type="text"
                 />

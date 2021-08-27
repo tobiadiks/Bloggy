@@ -3,6 +3,7 @@ import supabase from "../../utils/initSupabase";
 import {useEffect,useState} from 'react'
 import dynamic from 'next/dynamic'
 import Loader from "react-loader-spinner";
+import Head from 'next/head';
 
 
 const ReactMarkdown= dynamic(() => import('react-markdown'), { ssr: false })
@@ -35,7 +36,7 @@ useEffect(()=>{
   const {data}=
   await supabase
   .from('posts')
-  .select('title,content,user_id,creator: user_id(fullname)')
+  .select('title,content,user_id,creator: user_id(fullname,username)')
   .filter('user_id','eq',creator)
   .filter('title','eq',title===undefined?' ':title.replaceAll('-',' '))
  await  setPost(!data?null:data[0])
@@ -63,11 +64,13 @@ while (loading){
   }
 
    if (post===undefined) {
-     console.log(post)
     return <div className="text-gray-800 text-3xl mt-20 font-semibold tracking-wide text-center">Not found</div>
   }
   return (
     <div>
+    <Head>
+            <title>{post.creator.username}-{post.title}</title>
+          </Head>
       <h1 className="text-gray-800 text-3xl mt-20 font-semibold tracking-wide text-center">{post.title}</h1>
       <p className="text-gray-800 text-sm font-semibold my-4 text-center">{post.creator.fullname}</p>
       <div className="mt-8 text-gray-800">

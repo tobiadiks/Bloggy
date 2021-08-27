@@ -5,9 +5,10 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import supabase from "../../utils/initSupabase";
 import { useRouter } from 'next/dist/client/router';
-import { Auth, Input, Button, IconSearch, IconMoreHorizontal} from "@supabase/ui";
+import { Auth, Input, Button, IconSearch, IconMoreHorizontal, IconTwitter, IconDribbble, IconFacebook, IconLinkedin, IconLink, IconGitHub} from "@supabase/ui";
 import Loader from "react-loader-spinner";
 import ContentCard from '../../components/contentcard';
+import Head from 'next/head'
 
 const DynamicImage=dynamic(()=>import('../../components/profilepic'), {ssr:false});
 
@@ -34,7 +35,7 @@ const DynamicImage=dynamic(()=>import('../../components/profilepic'), {ssr:false
             setUserProfile(profile.data[0]);
             const { data } = await supabase
             .from('posts')
-            .select(`id,category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname,avatar_url)`)
+            .select(`id,featured,category,content,inserted_at,isPrivate,title,user_id, creator: user_id(username,fullname,avatar_url)`)
             .filter('user_id', 'eq', userProfile?userProfile.id:'');
             // .range(0,currentRange)
             if(!data){
@@ -48,7 +49,7 @@ const DynamicImage=dynamic(()=>import('../../components/profilepic'), {ssr:false
       }
 
     }
-}, [router,username,userProfile]);
+}, [username,userProfile,router]);
 
 
   
@@ -71,9 +72,54 @@ const DynamicImage=dynamic(()=>import('../../components/profilepic'), {ssr:false
 
       
           return(<div className='mt-20'>
+          <Head>
+            <title>{userProfile.username}-{userProfile.bio?userProfile.bio:''}</title>
+          </Head>
           <div className="flex flex-col md:flex-row w-full  mr-0 md:mr-4 lg:mr-4">
-        <div className='w-full sm:h-auto md:h-72 md:w-1/2 border border-gray-200 mb-8'>
-            profile here
+        <div className='shadow-sm w-full sm:h-auto md:h-72 md:w-full border rounded-t-lg border-gray-200 mb-8 flex flex-col align-middle'>
+          <div className='w-full h-1 bg-purple-700 rounded-t-2xl'></div>
+          <div className='mx-auto rounded-full mt-5'>
+            <DynamicImage src={userProfile.avatar_url}/>
+          </div>
+          <div className='mx-auto mt-5'>
+            <span className='font-black text-2xl border-b-4 border-purple-700'>{userProfile.fullname}</span>
+          </div>
+          {userProfile.bio?
+          <div className='mt-2 px-5'>
+          <p className='text-center text-gray-800'>{userProfile.bio}</p>
+          </div>:<div className='mt-2 px-5'>
+          <p className='text-center text-gray-800'>-</p>
+          </div>
+          }
+
+          <div className='mt-5 px-5 flex flex-col align-middle'>
+          <div className='mx-auto flex flex-row'>
+            {userProfile.twitter?
+            <a target="_blank" rel='noreferrer' href={userProfile.twitter} className='mr-5 md:mr-3 hover:text-blue-600 text-gray-900 font-bold'><IconTwitter/></a>
+            :''}
+            {userProfile.dribble?
+            <a target="_blank" rel='noreferrer' href={userProfile.dribble} className='mr-5 md:mr-3 hover:text-red-500 text-gray-900 font-bold'><IconDribbble/></a>
+            :''}
+            {userProfile.facebook?
+            <a target="_blank" rel='noreferrer' href={userProfile.facebook} className='mr-5 md:mr-3 hover:text-blue-800 text-gray-900 font-bold'><IconFacebook/></a>
+            :''}
+            {userProfile.linkdn?
+            <a target="_blank" rel='noreferrer' href={userProfile.linkdn} className='mr-5 md:mr-3 hover:text-blue-400 text-gray-900 font-bold'><IconLinkedin/></a>
+            :''}
+            {userProfile.github?
+            <a target="_blank" rel='noreferrer' href={userProfile.github} className='mr-5 md:mr-3 hover:text-black text-gray-900 font-bold'><IconGitHub/></a>
+            :''}
+            {userProfile.website?
+            <a target="_blank" rel='noreferrer' href={userProfile.website} className='mr-5 md:mr-3 hover:text-green-500 text-gray-900 font-bold'><IconLink/></a>
+            :''}
+            
+            </div>
+          </div>
+
+          <div className='mx-auto mt-8 md:mb-0 mb-12'>
+          <div className='bg-purple-700 text-white p-2 px-8 rounded font-semibold'>Follow</div>
+          </div>
+
         </div>
 
         <div className='w-full h-auto md:h-screen md:ml-16 overflow-y-scroll md:w-full'>

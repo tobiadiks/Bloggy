@@ -70,9 +70,11 @@ else{
         <div className="flex">
           <CardAvatar src={props.useravatar} />{" "}
           <div className="flex flex-col ml-2">
+          <Link href={`/${props.username}`} passHref={true}>
             <span className="text-xs font-semibold text-gray-500 hover:text-gray-900">
               {props.name}&nbsp;&nbsp;<span className='font-thin'>@{props.username}</span>
             </span>
+            </Link>
             <span className="text-xs font-thin text-gray-500 hover:text-gray-900">
               {moment(props.timestamp).fromNow()}
             </span>
