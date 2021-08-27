@@ -204,7 +204,7 @@ async function Submit(){
 async function InsertUsername(){
   if (username){
     const {data}= await supabase.from('profiles').select('username').filter('username', 'eq',currentUserName)
-    if ((currentUserName.length<=2)||(currentUserName==='profile')||(currentUserName==='auth')||(currentUserName==='search')||(currentUserName==='home')||(currentUserName==='index')||(currentUserName==='explore')||(currentUserName==='new')||(currentUserName==='_app')||(currentUserName==='notification')||(currentUserName==='setting')||(currentUserName==='draft')||(currentUserName.startsWith===0|1|2|3|4|5|6|7|8|9|/|_)||(data.length)){
+    if ((currentUserName.length<=2)||(currentUserName==='profile')||(currentUserName==='auth')||(currentUserName==='search')||(currentUserName==='home')||(currentUserName==='index')||(currentUserName==='explore')||(currentUserName==='new')||(currentUserName==='_app')||(currentUserName==='notification')||(currentUserName==='setting')||(currentUserName==='draft')||(currentUserName.startsWith==='0'||'1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9'||'/'||'_'||'?'||'@'||'%'||'#')||(data.length)){
       setUsernameAvailable(false)
       setIsTooltipVisible(true)
       
