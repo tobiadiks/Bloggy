@@ -177,12 +177,23 @@ function Profile(props) {
     ]);
   }
 
+<<<<<<< HEAD
   async function Submit() {
     const { data } = await supabase.from("profiles").select("id").match({ id });
     if (!data.length) {
       setInsert();
     } else {
       setUpdate();
+=======
+
+async function InsertUsername(){
+  if (username){
+    const {data}= await supabase.from('profiles').select('username').filter('username', 'eq',currentUserName)
+    if ((currentUserName.length<=2)||(currentUserName==='profile')||(currentUserName==='auth')||(currentUserName==='search')||(currentUserName==='home')||(currentUserName==='index')||(currentUserName==='explore')||(currentUserName==='new')||(currentUserName==='_app')||(currentUserName==='notification')||(currentUserName==='setting')||(currentUserName==='draft')||(data.length)){
+      setUsernameAvailable(false)
+      setIsTooltipVisible(true)
+      
+>>>>>>> 2f706578b5d012da36f7c1a12a5f069b111a3481
     }
 
     toggle();
