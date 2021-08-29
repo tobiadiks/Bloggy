@@ -1,56 +1,52 @@
 // pages/profile.js
-import { useState, useEffect, useRef } from 'react'
-import { Auth, Button, Modal, IconCamera , Input} from "@supabase/ui";
+import { useState, useEffect, useRef } from "react";
+import { Auth, Button, Modal, IconCamera, Input } from "@supabase/ui";
 import supabase from "../utils/initSupabase";
 import dynamic from "next/dynamic";
 import Loader from "react-loader-spinner";
-import {useRouter} from 'next/router'
+import { useRouter } from "next/router";
+import Header from '../components/Header'
 
-
-
-
-
-const DynamicImage=dynamic(()=>import('../components/profilepic'), {ssr:false});
-
+const DynamicImage = dynamic(() => import("../components/ProfilePicAvatar"), {
+  ssr: false,
+});
 
 function Profile(props) {
-
-  const initialState={
-    id:'',
-    avatar_url:null,
-    fullname:'',
-    phone:'',
-    address:'',
-    bio:'',
-    country:'',
-    gender:'',
-    dateofbirth:'',
-    language:'',
-    twitter:'',
-    facebook:'',
-    linkdin:'',
-    website:'',
-    dribble:'',
-    github:'',
-    username:''
-  }
+  const initialState = {
+    id: "",
+    avatar_url: null,
+    fullname: "",
+    phone: "",
+    address: "",
+    bio: "",
+    country: "",
+    gender: "",
+    dateofbirth: "",
+    language: "",
+    twitter: "",
+    facebook: "",
+    linkdin: "",
+    website: "",
+    dribble: "",
+    github: "",
+    username: "",
+  };
 
   const { user } = Auth.useUser();
-  const [profile, setProfile]= useState(initialState);
+  const [profile, setProfile] = useState(initialState);
   const [visible, setVisible] = useState(false);
   const inputButton = useRef();
   const [loading, setLoading] = useState(true);
-  const [currentUserName, setCurrentUserName]= useState('')
+  const [currentUserName, setCurrentUserName] = useState("");
   const [usernameAvailable, setUsernameAvailable] = useState(false);
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const router = useRouter();
-  
 
   function toggle() {
     setVisible(!visible);
   }
 
-  function toggleFileUpload(){
+  function toggleFileUpload() {
     inputButton.current.click();
   }
 
@@ -58,12 +54,16 @@ function Profile(props) {
   // await supabase.storage.from('avatars').upload(`${user.id}/avatar`,entry, { cacheControl: 3600,
   //   upsert: false})
   // }
-  
-  async function handleImageUploadUpdate(e){
-    await supabase.storage.from('avatars').update(`${user.id}/avatar`,e.target.files[0], { cacheControl: 3600,
-      upsert: false});
-toggle();
-    }
+
+  async function handleImageUploadUpdate(e) {
+    await supabase.storage
+      .from("avatars")
+      .update(`${user.id}/avatar`, e.target.files[0], {
+        cacheControl: 3600,
+        upsert: false,
+      });
+    toggle();
+  }
 
   const {
     id,
@@ -82,181 +82,182 @@ toggle();
     website,
     dribble,
     github,
-    username
-  }=profile?profile:initialState;
+    username,
+  } = profile ? profile : initialState;
 
   // profile updates and inputs
 
-useEffect(()=>{
-  getProfile()
-  async function getProfile(){
-  const loggedInUser=await supabase.auth.user()  
-  if(loggedInUser){
-  const {data} = await supabase
-  .from('profiles')
-  .select('*')
-  .filter('id', "eq", supabase.auth.user() === null?" ":supabase.auth.user().id)
-  
-  
-  if(!data.length){
-    await supabase.storage.from('avatars').upload(`${supabase.auth.user().id}/avatar`,'../public/profile.png', { cacheControl: 3600,
-      upsert: false});
-   let picture=await supabase.storage.from('avatars').getPublicUrl(`${supabase.auth.user().id}/avatar`);
-   await supabase.from('profiles').insert([{id:loggedInUser.id,avatar_url:picture.publicURL}]);
-    setLoading(false);
-  }
-  else{
-  setProfile(data[0])
-  setCurrentUserName(!data.length?" ":data[0].username)
-  setLoading(false);
-  }
+  useEffect(() => {
+    getProfile();
+    async function getProfile() {
+      const loggedInUser = await supabase.auth.user();
+      if (loggedInUser) {
+        const { data } = await supabase
+          .from("profiles")
+          .select("*")
+          .filter(
+            "id",
+            "eq",
+            supabase.auth.user() === null ? " " : supabase.auth.user().id
+          );
 
-  
-}
-
-else{
-  router.push('/auth')
-}
-
-  }
-}
-, [loading,router])
-
-
-
-function onChange(e){
-setProfile({...profile,id:user.id,[e.target.name]: e.target.value})
-}
-
-
-
-
-
-
-
-
-async function setUpdate(){
-await supabase
-.from('profiles')
-.update([
-{
-  fullname,
-  phone,
-  address,
-  bio,
-  country,
-  gender,
-  dateofbirth,
-  language,
-  twitter,
-  facebook,
-  linkdin,
-  website,
-  dribble,
-  github
-  
-}
-])
-.match({id})
-}
-
-async function setInsert(){
-  await supabase.from('profiles')
-  .insert(
-    [
-      {
-  id:supabase.auth.user().id,
-  fullname,
-  phone,
-  address,
-  bio,
-  country,
-  gender,
-  dateofbirth,
-  language,
-  twitter,
-  facebook,
-  linkdin,
-  website,
-  dribble,
-  github
+        if (!data.length) {
+          await supabase.storage
+            .from("avatars")
+            .upload(
+              `${supabase.auth.user().id}/avatar`,
+              "../public/profile.png",
+              { cacheControl: 3600, upsert: false }
+            );
+          let picture = await supabase.storage
+            .from("avatars")
+            .getPublicUrl(`${supabase.auth.user().id}/avatar`);
+          await supabase
+            .from("profiles")
+            .insert([{ id: loggedInUser.id, avatar_url: picture.publicURL }]);
+          setLoading(false);
+        } else {
+          setProfile(data[0]);
+          setCurrentUserName(!data.length ? " " : data[0].username);
+          setLoading(false);
+        }
+      } else {
+        router.push("/auth");
       }
-    ]
-  )
-  }
-  
-async function Submit(){
-  const {data} = await supabase
-  .from('profiles')
-  .select('id')
-  .match({id})
-  if(!data.length){
-    setInsert()
-  }
-  else{
-  setUpdate()
-  }
-
-  toggle()
-}
-
-
-async function InsertUsername(){
-  if (username){
-    const {data}= await supabase.from('profiles').select('username').filter('username', 'eq',currentUserName)
-    if ((currentUserName.length<=2)||(currentUserName.length==='profile')||(currentUserName.length==='auth')||(currentUserName.length==='search')||(currentUserName.length==='home')||(currentUserName.length==='index')||(currentUserName.length==='explore')||(currentUserName.length==='new')||(currentUserName.length==='_app')||(currentUserName.length==='notification')||(currentUserName.length==='setting')||(currentUserName.length==='draft')||(currentUserName.startsWith===0|1|2|3|4|5|6|7|8|9)||(data.length)){
-      setUsernameAvailable(false)
-      setIsTooltipVisible(true)
-      
     }
-    else{
-      setUsernameAvailable(true)
-  await supabase.from('profiles').update([{username:currentUserName}]).match({id})
-  setIsTooltipVisible(true)
-  router.push('/profile')
-}
+  }, [loading, router]);
+
+  function onChange(e) {
+    setProfile({ ...profile, id: user.id, [e.target.name]: e.target.value });
   }
-  else{
-    const {data}= await supabase.from('profiles').select('username').filter('username', 'eq',currentUserName)
-    if ((currentUserName.length<=2)||(data.length)){
-      setUsernameAvailable(false)
-      setIsTooltipVisible(true)
-      
-      
+
+  async function setUpdate() {
+    await supabase
+      .from("profiles")
+      .update([
+        {
+          fullname,
+          phone,
+          address,
+          bio,
+          country,
+          gender,
+          dateofbirth,
+          language,
+          twitter,
+          facebook,
+          linkdin,
+          website,
+          dribble,
+          github,
+        },
+      ])
+      .match({ id });
+  }
+
+  async function setInsert() {
+    await supabase.from("profiles").insert([
+      {
+        id: supabase.auth.user().id,
+        fullname,
+        phone,
+        address,
+        bio,
+        country,
+        gender,
+        dateofbirth,
+        language,
+        twitter,
+        facebook,
+        linkdin,
+        website,
+        dribble,
+        github,
+      },
+    ]);
+  }
+
+  async function Submit() {
+    const { data } = await supabase.from("profiles").select("id").match({ id });
+    if (!data.length) {
+      setInsert();
+    } else {
+      setUpdate();
     }
-    else{
-      setUsernameAvailable(true)
-  await supabase.from('profiles').update([{username:currentUserName}]).match({id})
-  setIsTooltipVisible(true)
-  router.push('/profile')
-}
+
+    toggle();
   }
-}
 
+  async function InsertUsername() {
+    if (username) {
+      const { data } = await supabase
+        .from("profiles")
+        .select("username")
+        .filter("username", "eq", currentUserName);
+      if (
+        currentUserName.length <= 2 ||
+        currentUserName.length === "profile" ||
+        currentUserName.length === "auth" ||
+        currentUserName.length === "search" ||
+        currentUserName.length === "home" ||
+        currentUserName.length === "index" ||
+        currentUserName.length === "explore" ||
+        currentUserName.length === "new" ||
+        currentUserName.length === "_app" ||
+        currentUserName.length === "notification" ||
+        currentUserName.length === "setting" ||
+        currentUserName.length === "draft" ||
+        data.length
+      ) {
+        setUsernameAvailable(false);
+        setIsTooltipVisible(true);
+      } else {
+        setUsernameAvailable(true);
+        await supabase
+          .from("profiles")
+          .update([{ username: currentUserName }])
+          .match({ id });
+        setIsTooltipVisible(true);
+        router.push("/profile");
+      }
+    } else {
+      const { data } = await supabase
+        .from("profiles")
+        .select("username")
+        .filter("username", "eq", currentUserName);
+      if (currentUserName.length <= 2 || data.length) {
+        setUsernameAvailable(false);
+        setIsTooltipVisible(true);
+      } else {
+        setUsernameAvailable(true);
+        await supabase
+          .from("profiles")
+          .update([{ username: currentUserName }])
+          .match({ id });
+        setIsTooltipVisible(true);
+        router.push("/profile");
+      }
+    }
+  }
 
-while (loading){
-return (<div className="flex justify-center align-middle mt-20">
-            <div className="text-xl mt-5 mx-auto text-gray-800 text-center">
-            <Loader
-        type="Puff"
-        color="rgba(31,41,55)"
-        height={80}
-        width={80}
-        
-      />
-            </div>
-        </div>)
-}
+  while (loading) {
+    return (
+      <div className="flex justify-center align-middle mt-20">
+        <div className="text-xl mt-5 mx-auto text-gray-800 text-center">
+          <Loader type="Puff" color="rgba(31,41,55)" height={80} width={80} />
+        </div>
+      </div>
+    );
+  }
 
   if (user)
     return (
       <div className="mt-10">
+      <Header title='Cstory-Profile'/>
         {/* profile starts */}
-
 
         {/* profile container starts */}
         {/* Loader Condition Opens */}
-
 
         <div className="flex w-full mb-12 flex-col md:flex-row lg:flex-row">
           {/* container 1 start*/}
@@ -264,29 +265,53 @@ return (<div className="flex justify-center align-middle mt-20">
           <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 mr-0 md:mr-4 lg:mr-4">
             <div className="mb-5 flex justify-center border-t-8 border-purple-700 pt-6 rounded-t-md">
               {/* imagepic */}
-              <DynamicImage src={profile.avatar_url}/>
-              <IconCamera onClick={toggleFileUpload}/>
-              <input onChange={handleImageUploadUpdate} accept="image/*" style={{display:'none'}} ref={inputButton} type='file'/>
+              <DynamicImage src={profile.avatar_url} />
+              <IconCamera onClick={toggleFileUpload} />
+              <input
+                onChange={handleImageUploadUpdate}
+                accept="image/*"
+                style={{ display: "none" }}
+                ref={inputButton}
+                type="file"
+              />
             </div>
 
             <div className="flex flex-col mt-4">
-              <label className="text-gray-500 text-xs font-bold">Username</label>
-             <div className='flex justify-between'>
-              <input
-                minLength='3'
-                value={`${currentUserName?currentUserName:''}`}
-                name="username"
-                className="border mr-4 border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight w-3/4"
-                type="text"
-                onChange={(e)=>setCurrentUserName(e.target.value)}
-              />
+              <label className="text-gray-500 text-xs font-bold">
+                Username
+              </label>
+              <div className="flex justify-between">
+                <input
+                  minLength="3"
+                  value={`${currentUserName ? currentUserName : ""}`}
+                  name="username"
+                  className="border mr-4 border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight w-3/4"
+                  type="text"
+                  onChange={(e) =>
+                    setCurrentUserName(e.target.value.trim().toLowerCase())
+                  }
+                />
 
-            { <div className="bg-purple-700 hover:bg-purple-600 p-2 text-md rounded-sm text-white font-medium animate-pulse cursor-pointer" onClick={InsertUsername}>{`${usernameAvailable?'Saved':'Check'}`}</div>}
-              
+                {
+                  <div
+                    className="bg-purple-700 hover:bg-purple-600 p-2 text-md rounded-sm text-white font-medium animate-pulse cursor-pointer"
+                    onClick={InsertUsername}
+                  >{`${usernameAvailable ? "Saved" : "Check"}`}</div>
+                }
               </div>
-            <div className={`${isTooltipVisible?'block':'hidden'}`}>{usernameAvailable?<div className='text-xs font-light text-purple-600'>Username Saved</div>:<div className='text-xs font-light text-red-600'>Username Taken, Minimum of 3 Character</div>}</div>
+              <div className={`${isTooltipVisible ? "block" : "hidden"}`}>
+                {usernameAvailable ? (
+                  <div className="text-xs font-light text-purple-600">
+                    Username Saved
+                  </div>
+                ) : (
+                  <div className="text-xs font-light text-red-600">
+                    Username Taken, Minimum of 3 Character
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="flex flex-col md:flex-row lg:flex-row justify-between">         
+            <div className="flex flex-col md:flex-row lg:flex-row justify-between">
               <div className="flex mt-4 flex-col w-full ">
                 <label className="text-gray-500 text-xs font-bold">
                   Full Name
@@ -352,7 +377,6 @@ return (<div className="flex justify-center align-middle mt-20">
               />
             </div>
 
-
             <div className="flex flex-col mt-4">
               <label className="text-gray-500 text-xs font-bold">Country</label>
               <input
@@ -372,14 +396,16 @@ return (<div className="flex justify-center align-middle mt-20">
             {/* container 2 start*/}
             <div className="flex flex-col w-full mr-2">
               <div className="flex flex-col mt-4 md:mt-0 lg:mt-0">
-                <label
-                  
-                  className="text-gray-500 text-xs font-bold"
-                >
+                <label className="text-gray-500 text-xs font-bold">
                   Gender
                 </label>
-                <select value={gender} name="gender" onChange={onChange} className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight">
-                <option value="--">--</option>
+                <select
+                  value={gender}
+                  name="gender"
+                  onChange={onChange}
+                  className="border border-gray-300 rounded-sm text-md py-2 pl-1 outline-none text-gray-700 font-extralight"
+                >
+                  <option value="--">--</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="Prefer not to say">Prefer not to say</option>
@@ -499,31 +525,32 @@ return (<div className="flex justify-center align-middle mt-20">
 
             {/* container 3 ends */}
           </div>
-         
 
           {/* 2 and 3 end */}
         </div>
-        
 
-        
         {/* profile container ends */}
         {/* button */}
-        <div style={{display:`${loading?'none':'block'}`}}>
-        <Button className="mt-5 h-10 bg-purple-700" onClick={Submit} block>
+        <div style={{ display: `${loading ? "none" : "block"}` }}>
+          <Button className="mt-5 h-10 bg-purple-700" onClick={Submit} block>
             Save
           </Button>
 
           <Modal
-          title="Successful"
-        description="Updated Successfully!!!"
-        visible={visible}
-        onCancel={toggle}
-        onConfirm={toggle}
-        hideFooter
+            title="Successful"
+            description="Updated Successfully!!!"
+            visible={visible}
+            onCancel={toggle}
+            onConfirm={toggle}
+            hideFooter
+          ></Modal>
+
+          <Button
+            danger
+            block
+            className="mt-5 h-10"
+            onClick={() => props.supabaseClient.auth.signOut()}
           >
-          </Modal>
-       
-          <Button danger block className="mt-5 h-10"  onClick={() => props.supabaseClient.auth.signOut()}>
             Sign out
           </Button>
         </div>
@@ -531,14 +558,10 @@ return (<div className="flex justify-center align-middle mt-20">
       </div>
       // profile ends
     );
-
-
-else{
-
-  return props.children;
+  else {
+    return props.children;
+  }
 }
-}
-
 
 export default function AuthProfile() {
   return (
@@ -547,7 +570,7 @@ export default function AuthProfile() {
         <Auth
           className="mt-20"
           supabaseClient={supabase}
-          providers={["github","google"]}
+          providers={["github", "google"]}
           socialLayout="horizontal"
         />
       </Profile>

@@ -1,14 +1,14 @@
 import Image from "next/image";
 
-export default function CardAvatar(props){
+export default function ProfilePicAvatar(props){
     return(
         <Image
                 objectFit
                 className="mx-auto rounded-full shadow-sm"
-                alt="avatar"
+                alt="profile"
                 src={props.src?props.src:require('../public/profile.png')}
-                height="50"
-                width="50"
+                height="80"
+                width="80"
               />
     )
 }

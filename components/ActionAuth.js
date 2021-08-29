@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 
-export default function ActionCard(props){
+export default function LoginActionCard(props){
     return(
        
         <div className=" w-full md:w-44 bg-white p-2 border rounded shadow-md mb-5">

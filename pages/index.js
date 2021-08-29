@@ -2,46 +2,46 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import supabase from "../utils/initSupabase";
+// import supabase from "../utils/initSupabase";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
+// import Loader from "react-loader-spinner";
+import Header from '../components/Header';
+import {IconArrowRight} from '@supabase/ui'
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
  
 
-  useEffect(() => {
-    fetchPosts();
-    const mySubscription = supabase
-      .from("posts")
-      .on("*", () => fetchPosts())
-      .subscribe();
-    return () => supabase.removeSubscription(mySubscription);
-  }, []);
-  async function fetchPosts() {
-    const { data, error } = await supabase.from("posts").select();
-    setPosts(data);
-    setLoading(false);
-  }
+  // useEffect(() => {
+  //   fetchPosts();
+  //   const mySubscription = supabase
+  //     .from("posts")
+  //     .on("*", () => fetchPosts())
+  //     .subscribe();
+  //   return () => supabase.removeSubscription(mySubscription);
+  // }, []);
+  // async function fetchPosts() {
+  //   const { data, error } = await supabase.from("posts").select();
+  //   setPosts(data);
+  //   setLoading(false);
+  // }
 
   
 
   return (
     <div>
+    <Header/>
       {/* Copy starts */}
       <div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52 mt-20  flex flex-col">
-        <h1 className="text-gray-800 text-3xl font-semibold tracking-wide text-center z-40">
-          All that you need to start writing to the{" "}
-          <span className="text-purple-700 font-black">world!</span>
+        <h1 className="text-gray-800  text-4xl font-bold tracking-wide text-center mb-10 z-40">
+          Setup your micro-blogging community
+          <br/>
+          <span className="text-purple-700 font-black">without writing any line of code</span>
         </h1>
-        <span className="text-gray-600 text-md font-medium tracking-wide mt-2 mb-4 text-center z-40">
-          Where your voice will be heard. Cstory gives blog space for writers
-          and content creators to write about whatever they want while building a community.
-        </span>
         <Link href="/auth" passHref={true}>
-          <span className="bg-purple-700 font-semibold text-white p-2 text-center rounded-md hover:bg-purple-500 z-40">
-            Try it free
+          <span className="bg-purple-700 flex align-middle justify-center font-semibold text-white p-2 py-4 text-center rounded-md hover:bg-purple-500 z-40 animate-bounce">
+            Get Started&nbsp;<b className='py-auto my-auto'><IconArrowRight/></b>
           </span>
         </Link>
         {/* /profile to / */}
@@ -93,7 +93,7 @@ export default function Home() {
           </svg>
 
           <span className="text-gray-500 font-bold text-center text-sm mt-3 mx-auto">
-            Launch your space
+            Launch
           </span>
         </div>
 
@@ -187,7 +187,7 @@ export default function Home() {
           </svg>
 
           <span className="text-gray-500 font-bold text-center text-sm mt-3 mx-auto">
-            Connect & build your community
+            Connect & Build
           </span>
         </div>
 
@@ -226,7 +226,7 @@ export default function Home() {
           </svg>
 
           <span className="text-gray-500 font-bold text-center text-sm mt-3 mx-auto">
-            Learn from <b>PRO</b> creators
+            Be a <b>PRO</b> creators
           </span>
         </div>
       </div>
@@ -249,10 +249,7 @@ export default function Home() {
               Share with swags
             </h5>
             <h6 className="text-gray-500 text-md font-sm tracking-wide mt-2 mb-4 text-left z-40">
-              Create a story and share with your audience. story are instant,
-              unique for creative expression. Let the world see your story,
-              including photos, videos, drawings, and more. Make connections
-              with strangers through likes, follows, comments and more.
+              Create a story and share with your audience.
             </h6>
           </div>
 
@@ -265,16 +262,12 @@ export default function Home() {
               width="350"
             />
             <h5 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full ">
-              Free space for everyone
+              Minimalist Interface
             </h5>
 
             <h6 className="text-gray-500 text-md font-sm tracking-wide mt-2 mb-4 text-left z-40">
-              Cstory promotes your blog, and gives an additional ecosystem for
-              people to read quickly or click through links. No more lengthy
-              introductions and abstracts just to get to the good stuff.
               Bloggers can now focus on what they do best and get readers to
-              visit their blogs directly. Users can simply click on the Cstory
-              link in the post, which will take them directly to the blog.
+              visit their blogs directly.
             </h6>
           </div>
 
@@ -287,15 +280,11 @@ export default function Home() {
               width="350"
             />
             <h5 className="text-gray-600 text-xl font-semibold tracking-wide text-left z-40 w-full">
-              Reach your brand goal
+              Reach your goal
             </h5>
             <h6 className="text-gray-500 text-md font-sm tracking-wide  text-left z-40 mt-2">
-              Cstory is a tool that helps you create content that gets shared.
-              When used strategically, Cstory can help you reach your brand
-              goals, increase engagement, and grow your audience. It&apos;s the
-              only tool you need to create amazing original content. We built it
-              to be easy to use, with features that help all types of businesses
-              produce engaging content quickly and easily.
+              Cstory help you reach your brand
+              goals, increase engagement, and grow your audience.
             </h6>
           </div>
         </div>
@@ -328,7 +317,7 @@ export default function Home() {
       </div>
       
       <Link href="/auth" passHref={true}>
-          <div className="bg-purple-700 font-bold text-white p-2 text-center rounded-md hover:bg-purple-500 z-40">
+          <div className="bg-purple-700 font-bold text-white p-2 py-4 shadow-sm text-center rounded-md hover:bg-purple-500 z-40">
             Log In/Sign Up
           </div>
         </Link>

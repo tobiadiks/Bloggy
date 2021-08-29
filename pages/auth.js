@@ -3,6 +3,7 @@ import { Auth} from "@supabase/ui";
 import supabase from "../utils/initSupabase";
 import {useRouter} from 'next/router';
 import Loader from "react-loader-spinner";
+import Header from '../components/Header';
 
 function Profile(props) {
     const { user } = Auth.useUser();
@@ -48,7 +49,10 @@ function Profile(props) {
             }
 
             else{
-            return props.children;
+            return (<>
+              <Header title='Cstory-Login|Signup'/>
+              {props.children}
+              </>);
             }
 
 

@@ -3,9 +3,10 @@ import { Auth, Input, Button, IconSearch, IconMoreHorizontal} from "@supabase/ui
 import supabase from "../utils/initSupabase";
 import {useRouter} from 'next/router';
 import Loader from "react-loader-spinner";
-import ContentCard from "../components/contentcard";
-import ActionCard from "../components/ActionAuth";
+import ContentCard from "../components/ContentCard";
+import LoginActionCard from "../components/ActionAuth";
 import {categoryList} from '../constants/categories'
+import Header from '../components/Header'
 
  export default function Explore(props){
     const [loading, setLoading] = useState(true);
@@ -83,12 +84,12 @@ useEffect(() => {
     
         return (
         <div className=" mt-10 flex flex-col md:flex-row">
-            
+        <Header title='Cstory - Explore'/>
             <div className='h-full  md:w-64 w-full  block'>
             <div className=" justify-between py-3 px-2 align-middle border-b mb-2 w-44 hidden md:flex">
               <div className="font-semibold text-purple-500">Quick Link</div>
             </div>
-<ActionCard/>
+<LoginActionCard/>
             </div>
 
 

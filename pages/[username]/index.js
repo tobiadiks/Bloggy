@@ -7,10 +7,11 @@ import supabase from "../../utils/initSupabase";
 import { useRouter } from 'next/dist/client/router';
 import { Auth, Input, Button, IconSearch, IconMoreHorizontal, IconTwitter, IconDribbble, IconFacebook, IconLinkedin, IconLink, IconGitHub} from "@supabase/ui";
 import Loader from "react-loader-spinner";
-import ContentCard from '../../components/contentcard';
+import ContentCard from '../../components/ContentCard';
 import Head from 'next/head'
+import Header from '../../components/Header';
 
-const DynamicImage=dynamic(()=>import('../../components/profilepic'), {ssr:false});
+const DynamicImage=dynamic(()=>import('../../components/ProfilePicAvatar'), {ssr:false});
 
  export default function Index(props) {
   const [posts, setPosts] = useState([])
@@ -72,17 +73,16 @@ const DynamicImage=dynamic(()=>import('../../components/profilepic'), {ssr:false
 
       
           return(<div className='mt-20'>
-          <Head>
-            <title>{userProfile.username}-{userProfile.bio?userProfile.bio:''}</title>
-          </Head>
+          <Header title={`${userProfile.username}-${userProfile.bio?userProfile.bio:''}`}/>
           <div className="flex flex-col md:flex-row w-full  mr-0 md:mr-4 lg:mr-4">
-        <div className='shadow-sm w-full sm:h-auto md:h-72 md:w-full border rounded-t-lg border-gray-200 mb-8 flex flex-col align-middle'>
+        <div className='shadow-sm w-full sm:h-auto md:h-auto md:w-full border rounded-t-lg border-gray-200 mb-8 flex flex-col align-middle'>
           <div className='w-full h-1 bg-purple-700 rounded-t-2xl'></div>
           <div className='mx-auto rounded-full mt-5'>
             <DynamicImage src={userProfile.avatar_url}/>
           </div>
-          <div className='mx-auto mt-5'>
+          <div className='mx-auto mt-5 flex flex-col'>
             <span className='font-black text-2xl border-b-4 border-purple-700'>{userProfile.fullname}</span>
+            <span className='font-thin text-md text-center text-gray-700'>@{userProfile.username}</span>
           </div>
           {userProfile.bio?
           <div className='mt-2 px-5'>
@@ -95,16 +95,16 @@ const DynamicImage=dynamic(()=>import('../../components/profilepic'), {ssr:false
           <div className='mt-5 px-5 flex flex-col align-middle'>
           <div className='mx-auto flex flex-row'>
             {userProfile.twitter?
-            <a target="_blank" rel='noreferrer' href={userProfile.twitter} className='mr-5 md:mr-3 hover:text-blue-600 text-gray-900 font-bold'><IconTwitter/></a>
+            <a target="_blank" rel='noreferrer' href={userProfile.twitter} className='mr-5 md:mr-3 hover:text-purple-600 text-gray-900 font-bold'><IconTwitter/></a>
             :''}
             {userProfile.dribble?
             <a target="_blank" rel='noreferrer' href={userProfile.dribble} className='mr-5 md:mr-3 hover:text-red-500 text-gray-900 font-bold'><IconDribbble/></a>
             :''}
             {userProfile.facebook?
-            <a target="_blank" rel='noreferrer' href={userProfile.facebook} className='mr-5 md:mr-3 hover:text-blue-800 text-gray-900 font-bold'><IconFacebook/></a>
+            <a target="_blank" rel='noreferrer' href={userProfile.facebook} className='mr-5 md:mr-3 hover:text-purple-800 text-gray-900 font-bold'><IconFacebook/></a>
             :''}
             {userProfile.linkdn?
-            <a target="_blank" rel='noreferrer' href={userProfile.linkdn} className='mr-5 md:mr-3 hover:text-blue-400 text-gray-900 font-bold'><IconLinkedin/></a>
+            <a target="_blank" rel='noreferrer' href={userProfile.linkdn} className='mr-5 md:mr-3 hover:text-purple-400 text-gray-900 font-bold'><IconLinkedin/></a>
             :''}
             {userProfile.github?
             <a target="_blank" rel='noreferrer' href={userProfile.github} className='mr-5 md:mr-3 hover:text-black text-gray-900 font-bold'><IconGitHub/></a>
@@ -116,7 +116,7 @@ const DynamicImage=dynamic(()=>import('../../components/profilepic'), {ssr:false
             </div>
           </div>
 
-          <div className='mx-auto mt-8 md:mb-0 mb-12'>
+          <div className='mx-auto mt-8 md:mb-8 mb-12'>
           <div className='bg-purple-700 text-white p-2 px-8 rounded font-semibold'>Follow</div>
           </div>
 

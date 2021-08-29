@@ -5,7 +5,7 @@ import {
   IconShare2,
   IconActivity,
 } from "@supabase/ui";
-import CardAvatar from "./cardavatar";
+import UserAvatar from "./UserAvatar";
 import Link from "next/link";
 import moment from "moment";
 import supabase from '../utils/initSupabase';
@@ -68,7 +68,7 @@ else{
     <div className=" w-full h-auto p-2 rounded shadow-md border cursor-pointer hover:shadow-lg mb-5">
       <div className="flex justify-between">
         <div className="flex">
-          <CardAvatar src={props.useravatar} />{" "}
+          <UserAvatar src={props.useravatar} />{" "}
           <div className="flex flex-col ml-2">
           <Link href={`/${props.username}`} passHref={true}>
             <span className="text-xs font-semibold text-gray-500 hover:text-gray-900">

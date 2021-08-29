@@ -10,8 +10,9 @@ import supabase from "../utils/initSupabase";
 import { useRouter } from "next/router";
 import Loader from "react-loader-spinner";
 import UserCard from "../components/usercard";
-import ContentCard from "../components/contentcard";
+import ContentCard from "../components/ContentCard";
 import { categoryList } from "../constants/categories";
+import Header from "../components/Header";
 
 export default function Search(props) {
   const { user } = Auth.useUser();
@@ -100,6 +101,7 @@ export default function Search(props) {
   if (posts) {
     return (
       <div className=" mt-10 flex">
+      <Header title='Cstory-Search'/>
         <div className="h-full  w-64 hidden md:block">
           <div className="flex justify-between py-3 px-2 align-middle border-b mb-2 w-44">
             <div className="font-semibold">Recommended</div>

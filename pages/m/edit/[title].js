@@ -8,6 +8,7 @@ import "easymde/dist/easymde.min.css";
 import supabase from "../../../utils/initSupabase";
 import { categoryList } from "../../../constants/categories";
 import Loader from "react-loader-spinner";
+import Header from "../../../components/Header";
 
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
   ssr: false,
@@ -87,6 +88,7 @@ function Edit() {
 
   return (
     <div>
+    <Header title={`Edit - ${title}`}/>
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-10 text-center">
         Create
       </h1>

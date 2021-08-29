@@ -4,6 +4,7 @@ import {useEffect,useState} from 'react'
 import dynamic from 'next/dynamic'
 import Loader from "react-loader-spinner";
 import Head from 'next/head';
+import Header from '../../components/Header';
 
 
 const ReactMarkdown= dynamic(() => import('react-markdown'), { ssr: false })
@@ -68,10 +69,9 @@ while (loading){
   }
   return (
     <div>
-    <Head>
-            <title>{post.creator.username}-{post.title}</title>
-          </Head>
-      <h1 className="text-gray-800 text-3xl mt-20 font-semibold tracking-wide text-center">{post.title}</h1>
+    <Header title={`${post.creator.username}-${post.title}`}/>
+
+      <h1 className=" text-4xl mt-20 font-bold tracking-wide text-left text-purple-800 md:text-center">{post.title}</h1>
       <p className="text-gray-800 text-sm font-semibold my-4 text-center">{post.creator.fullname}</p>
       <div className="mt-8 text-gray-800">
         {// eslint-disable-next-line react/no-children-prop 

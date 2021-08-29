@@ -4,6 +4,7 @@ import Link from 'next/link'
 import supabase from "../../utils/initSupabase";
 import { Auth, Input, Button, IconSearch, IconMoreHorizontal} from "@supabase/ui";
 import Loader from "react-loader-spinner";
+import Header from '../../components/Header';
 
  function MyPosts(props) {
   const [posts, setPosts] = useState([])
@@ -73,6 +74,7 @@ import Loader from "react-loader-spinner";
   if (username)  {
   return (
     <div>
+    <Header title={`${username}-Story`}/>
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2 text-center">My Story</h1>
       <div className="flex flex-wrap mt-7 w-full justify-start">
       

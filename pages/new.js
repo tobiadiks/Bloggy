@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import "easymde/dist/easymde.min.css"
 import supabase from "../utils/initSupabase";
 import {categoryList} from '../constants/categories'
+import Header from '../components/Header'
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
 const initialState = { title: '', content: '',category:'technology'}
@@ -62,6 +63,7 @@ getUserName()
 
   return (
     <div>
+    <Header title='Cstory-create new post'/>
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-10 text-center">Create</h1>
       <Input
         onChange={onChange}

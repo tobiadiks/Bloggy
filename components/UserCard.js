@@ -1,5 +1,5 @@
 import { Button } from '@supabase/ui';
-import CardAvatar from './cardavatar';
+import UserAvatar from './UserAvatar';
 import Link from 'next/link';
 
 export default function UserCard(props){
@@ -7,7 +7,7 @@ export default function UserCard(props){
        
         <div className=" w-44 bg-white p-2 border rounded shadow-md mb-5">
         <div className="flex">
-<CardAvatar src={props.useravatar}/>
+<UserAvatar src={props.useravatar}/>
 <Link href={`/${props.username}`} passHref={true}>
 <div className="flex flex-row ml-2 hover:text-gray-900 cursor-pointer"><span className="text-xs text-grey-600 font-semibold">{props.fullname}</span>&nbsp;&nbsp;<span className="text-xs text-gray-500">@{props.username}</span></div>
 </Link>
