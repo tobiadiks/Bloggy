@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
     <GlobalNavigation/>
-      <div className="py-8 px-5 w-full">
+      <div className="py-1 w-full">
         <Component {...pageProps} />
       </div>
       <Footer/>

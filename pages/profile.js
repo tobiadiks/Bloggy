@@ -252,7 +252,7 @@ function Profile(props) {
 
   if (user)
     return (
-      <div className="mt-10">
+      <div className="mt-10 mx-5">
       <Header title='Cstory-Profile'/>
         {/* profile starts */}
 

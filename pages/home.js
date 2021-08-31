@@ -13,6 +13,7 @@ import UserCard from "../components/UserCard";
 import ContentCard from "../components/ContentCard";
 import { categoryList } from "../constants/categories";
 import Announcement from "../components/Announcement";
+import Head from 'next/head'
 
 function Home(props) {
   const { user } = Auth.useUser();
@@ -61,7 +62,8 @@ function Home(props) {
           "id",
           "eq",
           supabase.auth.user() === null ? " " : supabase.auth.user().id
-        );
+        )
+        ;
 
       if (!data) {
         setLoading(false);
@@ -81,7 +83,8 @@ function Home(props) {
           "id",
           "neq",
           supabase.auth.user() === null ? " " : supabase.auth.user().id
-        );
+        )
+        .filter("username","neq", null);
 
       if (!data) {
         return null;
@@ -107,7 +110,7 @@ function Home(props) {
 
   while (loading) {
     return (
-      <div className="flex justify-center align-middle mt-20">
+      <div className="flex justify-center align-middle mt-20 mx-5">
         <div className="text-xl mt-5 mx-auto text-gray-800 text-center">
           <Loader type="Puff" color="rgba(31,41,55)" height={80} width={80} />
         </div>
@@ -118,7 +121,7 @@ function Home(props) {
   if (user) {
     return (
       <div className=" mt-10 flex">
-      <Header title='Cstory-Home'/>
+      <Head title='Cstory-Home'/>
         <div className="h-full  w-64 hidden md:block">
           <div className="flex justify-between py-3 px-2 align-middle border-b mb-2 w-44">
             <div className="font-semibold">Recommended</div>

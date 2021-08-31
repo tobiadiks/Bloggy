@@ -13,7 +13,7 @@ export default function UserCard(props){
 </Link>
 </div>
         <div className="flex mt-2 justify-between">
-        <p className="bg-purple-700 text-center font-bold mx-auto align-middle w-full hover:bg-purple-600 px-2 py-2 text-xs rounded text-white my-auto">Follow</p> 
+        <p className="bg-purple-700 text-center font-bold mx-auto align-middle w-full hover:bg-purple-600 px-2 py-2 text-xs rounded text-white my-auto">Subscribe</p> 
         {/* <Button type="secondary" className="hover:bg-gray-600">Ignore</Button> */}
         </div>
         </div>

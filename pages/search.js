@@ -100,7 +100,7 @@ export default function Search(props) {
 
   if (posts) {
     return (
-      <div className=" mt-10 flex">
+      <div className=" mt-10 flex mx-5">
       <Header title='Cstory-Search'/>
         <div className="h-full  w-64 hidden md:block">
           <div className="flex justify-between py-3 px-2 align-middle border-b mb-2 w-44">

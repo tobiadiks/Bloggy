@@ -33,22 +33,23 @@ export default function Home() {
     <div>
     <Header/>
       {/* Copy starts */}
-      <div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52 mt-20  flex flex-col">
-        <h1 className="text-gray-800  text-4xl font-bold tracking-wide text-center mb-10 z-40">
+      <div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52 mt-16  flex flex-col bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-8 h-screen">
+        <h1 className="text-gray-100  text-4xl font-bold tracking-wide text-center mx-5 mb-10 z-40">
           Setup your micro-blogging community
           <br/>
-          <span className="text-purple-700 font-black">without writing any line of code</span>
+          <span className="text-purple-700  font-black">without writing any line of code</span>
         </h1>
         <Link href="/auth" passHref={true}>
-          <span className="bg-purple-700 flex align-middle justify-center font-semibold text-white p-2 py-4 text-center rounded-md hover:bg-purple-500 z-40 animate-bounce">
+          <span className="bg-purple-700 flex align-middle mx-5 justify-center font-semibold text-white p-2 py-4 text-center rounded-md hover:bg-purple-500 z-40 hover:animate-bounce">
             Get Started&nbsp;<b className='py-auto my-auto'><IconArrowRight/></b>
           </span>
         </Link>
+        <span className='text-sm mx-auto text-center text-white font-thin'>*free trial</span>
         {/* /profile to / */}
       </div>
       {/* Copy ends */}
 
-      <div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-8 justify-center align-middle border-b md:justify-between md:mx-auto w-full border-gray-200 py-10 z-40 md:mt-14 lg:mt-2">
+      <div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-8 justify-center align-middle border-b md:justify-between md:mx-auto w-full border-gray-200 py-10 z-40 md:mt-14 lg:mt-2 mx-5">
         <div className="flex flex-col justify-center align-middle mt-5 mb-5 mx-auto">
           <svg
             className="mx-auto"
@@ -226,13 +227,13 @@ export default function Home() {
           </svg>
 
           <span className="text-gray-500 font-bold text-center text-sm mt-3 mx-auto">
-            Be a <b>PRO</b> creators
+            Be a <b>PRO</b>
           </span>
         </div>
       </div>
 
       {/* Convince them */}
-      <div className=" flex flex-col">
+      <div className=" flex flex-col mx-5">
         <h3 className="text-gray-600 text-3xl font-semibold tracking-wide mt-10 text-center z-40">
           Yes! you own it
         </h3>
@@ -291,7 +292,7 @@ export default function Home() {
       </div>
 
       {/* WordCopy Start */}
-      <div className=" py-5 mt-5  flex flex-wrap justify-center md:justify-between sm:align-middle border-t  border-gray-200 md:flex-row-reverse flex-col-reverse ">
+      <div className=" py-5 mt-5 mx-5 flex flex-wrap justify-center md:justify-between sm:align-middle border-t  border-gray-200 md:flex-row-reverse flex-col-reverse ">
         <Image
           alt="label"
           src={require("../public/wfh_9.svg")}
@@ -317,7 +318,7 @@ export default function Home() {
       </div>
       
       <Link href="/auth" passHref={true}>
-          <div className="bg-purple-700 font-bold text-white p-2 py-4 shadow-sm text-center rounded-md hover:bg-purple-500 z-40">
+          <div className="bg-purple-700 font-bold mx-5 text-white p-2 py-4 shadow-sm text-center rounded-md hover:bg-purple-500 z-40">
             Log In/Sign Up
           </div>
         </Link>

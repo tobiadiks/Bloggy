@@ -68,7 +68,7 @@ useEffect(() => {
 
 
       while (loading){
-        return (<div className="flex justify-center align-middle mt-20">
+        return (<div className="flex justify-center align-middle mt-20 mx-5">
                     <div className="text-xl mt-5 mx-auto text-gray-800 text-center">
                     <Loader
                 type="Puff"

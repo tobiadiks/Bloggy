@@ -117,7 +117,7 @@ const DynamicImage=dynamic(()=>import('../../components/ProfilePicAvatar'), {ssr
           </div>
 
           <div className='mx-auto mt-8 md:mb-8 mb-12'>
-          <div className='bg-purple-700 text-white p-2 px-8 rounded font-semibold'>Follow</div>
+          <div className='bg-purple-700 text-white p-2 px-8 rounded font-semibold cursor-pointer'>Subscribe</div>
           </div>
 
         </div>

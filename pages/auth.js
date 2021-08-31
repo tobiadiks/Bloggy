@@ -49,10 +49,10 @@ function Profile(props) {
             }
 
             else{
-            return (<>
+            return (<div className='mx-5'>
               <Header title='Cstory-Login|Signup'/>
               {props.children}
-              </>);
+              </div>);
             }
 
 
