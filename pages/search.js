@@ -9,7 +9,7 @@ import {
 import supabase from "../utils/initSupabase";
 import { useRouter } from "next/router";
 import Loader from "react-loader-spinner";
-import UserCard from "../components/usercard";
+import UserCard from "../components/UserCard";
 import ContentCard from "../components/ContentCard";
 import { categoryList } from "../constants/categories";
 import Header from "../components/Header";

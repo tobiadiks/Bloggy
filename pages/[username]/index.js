@@ -73,7 +73,7 @@ const DynamicImage=dynamic(()=>import('../../components/ProfilePicAvatar'), {ssr
 
       
           return(<div className='mt-20'>
-          <Header title={`${userProfile.username}-${userProfile.bio?userProfile.bio:''}`}/>
+          <Head title={`${userProfile.username}-${userProfile.bio?userProfile.bio:''}`}/>
           <div className="flex flex-col md:flex-row w-full  mr-0 md:mr-4 lg:mr-4">
         <div className='shadow-sm w-full sm:h-auto md:h-auto md:w-full border rounded-t-lg border-gray-200 mb-8 flex flex-col align-middle'>
           <div className='w-full h-1 bg-purple-700 rounded-t-2xl'></div>
