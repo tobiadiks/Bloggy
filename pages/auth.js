@@ -30,7 +30,7 @@ function Profile(props) {
 
 
       while (loading){
-        return (<div className="flex justify-center align-middle mt-10">
+        return (<div className="flex justify-center align-middle mt-20">
                     <p className="text-xl mt-5 mx-auto text-gray-800 text-center">
                     <Loader
                 type="Puff"
@@ -49,7 +49,7 @@ function Profile(props) {
             }
 
             else{
-            return (<div className='mx-5'>
+            return (<div className='px-5'>
               <Header title='Cstory-Login|Signup'/>
               {props.children}
               </div>);

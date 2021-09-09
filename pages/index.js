@@ -33,23 +33,23 @@ export default function Home() {
     <div>
     <Header/>
       {/* Copy starts */}
-      <div className="md:pl-48 md:pr-48 xl:pl-52 xl:pr-52 mt-16  flex flex-col bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-8 h-screen">
-        <h1 className="text-gray-100  text-4xl font-bold tracking-wide text-center mx-5 mb-10 z-40">
+      <div className="md:pl-48 md:pr-48 xl:px-52 xl:pr-52 px-5 mt-18  flex flex-col justify-center align-middle w-full bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-20 h-auto">
+        <h1 className="text-gray-100  text-4xl font-bold tracking-wide text-center mt-10  mb-10 z-40">
           Setup your micro-blogging community
           <br/>
           <span className="text-purple-700  font-black">without writing any line of code</span>
         </h1>
         <Link href="/auth" passHref={true}>
-          <span className="bg-purple-700 flex align-middle mx-5 justify-center font-semibold text-white p-2 py-4 text-center rounded-md hover:bg-purple-500 z-40 hover:animate-bounce">
+          <span className="bg-purple-700 flex align-middle justify-center font-semibold text-white p-2 py-4 text-center rounded-md hover:bg-purple-500 z-40 hover:animate-bounce">
             Get Started&nbsp;<b className='py-auto my-auto'><IconArrowRight/></b>
           </span>
         </Link>
-        <span className='text-sm mx-auto text-center text-white font-thin'>*free trial</span>
+        <span className='text-sm  text-center mt-5 text-white font-thin'>*free trial</span>
         {/* /profile to / */}
       </div>
       {/* Copy ends */}
 
-      <div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-8 justify-center align-middle border-b md:justify-between md:mx-auto w-full border-gray-200 py-10 z-40 md:mt-14 lg:mt-2 mx-5">
+      <div className="md:pl-42 md:pr-42 xl:pl-48 xl:pr-48 flex md:flex-row flex-col mt-8 justify-center align-middle border-b md:justify-between md:mx-auto w-full border-gray-200 py-10 z-40 md:mt-14 lg:mt-2 px-5">
         <div className="flex flex-col justify-center align-middle mt-5 mb-5 mx-auto">
           <svg
             className="mx-auto"

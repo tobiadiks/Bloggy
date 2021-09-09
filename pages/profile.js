@@ -5,7 +5,7 @@ import supabase from "../utils/initSupabase";
 import dynamic from "next/dynamic";
 import Loader from "react-loader-spinner";
 import { useRouter } from "next/router";
-import Header from '../components/Header'
+import Header from "../components/Header";
 
 const DynamicImage = dynamic(() => import("../components/ProfilePicAvatar"), {
   ssr: false,
@@ -196,17 +196,23 @@ function Profile(props) {
         .filter("username", "eq", currentUserName);
       if (
         currentUserName.length <= 2 ||
-        currentUserName.length === "profile" ||
-        currentUserName.length === "auth" ||
-        currentUserName.length === "search" ||
-        currentUserName.length === "home" ||
-        currentUserName.length === "index" ||
-        currentUserName.length === "explore" ||
-        currentUserName.length === "new" ||
-        currentUserName.length === "_app" ||
-        currentUserName.length === "notification" ||
-        currentUserName.length === "setting" ||
-        currentUserName.length === "draft" ||
+        currentUserName === "profile" ||
+        currentUserName === "auth" ||
+        currentUserName === "search" ||
+        currentUserName === "home" ||
+        currentUserName === "index" ||
+        currentUserName === "explore" ||
+        currentUserName === "new" ||
+        currentUserName === "_app" ||
+        currentUserName === "notification" ||
+        currentUserName === "setting" ||
+        currentUserName === "draft" ||
+        currentUserName === "null" ||
+        currentUserName === "undefined" ||
+        currentUserName === "true" ||
+        currentUserName === "false" ||
+        currentUserName.includes("/") ||
+        currentUserName.includes("?") ||
         data.length
       ) {
         setUsernameAvailable(false);
@@ -252,8 +258,8 @@ function Profile(props) {
 
   if (user)
     return (
-      <div className="mt-10 mx-5">
-      <Header title='Cstory-Profile'/>
+      <div className="mt-20 px-5">
+        <Header title="Cstory-Profile" />
         {/* profile starts */}
 
         {/* profile container starts */}

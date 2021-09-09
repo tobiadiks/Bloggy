@@ -4,11 +4,9 @@ import GlobalNavigation from '../components/GlobalNavigationBar'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <div className='w-full'>
     <GlobalNavigation/>
-      <div className="py-1 w-full">
         <Component {...pageProps} />
-      </div>
       <Footer/>
     </div>
   );

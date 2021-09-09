@@ -83,7 +83,7 @@ useEffect(() => {
 
     
         return (
-        <div className=" mt-10 flex flex-col md:flex-row">
+        <div className=" mt-16 flex flex-col md:flex-row px-5">
         <Header title='Cstory - Explore'/>
             <div className='h-full  md:w-64 w-full  block'>
             <div className=" justify-between py-3 px-2 align-middle border-b mb-2 w-44 hidden md:flex">
@@ -94,7 +94,7 @@ useEffect(() => {
 
 
 
-            <div className=" w-full md:px-2 px-0 md:w-3/4 ">
+            <div className=" w-full md:px-2  md:w-3/4">
             <div className="flex justify-between align-middle py-3 px-2 border-b mb-2">
               <div className="font-semibold mr-2">Posts</div>
               <div className="font-light text-sm cursor-pointer text-purple-600">

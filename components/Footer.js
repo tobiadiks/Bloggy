@@ -67,7 +67,7 @@ export default function Footer(){
 
     return(
         <>
-    <div className="flex  flex-row flex-wrap justify-between font-mono text-xs text-gray-500 py-10 px-7 w-screen mt-10 mb-5 border-t border-gray-200">
+    <div className="flex  flex-row flex-wrap justify-between font-mono text-xs text-gray-500 py-10 px-7 w-full mt-10 mb-5 border-t border-gray-200">
       
     <div className="flex mt-5 flex-col flex-nowrap w-28 ">
       <h5 className="text-gray-700 text-sm font-bold mb-3 ">Explore</h5>

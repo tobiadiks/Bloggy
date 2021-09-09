@@ -73,7 +73,7 @@ import Header from '../../components/Header';
 
   if (username)  {
   return (
-    <div>
+    <div className=" px-5">
     <Header title={`${username}-Story`}/>
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-20 mb-2 text-center">My Story</h1>
       <div className="flex flex-wrap mt-7 w-full justify-start">

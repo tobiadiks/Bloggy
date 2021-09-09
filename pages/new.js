@@ -62,7 +62,7 @@ getUserName()
   }
 
   return (
-    <div className='mx-5'>
+    <div className='mt-20 mx-5 px-5'>
     <Header title='Cstory-create new post'/>
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-10 text-center">Create</h1>
       <Input

@@ -34,7 +34,7 @@ const router= useRouter();
 
 
     return(<>
-        <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-full z-50 flex justify-between flex-row">
+        <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-screen z-50 flex justify-between flex-row top-0">
 <Link href={`${username?'/home':'/'}`} passHref={true}><span className="cursor-pointer text-lg font-medium text-purple-700 flex handwriting">C<span className='text-gray-700 text-md'>story</span></span></Link>
 
       <div className="text-xs font-medium flex flex-row align-middle">
@@ -59,7 +59,7 @@ const router= useRouter();
           <Link href='/explore' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconBookOpen/><span className=" hidden md:flex">&nbsp;Explore</span></span></Link>
           {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconTag/><span className=" hidden md:flex">&nbsp;Tags</span></span> */}
           {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconBell/><span className=" hidden md:flex">&nbsp;Notification</span></span> */}
-        <Link href='/auth' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer text-purple-700  flex hover:text-purple-500"><IconLogIn/><span className=" hidden md:flex">&nbsp;Log In</span></span></Link>
+        <Link href='/auth' passHref={true}><span className=" md:mr-6 cursor-pointer text-purple-700  flex hover:text-purple-500"><IconLogIn/><span className=" hidden md:flex">&nbsp;Log In</span></span></Link>
         
        {/* /profile to / */}
         </>

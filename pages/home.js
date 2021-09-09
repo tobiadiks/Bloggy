@@ -13,7 +13,7 @@ import UserCard from "../components/UserCard";
 import ContentCard from "../components/ContentCard";
 import { categoryList } from "../constants/categories";
 import Announcement from "../components/Announcement";
-import Head from 'next/head'
+import Header from '../components/Header'
 
 function Home(props) {
   const { user } = Auth.useUser();
@@ -120,8 +120,8 @@ function Home(props) {
 
   if (user) {
     return (
-      <div className=" mt-10 flex">
-      <Head title='Cstory-Home'/>
+      <div className=" mt-20 flex px-5">
+      <Header title='Cstory-Home'/>
         <div className="h-full  w-64 hidden md:block">
           <div className="flex justify-between py-3 px-2 align-middle border-b mb-2 w-44">
             <div className="font-semibold">Recommended</div>
@@ -147,7 +147,7 @@ function Home(props) {
 
         <div className=" w-full md:px-2 px-0 md:w-3/4 ">
           <div className="flex justify-between align-middle py-3 px-2 border-b mb-2">
-            <div className="font-semibold mr-2">Posts</div>
+            <div className="font-semibold mr-2">Stories</div>
             <div className="font-light text-sm cursor-pointer text-purple-600">
               <Input
                 className="h-1"
