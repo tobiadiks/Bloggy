@@ -35,7 +35,7 @@ const router= useRouter();
 
     return(<>
         <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-screen z-50 flex justify-between flex-row top-0">
-<Link href={username?`/${username}`:'/'} passHref={true}><span className="cursor-pointer text-lg font-medium text-purple-700 flex handwriting">C<span className='text-gray-700 text-md'>story</span></span></Link>
+<Link href={username?`/${username}`:'/'} passHref={true}><span className="cursor-pointer text-lg font-medium text-purple-700 flex handwriting">Cstory<span className='text-gray-700 text-md'>.xyz</span></span></Link>
 
       <div className="text-xs font-medium flex flex-row align-middle">
       {
