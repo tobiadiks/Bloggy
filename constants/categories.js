@@ -2,7 +2,7 @@ export const categoryList=[
     'technology',
     'career',
     'finance',
-    'gaming',,
+    'culture',,
     'programming',
     'diy',
     'nature',

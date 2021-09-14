@@ -212,6 +212,7 @@ export default function Index(props) {
                   useravatar={post.creator.avatar_url}
                   featured={post.featured}
                   username={post.creator.username}
+                  isPrivate={post.isPrivate}
                 />
               ))
             )}

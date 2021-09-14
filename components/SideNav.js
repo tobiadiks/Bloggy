@@ -23,7 +23,7 @@ const SideNav=()=>{
           )} */}
           <>
     <Link href='/new' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer text-purple-500  flex hover:text-purple-700 my-3 font-semibold"><IconPlus/><span className=" hidden md:flex">&nbsp;&nbsp;&nbsp;New</span></span></Link>
-    <Link href='/home' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer font-semibold flex hover:text-purple-700 my-3"><IconHome/><span className=" hidden md:flex">&nbsp;&nbsp;&nbsp;Home</span></span></Link>
+    {/* <Link href='/home' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer font-semibold flex hover:text-purple-700 my-3"><IconHome/><span className=" hidden md:flex">&nbsp;&nbsp;&nbsp;Home</span></span></Link> */}
    <Link href={`/m/story`} passHref={true}><span className="mr-4 md:mr-6 font-semibold cursor-pointer flex hover:text-purple-700 my-3"><IconEdit/><span className=" hidden md:flex">&nbsp;&nbsp;&nbsp;Edits</span></span></Link>
     {/* <span className="mr-6 cursor-pointer  hidden md:flex hover:text-purple-700"><IconTag/>&nbsp;Tags</span> */}
   {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconBell/><span className=" hidden md:flex">&nbsp;Notification</span></span> */}

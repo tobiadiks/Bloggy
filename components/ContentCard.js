@@ -4,6 +4,7 @@ import {
   IconSave,
   IconShare2,
   IconActivity,
+  IconLock,
 } from "@supabase/ui";
 import UserAvatar from "./UserAvatar";
 import Link from "next/link";
@@ -111,6 +112,10 @@ else{
           </div> */}
           <div onClick={()=>Save(props.id)} className="mr-4 hover:text-purple-600">
             <IconSave />
+          </div>
+
+          <div onClick={()=>null} className={`mr-4 hover:text-green-600 ${props.isPrivate?'':'hidden'}`}>
+            <IconLock />
           </div>
         </div>
 

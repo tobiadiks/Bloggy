@@ -25,7 +25,8 @@ import Header from '../components/Header'
   async function Get() {
     const {id}=supabase.auth.user
     if(id){
-        router.push('/home')
+      return null
+        // router.push('/home')
     }
     else{
       const { data } = await supabase
@@ -44,7 +45,7 @@ import Header from '../components/Header'
     }
     
   }
-}, [currentCategory, currentRange, router]);
+}, [currentCategory, currentRange]);
 
 
 useEffect(() => {
@@ -116,7 +117,7 @@ useEffect(() => {
               <div className="text-sm flex mx-auto font-medium hover:text-purple-600 text-gray-800 text-center">Nothing Here&nbsp;...</div>
               </div>)
              :
-             (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url} featured={post.featured} username={post.creator.username}/>))}
+             (posts.map((post, index)=><ContentCard key={index} timestamp={post.inserted_at} name={post.creator.fullname} route={`/${post.creator.username}/${post.title.replaceAll(' ','-')}`} title={post.title} category={`#${post.category}`} useravatar={post.creator.avatar_url} featured={post.featured} username={post.creator.username} isPrivate={post.isPrivate}/>))}
             
             </div>
 

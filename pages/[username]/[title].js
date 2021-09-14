@@ -4,6 +4,7 @@ import {useEffect,useState} from 'react'
 import dynamic from 'next/dynamic'
 import Loader from "react-loader-spinner";
 import Header from '../../components/Header';
+import Link from 'next/link'
 
 
 
@@ -72,7 +73,7 @@ while (loading){
     <Header title={`${post.creator.username}-${post.title}`}/>
 
       <h1 className=" text-3xl mt-20 font-bold tracking-wide text-left text-purple-800 md:text-center">{post.title}</h1>
-      <p className="text-gray-800 text-sm font-medium cursor-pointer my-4 text-center">{post.creator.fullname}</p>
+      <Link href={`/${post.creator.username}`} passHref><p className="text-gray-800 text-sm font-medium cursor-pointer my-4 text-center">{post.creator.fullname}</p></Link>
       <div className="mt-8 text-gray-800">
         {// eslint-disable-next-line react/no-children-prop 
         <ReactMarkdown  className='prose mx-auto' children={post.content} />

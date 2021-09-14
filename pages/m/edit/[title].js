@@ -87,10 +87,10 @@ function Edit() {
   }
 
   return (
-    <div>
+    <div className='mt-20 px-5'>
     <Header title={`Edit - ${title}`}/>
       <h1 className="text-gray-800 text-3xl font-semibold tracking-wide mt-10 text-center">
-        Create
+        Edit
       </h1>
       <Input
         onChange={onChange}

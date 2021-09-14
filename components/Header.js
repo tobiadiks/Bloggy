@@ -8,7 +8,8 @@ return(
         <meta charSet="UTF-8"/>
         <meta name="language" content="en"/>
         <meta name="robots" content="index,follow,noodp,noydir"/>
-        <meta name="description" content="CStory helps you get hired with your proof of work as a content creator, write in your favorite niche and convince your future employee"/>
+        <meta name="description" content="Setup your micro-blogging community
+without writing any line of code"/>
         <meta name="language" content="en"/>
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="rgba(109,40,217,1)"/>
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="rgba(109,40,217,1)"/>

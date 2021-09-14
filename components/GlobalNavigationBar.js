@@ -25,7 +25,7 @@ const router= useRouter();
       setUserName(!data.length?" ":data[0].username)}
       }
     }
-      ,[username]);
+      ,[user]);
 
       async function SignOut(){
         await supabase.auth.signOut()
@@ -35,13 +35,13 @@ const router= useRouter();
 
     return(<>
         <nav className="text-gray-800 p-5 border-b border-gray-100 bg-gray-50 fixed w-screen z-50 flex justify-between flex-row top-0">
-<Link href={`${username?'/home':'/'}`} passHref={true}><span className="cursor-pointer text-lg font-medium text-purple-700 flex handwriting">C<span className='text-gray-700 text-md'>story</span></span></Link>
+<Link href={username?`/${username}`:'/'} passHref={true}><span className="cursor-pointer text-lg font-medium text-purple-700 flex handwriting">C<span className='text-gray-700 text-md'>story</span></span></Link>
 
       <div className="text-xs font-medium flex flex-row align-middle">
       {
   user && (<>
     <Link href='/new' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer text-purple-500  flex hover:text-purple-700"><IconPlus/><span className=" hidden md:flex">&nbsp;New</span></span></Link>
-    <Link href='/home' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconHome/><span className=" hidden md:flex">&nbsp;Home</span></span></Link>
+    {/* <Link href='/home' passHref={true}><span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconHome/><span className=" hidden md:flex">&nbsp;Home</span></span></Link> */}
    <Link href={`/m/story`} passHref={true}><span className="mr-4 md:mr-6 cursor-pointer flex hover:text-purple-700"><IconEdit/><span className=" hidden md:flex">&nbsp;Edits</span></span></Link>
     {/* <span className="mr-6 cursor-pointer  hidden md:flex hover:text-purple-700"><IconTag/>&nbsp;Tags</span> */}
   {/* <span className="mr-4 md:mr-6 cursor-pointer  flex hover:text-purple-700"><IconBell/><span className=" hidden md:flex">&nbsp;Notification</span></span> */}

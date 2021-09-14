@@ -2,6 +2,7 @@ import React from 'react';
 import {Modal} from '@supabase/ui'
 import {useState, useEffect, useRef} from 'react'
 import supabase from '../utils/initSupabase'
+import Link from 'next/link'
 
 export default function Footer(){
     const [user, setUser]=useState(null);
@@ -71,16 +72,16 @@ export default function Footer(){
       
     <div className="flex mt-5 flex-col flex-nowrap w-28 ">
       <h5 className="text-gray-700 text-sm font-bold mb-3 ">Explore</h5>
-      <span className="mt-1 hover:text-purple-600 cursor-pointer">Feeds</span>
-      <span className="mt-1 hover:text-purple-600 cursor-pointer">Trending</span>
-      <span className="mt-1 border-b-2 border-purple-400 w-16 hover:text-purple-600 cursor-pointer">Hack it</span>
+      <Link href='/' passHref><span className="mt-1 hover:text-purple-600 cursor-pointer">Home</span></Link>
+      <Link href='/explore' passHref><span className="mt-1 hover:text-purple-600 cursor-pointer">Feeds</span></Link>
+      <span className="mt-1 border-b-2 border-purple-400 w-16 hover:text-purple-600 cursor-pointer">Pricing</span>
     </div>
 
     <div className="flex mt-5 flex-col flex-nowrap w-28">
       <h5 className="text-gray-700 text-sm font-bold mb-3">Company</h5>
       <span className="mt-1 hover:text-purple-600 cursor-pointer">About</span>
-      <span className="mt-1 hover:text-purple-600 cursor-pointer">Career</span>
-      <span className="mt-1 hover:text-purple-600 cursor-pointer">Ambassador</span>
+      <a className="mt-1 hover:text-purple-600 cursor-pointer" href='https://twitter.com/cstory_hq'><span className="mt-1 hover:text-purple-600 cursor-pointer">Twitter</span></a>
+      <a className="mt-1 hover:text-purple-600 cursor-pointer" href='https://instagram.com/cstory_hq'><span className="mt-1 hover:text-purple-600 cursor-pointer">Instagram</span></a>
     </div>
 
     <div className="flex mt-5 flex-col flex-nowrap w-28">
