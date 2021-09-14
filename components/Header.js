@@ -7,6 +7,7 @@ return(
         <title>{props.title?props.title:'Cstory - Setup your micro-blogging community'}</title>
         <meta charSet="UTF-8"/>
         <meta name="language" content="en"/>
+        <meta name="google-site-verification" content="WJoe5To1YuI77Ol_k-iXwBlCVCswDf_Y4E9kWzil1rc" />
         <meta name="robots" content="index,follow,noodp,noydir"/>
         <meta name="description" content="Setup your micro-blogging community
 without writing any line of code"/>
