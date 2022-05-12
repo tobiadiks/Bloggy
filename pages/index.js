@@ -1,6 +1,6 @@
 // pages/index.js
 import { useState, useEffect } from "react";
-import Script from "next/script";
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 // import supabase from "../utils/initSupabase";
@@ -32,14 +32,9 @@ export default function Home() {
 
   return (
     <div>
-    <Script
-  strategy="afterInteractive"
-  dangerouslySetInnerHTML={{
-    __html: `
-    (function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A3451443-2f17-49c5-9c10-c0b3109087341.js','script','impactStat',document,window);impactStat('transformLinks');impactStat('trackImpression');
-  `,
-  }}
-/>
+    <Head>
+    <meta name="ir-site-verification" content="846761521">
+    </Head>
       {/* Copy starts */}
       <div className="md:pl-48 md:pr-48 xl:px-52 xl:pr-52 px-5 mt-18  flex flex-col justify-center align-middle w-full bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-20 h-auto">
         <h1 className="text-gray-100  text-4xl font-bold tracking-wide text-center mt-10  mb-10 z-40">
