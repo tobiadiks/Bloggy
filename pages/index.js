@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div>
     <Head>
-    <meta name="ir-site-verification" content="846761521">
+    <meta name="ir-site-verification" content="846761521"></meta>
     </Head>
       {/* Copy starts */}
       <div className="md:pl-48 md:pr-48 xl:px-52 xl:pr-52 px-5 mt-18  flex flex-col justify-center align-middle w-full bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-20 h-auto">
